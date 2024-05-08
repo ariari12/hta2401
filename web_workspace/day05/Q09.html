@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q09.html</title>
+    <script>
+        // 내장 객체 : document
+        // 내장 함수 : prompt(), alert(), eval()
+        // 사용자 정의형 함수
+        // function 함수형(매개변수) {
+        //     return 리턴값;
+        // }
+
+        function show() {
+            // console.log("버튼 눌림");
+            let year = document.getElementById("year");
+            console.log(year);
+            console.dir(year);
+            year = parseInt(year.value);
+            console.log("입력한 년도: " + year);
+
+            let type = "";
+
+            if (year % 12 == 4) {
+                type = "쥐";
+            } else if (year % 12 == 5) {
+                type = "소";
+            } else if (year % 12 == 6) {
+                type = "호랑이";
+            } else if (year % 12 == 7) {
+                type = "토끼";
+            } else if (year % 12 == 8) {
+                type = "용";
+            } else if (year % 12 == 9) {
+                type = "뱀";
+            } else if (year % 12 == 10) {
+                type = "말";
+            } else if (year % 12 == 11) {
+                type = "양";
+            } else if (year % 12 == 0) {
+                type = "원숭이";
+            } else if (year % 12 == 1) {
+                type = "닭";
+            } else if (year % 12 == 2) {
+                aniamal = "개";
+            } else if (year % 12 == 3) {
+                type = "돼지"
+            }
+
+            let result = document.getElementById("result");
+            result.value = year + "년은 " + type + "띠입니다.";
+        }
+    </script>
+</head>
+<body>
+    <p>태어난 년도</p>
+    <input type="text" name="" id="year" size="6"> 
+    <input type="button" value="보기" onclick="show();">
+    <br>
+    <input type="text" name="" id="result">
+</body>
+</html>

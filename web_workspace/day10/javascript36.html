@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript36.html</title>
+    <script>
+        let x;
+        // 변수를 선언한 이후 값을 할당하지 않은 변수를 참조하면 undefined를 반환
+        console.log(x); // undefined
+
+        x = 10;
+        console.log(x);
+
+        console.log("-----------------------------------------");
+        
+        function fun01(a, b) {
+            a + b;
+        }
+        console.log(fun01(10, 20));
+    
+        console.log("-----------------------------------------");
+
+        function fun02(a, b) {
+            return a + b;
+        }
+        console.log(fun02(10, 20));
+
+        console.log("-----------------------------------------");
+        const obj = {};
+        console.log(obj.prop);
+        
+        // 프로퍼티를 생성하고 값을 할당
+        obj.prop = 100;
+        console.log(obj.prop);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

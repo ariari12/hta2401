@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript24.html</title>
+    <script>
+        // 1. viewResult() 함수 만들기
+        function viewResult() {
+            // 2. 클릭하면 간단한 메세지 출력
+            // console.log("테스트 메시지");
+            // 3. id가 m1인 엘리먼트를 자바스크립트 객체로 얻어오기
+            let m1 = document.getElementById("m1");
+            let m2 = document.getElementById("m2");
+            let m3 = document.getElementById("m3");
+            let m4 = document.getElementById("m4");
+            let m5 = document.getElementById("m5");
+            // 4. 그 객체를 출력
+            console.log(m1);
+            // 5. console.dir() 출력
+            console.dir(m1);
+            let movieImg = document.movieImg.attributes[0];
+            let img = document.getElementById("movieImg");
+
+            if (m1.checked) {
+                console.log("파묘");
+                // movieImg.nodeValue = "../images/movie_image_01.jpg";
+                img.src = "../images/movie_image_01.jpg";
+            } else if (m2.checked) {
+                console.log("댓글부대");
+                // movieImg.nodeValue = "../images/movie_image_02.jpg";
+                img.src = "../images/movie_image_02.jpg";
+            } else if (m3.checked) {
+                console.log("듄2");
+                // movieImg.nodeValue = "../images/movie_image_03.jpg";
+                img.src = "../images/movie_image_03.jpg";
+            } else if (m4.checked){
+                console.log("고질라");
+                // movieImg.nodeValue = "../images/movie_image_04.jpg";
+                img.src = "../images/movie_image_04.jpg";
+            } else if (m5.checked) {
+                console.log("스파이패밀리");
+                // movieImg.nodeValue = "../images/movie_image_05.jpg";
+                img.src = "../images/movie_image_05.jpg";
+            }
+
+            
+
+            console.log("--------------------")
+            console.dir(document);
+
+            console.log(document.frm.movie[0].checked);
+            if (document.frm.movie[0].checked) {
+                console.log("파묘 선택됨");
+            }
+
+            console.dir(document);
+            console.dir(document.movieImg.attributes);
+            console.dir(document.movieImg.attributes[0]);
+
+            // document.movieImg.attributes[0].nodeValue = "../images/movie_image_02.jpg";
+        }
+    </script>
+</head>
+<body>
+    <h1>추천영화</h1>
+
+    <form action="" name="frm">
+        <!-- input:radio[name='movie' id="m$"]*5 -->
+
+        <input type="radio" name="movie" id="m1">파묘
+        <input type="radio" name="movie" id="m2">댓글부대
+        <input type="radio" name="movie" id="m3">듄2
+        <input type="radio" name="movie" id="m4">고질라
+        <input type="radio" name="movie" id="m5">스파이패밀리
+        <input type="button" value="추천" onclick="viewResult();">
+    </form>
+
+    <img src="" alt="" name="movieImg" id="movieImg">
+</body>
+</html>

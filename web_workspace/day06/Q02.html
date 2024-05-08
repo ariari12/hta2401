@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img { width: 100px; height: 100px; }
+    </style>
+    <script>
+        function lotto() {
+            // 1. 랜덤하게 1부터 45 사이의 정수
+            // 0*45 <= Math.floor(Math.random()) * 45 < 1*45
+            // 0*45 + 1 <= Math.floor(Math.random() * 45 + 1) < 1*45 + 1
+
+            // console.log(Math.floor(Math.random() * 45 + 1));
+
+            // 배열을 선언 6칸짜리
+            let m = new Array(6);
+
+            for (let i = 0; i < 6; i++) {
+
+                let rnd = Math.floor(Math.random() * 45 + 1);
+                
+                console.log(i + " = " + rnd);
+
+                
+                // 배열에 이 값을 할당
+                m[i] = rnd;
+                
+                // 지금 뽑은 값이 이전에 뽑은 값과 비교하여 동일하다면 다시 뽑기
+                for (let j = 0; j < i; j++) {
+                    if (m[j] == rnd) { 
+                        i--;
+                        break; 
+                    }
+                }
+                
+                console.log(m);
+                
+               
+            }
+
+            let temp = 0;
+
+            // m.sort((a, b) => a - b);
+            // console.log("sort() 사용");
+            // for (let i = 1; i < 7; i++) {
+            //     console.log("[" + (i-1) + "]: " + m[i]);
+            // }
+
+            for (let i = 0; i < 6; i++) {
+                for (let j = i + 1; j < m.length; j++) {
+                    if (m[i] > m[j]) {
+                        temp = m[i];
+                        m[i] = m[j];
+                        m[j] = temp;
+                    }
+                }
+            }
+
+            console.log("수동 정렬");
+            for (let i = 1; i < 7; i++) {
+                console.log("[" + (i-1) + "]: " + m[i]);
+            }
+
+            for (let i = 1; i < 7; i++) {
+                 // 2. 이 숫자에 해당하는 이미지 경로
+                 let path = "../images/ball/ball" + m[i - 1] + ".png";
+
+                // 3. img 객체를 가져오기
+                let img1 = document.getElementById("img" + i);
+
+                // 4. img 객체 src 속성에 이미지 경로 지정
+                img1.src = path;
+            }
+        }
+    </script>
+</head>
+<body>
+    <img src="../images/ball/q.jpg" alt="" id="img1">
+    <img src="../images/ball/q.jpg" alt="" id="img2">
+    <img src="../images/ball/q.jpg" alt="" id="img3">
+    <img src="../images/ball/q.jpg" alt="" id="img4">
+    <img src="../images/ball/q.jpg" alt="" id="img5">
+    <img src="../images/ball/q.jpg" alt="" id="img6"> <br>
+    <input type="button" value="대박" onclick="lotto();">
+</body>
+</html>

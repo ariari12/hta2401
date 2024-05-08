@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript18.html</title>
+    <script>
+        // var 변수명
+        // let, const
+        a = 10; // 값을 할당하는 순간 자료형이 결정된다. : 동적 타이핑 언어
+
+        document.write("<h2> a: " + a + " </h2>");
+        // alert("a: " + a);
+        console.log("a: " + a);
+        console.log("--------------------------------------")
+        // 자바 스크립트에서 배열 사용 가능
+
+        // int[] b = new int[3];
+
+        let b = new Array(3);
+
+        b[0] = 1;
+        b[1] = 2;
+        b[2] = 3;
+
+        console.log(b);
+
+        // 반복문을 통해서 출력 가능
+        // for (int i = 0; i < b.length; i++) {
+            
+        // }
+        for (let i = 0; i < b.length; i++) {
+            console.log("b[" + i + "]: " + b[i]);
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 첫번째, 두번째 p태그는 글자색을 red */
+        #aaa, #bbb {
+            color: red;
+        }
+
+        /* p태그의 3번 4번 요소에 blueP라는 클래스를 부여하고
+        클래스 선택자를 사용해서 글자색을 blue로 지정 */
+        .blueP {
+            color: blue;
+        }
+
+        /* 상품 2, 4, 5만
+        글자를 핑크색으로 변경 */
+        .pinkColor {
+            color: pink;
+        }
+    </style>
+</head>
+<body>
+    <!-- h1{type선택자} -->
+    <h1>type선택자</h1>
+
+    <!-- p{HTML의 모든 요소는 선택자로 사용가능}*4 -->
+    <p id="aaa">HTML의 모든 요소는 선택자로 사용가능</p>
+    <p id="bbb" class="m">HTML의 모든 요소는 선택자로 사용가능</p>
+    <p id="ccc" class="blueP m">HTML의 모든 요소는 선택자로 사용가능</p>
+    <p id="ddd" class="blueP">HTML의 모든 요소는 선택자로 사용가능</p>
+
+    <!-- ul>li{상품$}*5 -->
+    <ul>
+        <li>상품1</li>
+        <li class="pinkColor">상품2</li>
+        <li>상품3</li>
+        <li class="pinkColor">상품4</li>
+        <li class="pinkColor">상품5</li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,4 @@
+'Lee','2222','lee@lee.com',990909
+'Laa','3333','laa@laa.com',880808
+'Soo','1111','soo@soo.com',770707
+'김이박','4444','klp@klp.com',660606

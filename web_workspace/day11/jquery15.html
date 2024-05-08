@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery15.html</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(function() {
+            $("#btn1").on("click", () => {
+                $("input:not(:checked) + span").css("background", "red");
+            })
+        })
+    </script>
+    <style>
+        /* span 태그의 배경을 초록색 */
+        /* body > div:nth-child(1) > span {
+            background: green;
+        } */
+
+        /* input+span {
+            color: red;
+        } */
+
+        /* input:checked + span {
+            color: blue;
+        } */
+
+        /* input:not(:checked) + span {
+            color: yellowgreen;
+        } */
+
+        /* #shortcutArea > ul > li:nth-child(5) > a > span.service_name */
+    </style>
+</head>
+<body>
+    <!-- (div>input[type="checkbox" name="fruit"])*3 -->
+    <div>
+        <input type="checkbox" name="fruit" id="">
+        <span>오렌지</span>
+    </div>
+    <div>
+        <input type="checkbox" name="fruit" id="test">
+        <span>바나나</span>
+    </div>
+    <div>
+        <input type="checkbox" name="fruit" id="">
+        <span>사과</span>
+    </div>
+
+    <br>
+    <!-- 버튼을 클릭하면 체크 안한 항목의 span의 배경색 red -->
+    <input type="button" value="검사" id="btn1">
+</body>
+</html>

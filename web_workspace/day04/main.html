@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>main.html</title>
+    <style>
+        #header {
+            background: skyblue;
+            text-align: center;
+            height: 75px;
+        }
+        #menu {
+            background: salmon;
+        }
+        #menu>ul {
+            list-style-type: none;
+            margin-left: -5%;
+        }
+        #menu>ul>li {
+            display: inline-block;
+            width: 20%;
+        }
+        #main {
+            border: 1px solid black;
+            margin-top: 1%;
+            height: 500px;
+        }
+        #side1 {
+            background: red;
+            width: 15%;
+            height: 500px;
+            float: left;
+        }
+        #contents {
+            background: gray;
+            width: 68%;
+            height: 500px;
+            float: left;
+            margin: 0 1%;
+        }
+        #side2 {
+            background: blue;
+            width: 15%;
+            height: 500px;
+            float: left;
+        } 
+    </style>
+</head>
+<body>
+    <div id="header">
+        네이버 로고
+        <div id="menu">
+            <ul>
+                <li>뉴스</li>
+                <li>메일</li>
+                <li>지도</li>
+                <li>로그인</li>
+            </ul>
+        </div>
+    </div>
+    <div id="main">
+        <div id="side1"></div>
+        <div id="contents"></div>
+        <div id="side2"></div>
+    </div>
+</body>
+</html>

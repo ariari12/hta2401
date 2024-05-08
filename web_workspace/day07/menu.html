@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>menu.html</title>
+    <style>
+        img {
+            width: 150px;
+            height: 150px;
+        }
+        .box {
+            display: inline-block;
+            margin-right: 60px;
+        }
+        .container {
+            width: 900px;
+            margin: 0 auto;
+        }
+        .title {
+            text-align: center;
+            font-size: 50px;
+            font-weight: bold;
+            margin-top: 50px;
+            margin-bottom: 100px;
+        }
+        #msg {
+            text-align: center;
+        }
+    </style>
+    <script>
+        function prtMsg(x) {
+            // console.log(x);
+            // console.dir(x);
+            console.log("선택한 메뉴는 " + x.value + "입니다.");
+
+            let msg = document.getElementById("msg");
+            msg.innerHTML = "<h3>선택한 메뉴는 " + x.value + "입니다.";
+        }
+    </script>
+</head>
+<body>
+    <!-- div.container>div.title{오늘의 점심메뉴} -->
+    <div class="container">
+        <div class="title">오늘의 점심메뉴</div>
+
+        <div class="box">
+            <img src="../images/0408/img_01.jpg" alt="라면"><br>
+            <input type="radio" name="menu" id="menu1" value="라면" onclick="prtMsg(this);">
+            <label for="menu1">라면</label>
+        </div>
+        <div class="box">
+            <img src="../images/0408/img_02.jpg" alt="도시락"><br>
+            <input type="radio" name="menu" id="menu2" value="도시락" onclick="prtMsg(this);">
+            <label for="menu2">도시락</label>
+        </div>
+        <div class="box">
+            <img src="../images/0408/img_03.jpg" alt="짜장면"><br>
+            <input type="radio" name="menu" id="menu3" value="짜장면" onclick="prtMsg(this);">
+            <label for="menu3">짜장면</label>
+        </div>
+        <div class="box">
+            <img src="../images/0408/img_04.jpg" alt="짬뽕"><br>
+            <input type="radio" name="menu" id="menu4" value="짬뽕" onclick="prtMsg(this);">
+            <label for="menu4">짬뽕</label>
+        </div>
+
+        <div id="msg"></div>
+    </div>
+</body>
+</html>

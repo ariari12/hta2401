@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript38.html</title>
+    <script>
+        function prt() {
+            // 1부터 100까지 숫자를 콘솔에 출력 (let ==> var)
+            // var의 경우, 함수 안에 선언된 변수는 함수 안에서 게속 보존됨
+            // for문에서 선언된 변수를 for문 밖에서 사용 가능
+            // for (var i = 1; i <= 100; i++) {
+
+            // let의 경우 for문 밖의 i가 정의되지 않았다는 오류 발생
+            for (let i = 1; i <= 100; i++) {
+                console.log(i);
+            }
+
+            // console.log(i);
+        }
+
+        prt(); // prt() 함수를 실행
+
+        function prt2() {
+            // for (var i = 0; i < 5; i++) {
+            // var의 경우 setTimeout을 실행하더라도 스레드가 대기 상태가 되지 않음
+            // 따라서 1초 후 i를 출력하면 for문이 다 종료된 후의 i값(=5)가 출력됨
+            // for (var i = 0; i < 5; i++) {
+
+            // let의 경우 1초에 하나씩 i가 1씩 올라감
+            for (let i = 0; i < 5; i++) {
+                window.setTimeout(function() {
+                    console.log(i);
+                }, 1000);
+            }
+        }
+
+        prt2();
+
+        //                          var                let            const
+        // 유효범위(scope):     function scope      block scope     block scope
+
+        console.log("------------------------------------------");
+        // 변수의 중복 선언이 가능: var
+        let name = "KS";
+        console.log(name);
+
+        // let name = "둘리";
+        console.log(name);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

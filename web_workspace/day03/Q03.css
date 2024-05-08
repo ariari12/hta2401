@@ -1,0 +1,88 @@
+#container {
+    margin-left: 25%;
+    width: 50%;
+    border: 1px solid silver;
+    border-radius: 10px;
+}
+
+#header {
+    margin-left: 25%;
+    width: 50%;
+}
+
+#content {
+    /* border: 1px solid blue; */
+    margin: 15px 20px;
+}
+
+#logo {
+    margin: 0 38%;
+}
+
+.beforJoin {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+#content label {
+    display: inline-block;
+    margin-top: 10px;
+    margin-bottom: 3px;
+    font-weight: bold;
+}
+
+.divImg {
+    /* border: 1px solid green; */
+    margin-top: 0.2em;
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    background-size: 1em;
+    background-repeat: no-repeat;
+}
+
+#pwdImg {
+    background-image: url(../images/amazon/login_image_02.png);
+}
+
+#signInImg {
+    position: relative;
+    margin-left: -5px;
+    top: 4px;
+    background-image: url(../images/amazon/login_image_03.png);
+}
+
+input { 
+    width: 98%; 
+    height: 25px;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+input[type=submit] { 
+    width: 100%; 
+    margin: 15px 0;
+    background: gold;
+    border: none;
+    border-radius: 8px;
+    height: 30px;
+}
+
+input[type=submit]:hover {
+    cursor: pointer;
+}
+
+.descTxt {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.hyperTxt a {
+    text-decoration: none;
+    font-weight: normal;
+    color: #248FC1;
+}
+
+.signIn {
+    font-size: 1.2em;
+}

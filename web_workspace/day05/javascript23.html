@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript23.html</title>
+    <script>
+        function goGoogle() {
+            console.log("hahaha");
+            // 내장객체
+            console.log(location);
+            location.href = "http://www.google.com";
+        }
+        function goNaver() {
+            location.href = "http://www.naver.com";
+        }
+    </script>
+</head>
+<body>
+    <a href="http://www.naver.com">네이버</a>
+    <a href="http://www.google.com"><input type="button" value="구글"></a>
+
+    <input type="button" value="구글" onclick="goGoogle();">
+    <input type="button" value="네이버" onclick="goNaver();">
+</body>
+</html>

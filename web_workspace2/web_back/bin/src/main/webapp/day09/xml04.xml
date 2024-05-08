@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE 자동차 [
+	<!ELEMENT 자동차 (기본, 모델, 옵션) >
+	<!ELEMENT 기본 (회사명, 차종, 가격) >
+	<!ELEMENT 모델 (색상, 배기량) >
+	<!ELEMENT 옵션 (CD, 에어백) >
+	<!ELEMENT 회사명 (#PCDATA) >
+	<!ELEMENT 차종 (#PCDATA) >
+	<!ELEMENT 가격 (#PCDATA) >
+	<!ELEMENT 색상 (#PCDATA) >
+	<!ELEMENT 배기량 (#PCDATA) >
+	<!ELEMENT CD (#PCDATA) >
+	<!ELEMENT 에어백 (#PCDATA) >
+]>
+
+<자동차>
+	<기본>
+		<회사명>꼬마자동차</회사명>
+		<차종>붕붕카</차종>
+		<가격>500</가격>
+	</기본>
+	<모델>
+		<색상>노란색</색상>
+		<배기량>1000CC</배기량>
+	</모델>
+	<옵션>
+		<CD>NO</CD>
+		<에어백>NO</에어백>
+	</옵션>
+</자동차>

@@ -1,0 +1,15 @@
+거래글 - 책/거래 내역
+insert
+책 insert
+내역 insert
+
+update
+메모/책상태/책가격
+메모
+-
+
+상태/가격
+책 update
+
+delete
+내역 거래상태 update

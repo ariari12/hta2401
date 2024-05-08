@@ -1,0 +1,112 @@
+C:\Users\jhta>sqlplus scott/tiger
+
+SQL*Plus: Release 21.0.0.0.0 - Production on 화 4월 30 09:13:00 2024
+Version 21.3.0.0.0
+
+Copyright (c) 1982, 2021, Oracle.  All rights reserved.
+
+마지막 성공한 로그인 시간: 화 4월  30 2024 09:11:21 +09:00
+
+다음에 접속됨:
+Oracle Database 21c Express Edition Release 21.0.0.0.0 - Production
+Version 21.3.0.0.0
+SQL>
+SQL>
+SQL> -- emp : 급여 많이 받는 순으로 사번, 이름, 급여 ?
+SQL> SELECT empno, ename, sal FROM emp
+  2  ORDER BY sal DESC;
+
+     EMPNO ENAME                       SAL
+---------- -------------------- ----------
+      7839 KING                       5000
+      7902 FORD                       3000
+      7788 SCOTT                      3000
+      7566 JONES                      2975
+      7698 BLAKE                      2850
+      7782 CLARK                      2450
+      7499 ALLEN                      1600
+      7844 TURNER                     1500
+      7934 MILLER                     1300
+      7521 WARD                       1250
+      7654 MARTIN                     1250
+
+     EMPNO ENAME                       SAL
+---------- -------------------- ----------
+      7876 ADAMS                      1100
+      7900 JAMES                       950
+      7369 SMITH                       800
+
+14 행이 선택되었습니다.
+
+
+중간값 나오게 하기
+SELECT * FROM ( SELECT ROWNUM rn, e.*
+FROM ( SELECT empno, ename, sal FROM emp ORDER BY sal DESC ) e ) WHERE rn BETWEEN 4 AND 10;
+
+SELECT * 
+FROM ( SELECT ROWNUM rn, e.*
+	FROM ( SELECT empno, ename, sal 
+	          FROM emp
+	          ORDER BY sal DESC ) e 
+	WHERE ROWNUM <= 10) 
+WHERE rn >= 4;
+** DB는 첫 행이 조건에 맞지 않을 경우 바로 중단함
+따라서 ROWNUM을 설정한 최초 테이블에서는 >= 연산이 불가능
+
+SELECT ROWNUM, b.* 
+FROM ( SELECT bno, writer, title
+          FROM board
+          ORDER BY bno desc ) b;
+
+
+SQL> col writer format a15
+SQL> col title format a15
+SQL> SELECT ROWNUM, b.*
+  2  FROM ( SELECT bno, writer, title
+  3            FROM board
+  4            ORDER BY bno desc ) b;
+
+    ROWNUM        BNO WRITER          TITLE
+---------- ---------- --------------- ---------------
+         1        205 SCOTT200        JSP200
+         2        204 SCOTT199        JSP199
+         3        203 SCOTT198        JSP198
+         4        202 SCOTT197        JSP197
+         5        201 SCOTT196        JSP196
+         6        200 SCOTT195        JSP195
+         7        199 SCOTT194        JSP194
+         8        198 SCOTT193        JSP193
+         9        197 SCOTT192        JSP192
+        10        196 SCOTT191        JSP191
+        11        195 SCOTT190        JSP190
+
+...
+
+    ROWNUM        BNO WRITER          TITLE
+---------- ---------- --------------- ---------------
+       199          7 SCOTT2          JSP2
+       200          6 SCOTT1          JSP1
+       201          4 눈물뚝뚝스      메롱
+       202          3 하하하          오늘의 메뉴는
+       203          1 수정            수저어어엉
+
+203 행이 선택되었습니다.
+
+SQL>
+
+
+SELECT ROWNUM, b.* 
+FROM ( SELECT bno, writer, title
+          FROM board
+          ORDER BY bno desc ) b
+WHERE ROWNUM <= 20;
+
+
+SELECT bno, writer, title FROM 
+    ( SELECT ROWNUM rn, bno, writer, title 
+    FROM ( SELECT bno, writer, title
+              FROM board
+              ORDER BY bno desc )
+    WHERE ROWNUM <= 40 )
+WHERE rn >= 21;
+

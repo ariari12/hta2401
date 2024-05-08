@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q05.html</title>
+    <style>
+        #container {
+            background: sandybrown;
+            text-align: center;
+        }
+        #title {
+            background: antiquewhite;
+            margin: 3% auto;
+            display: inline-block;
+        }
+        .menuDiv {
+            display: inline-block;
+            background: skyblue;
+            width: 200px;
+            height: auto;
+            border: 1px solid salmon;
+            margin: 1%;
+        }
+        .menuDiv>img {
+            width: 200px;
+        }
+        #result {
+            display: inline-block;
+            background: palevioletred;
+            /* padding: 3% 40%; */
+            margin: 0 1%;
+        }
+    </style>
+    <script>
+        function selectedMenu() {
+            console.log("테스트~~");
+            console.dir(document);
+            console.dir(document.getElementById("menu01"));
+            let result = document.getElementById("result");
+            let menu = [
+                document.getElementById("menu01").children[2],
+                document.getElementById("menu02").children[2],
+                document.getElementById("menu03").children[2],
+                document.getElementById("menu04").children[2]
+            ]
+
+            console.log(menu);
+
+            let menuName = "";
+
+            for (let i = 0; i < menu.length; i++) {
+                if (menu[i].checked) {
+                    menuName = menu[i].value;
+                    break;
+                }
+            }
+
+            result.innerText = "선택하신 메뉴는 " + menuName + "입니다.";
+        }
+    </script>
+</head>
+<body>
+    <div id="container">
+        <div id="title">오늘의 점심메뉴</div> <br>
+        <!-- (div#menu$$>img+input[type='radio'])*4 -->
+        <div id="menu01" class="menuDiv">
+            <img src="../images/0408/img_01.jpg" alt="라면"> <br>
+            <input type="radio" name="menuRadio" value="라면" onclick="selectedMenu()">라면
+        </div>
+        <div id="menu02" class="menuDiv">
+            <img src="../images/0408/img_02.jpg" alt="도시락"> <br>
+            <input type="radio" name="menuRadio" value="도시락" onclick="selectedMenu()">도시락
+        </div>
+        <div id="menu03" class="menuDiv">
+            <img src="../images/0408/img_03.jpg" alt="자장면"> <br>
+            <input type="radio" name="menuRadio" value="자장면" onclick="selectedMenu()">자장면
+        </div>
+        <div id="menu04" class="menuDiv">
+            <img src="../images/0408/img_04.jpg" alt="짬뽕"> <br>
+            <input type="radio" name="menuRadio" value="짬뽕" onclick="selectedMenu()">짬뽕
+        </div>
+        
+        <br><br>
+
+        <div id="result">
+            <!-- <input type="button" value="테스트" onclick="selectedMenu();"> -->
+        </div>
+
+        <br><br>
+    </div>
+</body>
+</html>

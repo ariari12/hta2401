@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery20.html</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(() => {
+            $("#btn1").on("click", () => {
+                $("img").hide();
+            })
+
+            $("#btn2").on("click", () => {
+                $("img").show();
+            })
+
+            $("#btn3").on("click", () => {
+                $("img").toggle();
+            })
+
+            $("#btn4").on("click", () => {
+                $("img").fadeIn(800);
+            })
+
+            $("#btn5").on("click", () => {
+                $("img").fadeOut({
+                    duration : 3000,
+                    complete : function() {
+                        alert("뿅~~~~");
+                    }
+                });
+            })
+
+            // 6번 버튼을 클릭하면 p 태그에 Hello wolrd 출력
+            $("#btn6").on("click", () => {
+                $("#p1").text("Hello wolrd")
+                        .css("background", "pink")
+                        .addClass("txt")
+                        .appendTo(".wrapper");
+            })
+
+            $("#btn7").on("click", () => {
+                $("img").css("marginLeft", "200px");
+                $("img").fadeOut(3000, function() {
+                    location.href = "http://www.google.com";
+                });
+            })
+            
+        })
+    </script>
+</head>
+<body>
+    <!-- input:button[id="btn$"]*6 -->
+    <input type="button" value="숨기기" id="btn1">
+    <input type="button" value="나타나기" id="btn2">
+    <input type="button" value="토글" id="btn3">
+    <input type="button" value="FadeIn" id="btn4">
+    <input type="button" value="FadeOut" id="btn5">
+    <input type="button" value="메세지출력" id="btn6">
+
+    <input type="button" value="토끼이동후사이트전환" id="btn7">
+
+    <br>
+    <!-- div.wrapper>p{test} -->
+    <div class="wrapper">
+        <p>test</p>
+    </div>
+    <div>
+        <img src="../images/rabbit/rabbit1.png" alt="">
+    </div>
+
+    <p id="p1"></p>
+</body>
+</html>

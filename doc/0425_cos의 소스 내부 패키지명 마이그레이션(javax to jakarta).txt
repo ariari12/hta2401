@@ -1,0 +1,28 @@
+cos의 패키지명 변경(javax -> jakarta)
+
+아파치 사이트 방문
+좌측 Tomcat MigrationToll for jakarto EE 메뉴 클릭
+binary 메뉴에서 jar 파일 다운로드
+dev myLib에 이동
+cos.jar도 dev myLib에 이동
+
+cmd 실행
+
+Microsoft Windows [Version 10.0.19045.4170]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\WINDOWS\system32>d:
+
+D:\>cd D:\dev\myLib
+
+D:\dev\myLib>java -jar jakartaee-migration-1.0.8-shaded.jar cos.jar cos2.jar
+
+아래와 같이 나타나면 성공
+Performing migration from source [D:\dev\myLib\cos.jar] to destination [D:\dev\myLib\cos2.jar] with Jakarta EE specification profile [TOMCAT]
+Migration starting for archive [cos.jar] using streaming
+Migration finished for archive [cos.jar]
+Migration completed successfully in [123] milliseconds
+
+
+cos2.jar 생성된 것 확인
+생성된 jar를 web-inf의 lib에 복사

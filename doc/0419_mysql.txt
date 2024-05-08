@@ -1,0 +1,18 @@
+mysql홈페이지 > download > 아래의 GDL 링크 클릭
+connector/j 선택
+플랫폼 독립적 옵션 선택
+로그인 없이 다운로드하기 선택
+
+다운로드 링크
+https://dev.mysql.com/downloads/connector/j/
+
+.zip 다운로드 후 압축 풀기
+압축 푼 폴더에 있는 mysql-connector-j-8.3.0.jar 파일을 아래 위치에 복사
+D:\dev\myLib
+
+sqldeveloper 실행 도구 > 환경설정
+데이터베이스 > 타사 JDBC 드라이버
+항목추가 라이브러리 아래 .jar 파일 선택
+D:\dev\myLib\mysql-connector-j-8.3.0.jar
+
+추가 후 완료

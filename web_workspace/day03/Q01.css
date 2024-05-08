@@ -1,0 +1,29 @@
+/* 
+    1. 점빼기 
+    2. _라인 제거
+    3. 각행마다 일정한 너비 
+    4. 배경색 
+    5. 마우스가 올라면 다른 배경색으로 변경 
+ */
+
+ul {
+    list-style-type: none;
+    
+}
+
+li a {
+    display: block;
+    text-decoration: none;
+    /* background: sandybrown; */
+    color: black;
+}
+
+li {
+    width: 10%;
+    margin: 10px -20px;
+    background: salmon;
+}
+
+li a:hover {
+    background: sandybrown;
+}

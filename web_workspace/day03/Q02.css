@@ -1,0 +1,73 @@
+div {
+    width: 240px;
+    height: 216px;
+    border: 1px solid gray;
+    float: left;
+    margin: 5px;
+    background-position: 23px 0;
+    background-repeat: no-repeat;
+}
+
+span {
+    position: relative;
+    top: 10px;
+    left: 10px;
+    font-weight: bold;
+}
+
+#menu01 {
+    background-image: url(../images/yogiyo/yogiyo_main_image_01.png);
+    background-position: 0;
+}
+
+#menu02 {
+    background-image: url(../images/yogiyo/yogiyo_main_image_02.png);
+}
+
+#menu03 {
+    background-image: url(../images/yogiyo/yogiyo_main_image_03.png);
+}
+
+#menu04 {
+    background-image: url(../images/yogiyo/yogiyo_main_image_04.png);
+}
+
+#menu05 {
+    background-image: url(../images/yogiyo/yogiyo_main_image_05.png);
+}
+
+#menu06 {
+    background-image: url(../images/yogiyo/yogiyo_main_image_06.png);
+}
+
+#menu07 {
+    background-image: url(../images/yogiyo/yogiyo_main_image_07.png);
+}
+
+#menu08 {
+    background-image: url(../images/yogiyo/yogiyo_main_image_08.png);
+}
+
+#menu09 {
+    background-image: url(../images/yogiyo/yogiyo_main_image_09.png);
+}
+
+#menu10 {
+    background-image: url(../images/yogiyo/yogiyo_main_image_10.png);
+}
+
+#menu11 {
+    background-image: url(../images/yogiyo/yogiyo_main_image_11.png);
+}
+
+#menu12 {
+    background-image: url(../images/yogiyo/yogiyo_main_image_12.png);
+}
+
+#menu13 {
+    background-image: url(../images/yogiyo/yogiyo_main_image_13.png);
+}
+
+#menu14 {
+    background-image: url(../images/yogiyo/yogiyo_main_image_14.png);
+}

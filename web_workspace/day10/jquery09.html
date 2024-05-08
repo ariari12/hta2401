@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery09.html</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(function() {
+            $("#btn1, #btn2, #btn3").on("click", function() {
+                console.log("허윽.. 틀렸어...");
+                $("#answer").hide();                
+                $("#wrong").show();
+            })
+
+            $("#btn4").on("click", function() {
+                console.log("맞췄당");
+                $("#answer").show();
+                $("#wrong").hide();
+            })
+        })
+
+    </script>
+</head>
+<body>
+    <!-- input:button[value="$번" id="btn$"]*4 -->
+    <input type="button" value="1번" id="btn1">
+    <input type="button" value="2번" id="btn2">
+    <input type="button" value="3번" id="btn3">
+    <input type="button" value="4번" id="btn4">
+
+    <div>조선 시대 장군, 명량, 거북선 하면 떠오르는 인물은?</div>
+
+    <div id="bb">
+        1. 권율     2. 김두한       3. 유관순       4. 이순신
+    </div>
+
+    <div id="answer" style="display: none;">
+        <p>정답 : 4. 이순신</p>
+    </div>
+
+    <div id="wrong" style="display: none;">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSS0lqLnNuX4D2-6n3dModnzjp7CXL-GMW44Q7-gKgMBg&s" alt="">
+    </div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css22.html</title>
+    <style>
+        .btn {
+            background: green;
+            color: white;
+            padding: 15px;
+            font-size: 16px;
+            /* 모서리를 둥글게 */
+            border-radius: 25pt;
+        }
+        .dropdown {
+            display: inline-block;
+        }
+        /* 
+            block:
+            한 영역을 차지하는 박스 형태를 가지는 성질
+            height, width 지정 OK
+            margin, padding 지정 OK
+
+            inline:
+            컨텐츠 영역만큼 자동으로 크기가 잡히게 된다.
+            width, height 지정 X(적용 안됨)
+            margin 위아래 적용 OK
+
+            inline-block:
+            두가지 특징을 모두 가지고 있음
+            inline 줄바꿈
+            block height, width 지정 OK
+        */
+        .content {
+            display: none;
+            position: relative;
+            left: 15px;
+            background-color: skyblue;
+            padding: 15px;
+        }
+        .content a {
+            color: black;
+            padding: 15px;
+            text-decoration: none;
+            display: block;
+        }
+        .content a:hover {
+            background: pink;
+        }
+        .dropdown:hover .content {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- div.dropdown>button.btn{dropdown}+div.content>a*3 -->
+    <div class="dropdown">
+        <button class="btn">dropdown</button>
+        <div class="content">
+            <a href="http://www.naver.com">네이버</a>
+            <a href="http://www.google.com">구글</a>
+            <a href="http://www.daum.net">다음</a>
+        </div>
+    </div>
+</body>
+</html>

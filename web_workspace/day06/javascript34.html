@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript34.html</title>
+    <script>
+        // 객체: 속성 + function
+
+        // int[] msg =  new int[3];
+
+        let msg = [];
+
+        // Person p = new Person();
+
+        // let p = new Object();
+        let p = {};
+
+        p.name = "홍길동";
+        p.age = 20;
+
+        console.log(p);
+        console.log("------------------------------------")
+        // JSON (JvaScript Object Notation)
+
+        // p2: name, age, gender, tel
+        // 콘솔에 출력
+        let p2 = {};
+
+        p2.name = "ksy";
+        p2.age = 25;
+        p2.gender = "F";
+        p2.tel = "010-1111-2345";
+
+        console.log(p2);
+
+        let p3 = {
+            name : "엘사",
+            age : 20,
+            gender : "여",
+            job : "여왕"
+        }
+
+        console.log(p3);
+
+        // 성인 판별 함수
+        function isAdult(age) {
+            if (age >= 18) {
+                console.log("당신은 성인입니다.")
+            } else {
+                console.log("당신은 미성년자입니다.");
+            }
+        }
+
+        isAdult(18);
+        isAdult(13);
+
+        // isAdult(18) ==> 당신은 성인입니다.
+        // isAdult(13) ==> 당신은 미성년자입니다.
+
+        function isAdult2(obj) {
+            let result;
+            if (obj.age >= 18) {
+                result = "성인";
+            } else {
+                result = "미성년";
+            }
+
+            console.log(obj.name + "씨는 " + result + "입니다.");
+        }
+
+        isAdult2(p2);
+        isAdult2(p3);
+
+        // test
+        // p4 <-- 뽀로로 7살 직업 백수
+        // 성인인지 판별
+
+        let p4 = {
+            name : "뽀로로",
+            age : 7,
+            job : "백수"
+        }
+
+        isAdult2(p4);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

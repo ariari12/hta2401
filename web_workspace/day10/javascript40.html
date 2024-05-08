@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript40.html</title>
+    <script>
+        // 화살표 함수 (Arrow Function), 화살표 함수 표현식 (Arrow Fuction Expressions)
+
+        // 자바스크립트에서 사용하던 기존의 함수 선언식이나 함수 표현식 보다 간결하게, 쉽게 사용하기 위해 고안..
+        // 자바스크립트 버전 람다식
+
+        function add(a, b) {
+            return a + b;
+        }
+
+        console.log(add(100, 200));
+        
+        const add2 = function(a, b) {
+            return a + b;
+        }
+        
+        console.log(add2(100, 200));
+
+        const add3 = (a, b) => {
+            return a + b;
+        }
+
+        console.log(add3(100, 200));
+
+        const add4 = (a, b) => a + b;
+
+        const add5 = (a, b) => { return a + b };
+
+        console.log(add4(100, 200));
+
+        const square = n => n * n;
+
+        console.log(square(5)); // 25
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

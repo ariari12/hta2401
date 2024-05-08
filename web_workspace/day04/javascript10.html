@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript10.html</title>
+    <script>
+        function cal() {
+            console.log("test 메시지");
+            // console.dir(document);
+            let txt = document.getElementById("txt");
+            console.dir(txt);
+            console.log("사용자가 입력한 값: " + txt.value);
+            txt.value = "하하하";
+        }
+    </script>
+</head>
+<body>
+    <!-- <input type="tel" name="" id="txt" value="hahaha"> -->
+    <input type="text" name="" id="txt">
+
+    <input type="button" value="전송" onclick="cal();">
+</body>
+</html>

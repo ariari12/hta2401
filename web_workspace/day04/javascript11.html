@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript11.html</title>
+    <script>
+        // 버튼을 클릭하면 입력부분에 Hello World 메세지를 출력하세요
+
+        // 1. prt 함수가 존재
+        function prt() {
+            // 라인이동: alt + 화살표 위아래 방향키
+            // 2. id가 txt인 엘리먼트 객체 가져오기
+            var txt = document.getElementById("txt");
+            // 3. 가져온 엘리먼트 객체의 속성 있는지 확인
+            console.dir(txt);
+            // 4. 값을 가지고 있는 속성에 Hello world 메세지를 할당
+            txt.value = "Hello World";
+        }
+    </script>
+</head>
+<body>
+    <input type="text" name="" id="txt">
+    <input type="button" value="출력" onclick="prt();">
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>space05.html</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #myCanvas { background: #aaaaaa; }
+    </style>
+    <script>
+        // 배경 이미지 객체
+        let bgImg1 = new Image();
+        bgImg1.src = "../images/space/space.jpg";
+        let bgImg2 = new Image();
+        bgImg2.src = "../images/space/space.jpg";
+
+        // 배경 좌표
+        let bgY1 = 0;
+        let bgY2 = -800;
+
+        // 내 우주선 이미지 객체
+        let ship1 = new Image();
+        ship1.src = "../images/space/gunship4.png";
+        let ship2 = new Image();
+        ship2.src = "../images/space/gunship5.png";
+        let ship3 = new Image();
+        ship3.src = "../images/space/gunship6.png";
+        let ship4 = new Image();
+        ship4.src = "../images/space/gunship7.png";
+
+        // 내 우주선 x, y 좌표
+        let shipX = 275;
+        let shipY = 675;
+
+        // 미사일 이미지 객체
+        let missile = new Image();
+        missile.src = "../images/space/missile1.png";
+
+        // 미사일 좌표
+        let missileX = -100;
+        let missileY = -100;
+        // let missileX = shipX - 27.5;
+        // let missileY = shipY - 40;
+
+        // 미사일 객체 배열
+        let missileArray = [];
+
+        // 미사일 소리 객체
+        let fireSound = new Audio("../sounds/fire2.wav");
+
+        // 적 우주선 이미지 객체
+        let enemyShip1 = new Image();
+        enemyShip1.src = "../images/space/gunship0.png";
+        let enemyShip2 = new Image();
+        enemyShip2.src = "../images/space/gunship1.png";
+        let enemyShip3 = new Image();
+        enemyShip3.src = "../images/space/gunship2.png";
+        let enemyShip4 = new Image();
+        enemyShip4.src = "../images/space/gunship3.png";
+        
+        // 전역 변수 ctx
+        let ctx;
+
+        // 카운터 변수
+        let counter = 0;
+        
+        // 윈도우 창이 로딩되면 익명함수를 실행
+        window.onload = function() {
+            // id가 myCanvas인 엘리먼트 객체 가져오기
+            let canvas = document.getElementById("myCanvas");
+
+            // 2d Context 객체 가져오기
+            ctx = canvas.getContext("2d");
+
+            // 마우스 위치에 따라 플레이어 우주선 이동
+            canvas.onmousemove = moveShip;
+
+            // 마우스 클릭 시 미사일 발사
+            canvas.onmousedown = fireMissile;
+
+            // drawScreen();
+            window.setInterval(drawScreen, 100);
+        }
+
+        function fireMissile(e) {
+            let mx = shipX; // 우주선 좌측 끝에서 발사: -27.5 우측 끝: +23.5
+            let my = shipY - 15;
+            // missileX = e.pageX;
+            // missileY = e.pageY;
+            let m = {
+                x : mx,
+                y : my
+            }
+
+            missileArray.push(m);
+            console.dir(missileArray); // 미사일 배열 출력
+
+            // 미사일 발사 소리
+            fireSound.currentSrc = 0;
+            fireSound.play();
+            console.log("*미사일 발사*");
+        }
+
+        function moveShip(e) {
+            // console.dir(e);
+            shipX = e.pageX;
+            shipY = e.pageY;
+        }
+
+        function drawScreen() {
+            bgY1 += 3;
+            bgY2 += 3;
+
+            // missileY -= 20;
+
+            if (bgY1 >= 800) {
+                bgY1 = -800;
+                bgY2 = 0;
+            }
+            if (bgY2 >= 800) {
+                bgY2 = -800;
+                bgY1 = 0;
+            }
+
+            counter++;
+            // console.log("counter: " + counter);
+
+            // 배경그리기
+            ctx.drawImage(bgImg1, 0, bgY1, 600, 800);
+            ctx.drawImage(bgImg2, 0, bgY2, 600, 800);
+
+            //우주선 그리기
+            if (counter % 4 == 0) { ctx.drawImage(ship1, shipX - 25, shipY - 25, 50, 50); } 
+            else if (counter % 4 == 1) { ctx.drawImage(ship2, shipX - 25, shipY - 25, 50, 50); } 
+            else if (counter % 4 == 2) { ctx.drawImage(ship3, shipX - 25, shipY - 25, 50, 50); } 
+            else if (counter % 4 == 3) { ctx.drawImage(ship4, shipX - 25, shipY - 25, 50, 50); }
+
+            // 적 우주선 그리기
+            if (counter % 4 == 0) { ctx.drawImage(enemyShip1, 250, 50, 50, 50); } 
+            else if (counter % 4 == 1) { ctx.drawImage(enemyShip2, 250, 50, 50, 50); } 
+            else if (counter % 4 == 2) { ctx.drawImage(enemyShip3, 250, 50, 50, 50); } 
+            else if (counter % 4 == 3) { ctx.drawImage(enemyShip4, 250, 50, 50, 50); }
+
+            // 미사일 그리기
+            // ctx.drawImage(missile, missileX, missileY, 5, 20);
+            // 미사일 배열 그리기
+            for (let i = 0; i < missileArray.length; i++) {
+                let m = missileArray[i];
+                // 미사일 y값이 0보다 작으면 작업 X??
+                m.y -= 20;
+                // 순서가 짝수면 왼쪽, 홀수면 오른쪽에서 미사일 발사
+                if (i % 2 == 0) { ctx.drawImage(missile, m.x - 27.5, m.y, 5, 20); }
+                else if (i % 2 == 1) { ctx.drawImage(missile, m.x + 23.5, m.y, 5, 20); }
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <canvas id="myCanvas" width="600" height="800"></canvas>
+</body>
+</html>

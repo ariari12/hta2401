@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div {
+            text-align: center;
+            margin: 30px;
+        }
+
+        .lMenu {
+            display: inline-block;
+        }
+        
+        .textBox {
+            border: 1px solid black;
+            height: 50px;
+            
+        }
+        
+        img {
+            border: 1px solid black;
+            width: 200px;
+        }
+
+        span {
+            margin: 10px;
+            padding: 10px;
+        }
+    </style>
+
+
+    <script>
+        function selectMenu(menu) {
+            let menuText = document.getElementById('menuText');
+            menuText.innerText='선택하신 점심메뉴는 ' + menu + '입니다.';
+        }
+    </script>
+
+</head>
+<body>
+    
+
+    <div>
+        <div class="textBox">
+            <span>오늘의 점심메뉴</span>
+        </div>
+        <div>
+            <div class="lMenu">
+                <img src="../images/l1.png" alt=""><br><input type="radio" name="menu" onclick="selectMenu('라면')">라면
+            </div>
+
+            <div class="lMenu"> 
+                <img src="../images/l2.png" alt=""><br><input type="radio" name="menu" onclick="selectMenu('도시락')">도시락
+            </div>
+
+            <div class="lMenu"> 
+                <img src="../images/l3.png" alt=""><br><input type="radio" name="menu" onclick="selectMenu('자장면')">자장면
+            </div>
+
+            <div class="lMenu"> 
+                <img src="../images/l4.png" alt=""><br><input type="radio" name="menu" onclick="selectMenu('짬뽕')">짬뽕
+            </div>
+        </div>
+        <div class="textBox">
+            <span id="menuText"></span>
+        </div>
+    </div>
+</body>
+</html>

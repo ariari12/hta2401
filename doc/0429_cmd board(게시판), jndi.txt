@@ -1,0 +1,171 @@
+
+C:\Users\jhta>sqlplus scott/tiger
+
+SQL*Plus: Release 21.0.0.0.0 - Production on 월 4월 29 09:10:47 2024
+Version 21.3.0.0.0
+
+Copyright (c) 1982, 2021, Oracle.  All rights reserved.
+
+마지막 성공한 로그인 시간: 월 4월  29 2024 08:43:53 +09:00
+
+다음에 접속됨:
+Oracle Database 21c Express Edition Release 21.0.0.0.0 - Production
+Version 21.3.0.0.0
+
+SQL> CREATE TABLE BOARD
+  2  (BNO NUMBER(8) CONSTRAINTS BOARD_BNO_PK PRIMARY KEY,
+  3  WRITER VARCHAR(20),
+  4  TITLE VARCHAR2(200),
+  5  CONTENTS CLOB,
+  6  REGDATE DATE,
+  7  HITS NUMBER(5),
+  8  IP CHAR(16),
+  9  STATUS NUMBER(3));
+
+테이블이 생성되었습니다.
+
+SQL> desc board
+ 이름                                      널?      유형
+ ----------------------------------------- -------- ----------------------------
+ BNO                                       NOT NULL NUMBER(8)
+ WRITER                                             VARCHAR2(20)
+ TITLE                                              VARCHAR2(200)
+ CONTENTS                                           CLOB
+ REGDATE                                            DATE
+ HITS                                               NUMBER(5)
+ IP                                                 CHAR(16)
+ STATUS                                             NUMBER(3)
+
+SQL>
+
+
+JNDI 설정
+DB 연결을 위한 driver, url, username, password를 코드에 노출하지 않고 다른 위치에서 참조하도록 하는 방법
+
+Servers > Tomcat~ > server.xml 열기 (하단의 Source 보기 형식으로)
+39번째 줄 
+<Resource auth="Container" description="User database that can be updated and saved" factory="org.apache.catalina.users.MemoryUserDatabaseFactory" name="UserDatabase" pathname="conf/tomcat-users.xml" type="org.apache.catalina.UserDatabase"/>
+아래에 다음 소스 붙여넣기
+
+<Resource name="jdbc/myoracle"  
+ 			auth="Container" 
+ 			type="javax.sql.DataSource"
+ 			driverClassName="oracle.jdbc.driver.OracleDriver"
+ 			url="jdbc:oracle:thin:@127.0.0.1:1521:xe"
+ 			username="scott"
+ 			password="tiger"
+ 			maxTotal="20" 
+ 			maxIdle="10"
+ 			maxWaitMillis="-1"
+ 			validationQuery="select 1 from dual"
+ 			validationInterval="30000" />
+
+web.xml 동일 위치의 context.xml 열기  (하단의 Source 보기 형식으로)
+
+맨 아래 </Context> 윗줄(29 개행, 31 개행, 30번째 줄)에 아래 붙여넣기
+<ResourceLink global="jdbc/myoracle" name="myoracle" type="javax.sql.DataSource" />
+
+
+DataSource ds = (DataSource) ctx.lookup("myoracle");
+1. context.xml에서 myoracle로 된 리소스 링크를 탐색
+2. server.xml에서 jdbc/myoracle로 된 리소스를 탐색
+
+
+현재 연결 중인 Scott Connection 수 확인
+SQL*Plus: Release 21.0.0.0.0 - Production on 월 4월 29 10:39:20 2024
+Version 21.3.0.0.0
+
+Copyright (c) 1982, 2021, Oracle.  All rights reserved.
+
+마지막 성공한 로그인 시간: 목 4월  18 2024 14:26:41 +09:00
+
+다음에 접속됨:
+Oracle Database 21c Express Edition Release 21.0.0.0.0 - Production
+Version 21.3.0.0.0
+
+SQL> select sid, serial#, username, status
+  2  from V$session
+  3  where username = 'SCOTT';
+
+선택된 레코드가 없습니다.
+
+SQL>
+
+기존 cmd 놔두고 새 cmd에서 scott으로 로그인
+다른 두 cmd 창에서 scott으로 로그인한 결과
+
+SQL> col username format a15
+SQL> select sid, serial#, username, status
+  2  from V$session
+  3  where username = 'SCOTT';
+
+       SID    SERIAL# USERNAME        STATUS
+---------- ---------- --------------- ----------------
+       875       8908 SCOTT           INACTIVE
+
+SQL> select sid, serial#, username, status
+  2  from V$session
+  3  where username = 'SCOTT';
+
+       SID    SERIAL# USERNAME        STATUS
+---------- ---------- --------------- ----------------
+       511      19466 SCOTT           INACTIVE
+       875       8908 SCOTT           INACTIVE
+
+SQL>
+
+/ + [엔터] 시 이전 실행한 sql문 다시 실행
+jnditext.jsp 실행(DB 연결) 후 다시 실행하면
+연결 수가 하나 늘어나 있음
+SQL> /
+
+       SID    SERIAL# USERNAME        STATUS
+---------- ---------- --------------- ----------------
+        10       1506 SCOTT           INACTIVE
+       511      19466 SCOTT           INACTIVE
+       875       8908 SCOTT           INACTIVE
+
+SQL>
+
+SQL> /
+
+       SID    SERIAL# USERNAME        STATUS
+---------- ---------- --------------- ----------------
+        10       1506 SCOTT           INACTIVE
+       144      61970 SCOTT           INACTIVE
+       511      19466 SCOTT           INACTIVE
+       875       8908 SCOTT           INACTIVE
+
+SQL> CREATE SEQUENCE BOARD_BNO_SEQ
+  2  START WITH 1
+  3  INCREMENT BY 1
+  4  NOCACHE
+  5  NOCYCLE;
+
+시퀀스가 생성되었습니다.
+
+SQL>
+
+PL/SQL을 통해 200행 자동 삽입
+*desc 확인해서 컬럼 순서 확인
+SQL> begin
+  2     FOR i IN 1..200 LOOP
+  3       INSERT INTO BOARD
+  4       VALUES ( BOARD_BNO_SEQ.NEXTVAL, 'SCOTT'||i, 'JSP'||i,'게시판 ' || i, sysdate, 0, '127.0.0.1', 1);
+  5     end loop;
+  6  end;
+  7  /
+
+PL/SQL 처리가 정상적으로 완료되었습니다.
+
+SQL> commit;
+
+커밋이 완료되었습니다.
+
+SQL> select count(*) from board;
+
+  COUNT(*)
+----------
+       203
+
+SQL>

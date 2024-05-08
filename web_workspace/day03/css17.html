@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css17.html</title>
+    <style>
+        /* div 너비 100px 높이 100px */
+        div { width: 100px; height: 100px; }
+
+        /* box1의 배경 red */
+        div#box1 { background: red; }
+
+        /* box2의 배경 파랑 */
+        div#box2 { background: blue; }
+
+        /* 
+            span의 배경 노랑색 
+            너비 150px
+            높이 150px
+            값을 지정해도 span은 inline 요소이므로 반영되지 않는다.
+            inline ==> block 요소로 변경하면 반영된다. (해보자..)
+        */
+        span {
+            background: yellow;
+            width: 150px;
+            height: 150px;
+            display: block;
+        }
+
+        /* span에 마우스를 올려놓으면 배경을 초록색 */
+        span:hover { background: green; }
+
+        /* span을 클릭하면 배경을 파랑색 */
+        span:active { 
+            background: blue; 
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- div>div#box1{푸른하늘} -->
+    <div>
+        <div id="box1">푸른하늘</div>
+    </div>
+
+    <!-- div>div#box2{은하수} -->
+    <div>
+        <div id="box2">은하수</div>
+    </div>
+
+    <span>span은 inline 요소</span>
+
+    <img src="../images/movie_image_01.jpg" alt="">
+</body>
+</html>

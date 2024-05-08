@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript19.html</title>
+    <script>
+        function getTime() {
+            console.log("GetTime 함수 실행중..");
+            let now = new Date();
+            console.log(now);
+            console.dir(now);
+            let year = now.getYear();
+            console.log(year);
+
+            let year2 = now.getFullYear();
+            console.log(year2);
+
+            let month = now.getMonth();
+            console.log(month + 1);
+
+            // 그럼 오늘의 날짜를 출력
+
+            // 2024년 4월 5일 10: 15: 20
+            let date = now.getDate();
+            let hour = now.getHours();
+            let minute = now.getMinutes();
+            let second = now.getSeconds();
+
+            let time = year2 + "년 " + (month + 1) +"월 " + date + "일 "
+                       + hour + " : " + minute + " : " + second;
+
+            console.log(time);
+
+            // id가 time인 엘리먼트 객체 가져오기
+            let timeEle = document.getElementById("time");
+            
+            // value 속성에 지금 시간을 할당
+            timeEle.value = time;
+        }
+    </script>
+</head>
+<body>
+    <input type="text" name="" id="time" size="30">
+    <input type="button" value="지금시간출력하기" onclick="getTime();">
+</body>
+</html>

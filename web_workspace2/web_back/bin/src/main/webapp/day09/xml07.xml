@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE 이달의베스트셀러 [
+	<!ELEMENT 이달의베스트셀러 (베스트셀러)+ >
+	<!ELEMENT 베스트셀러 (제목, 저자, 출판사, 초판일, 가격) >
+	<!ELEMENT 제목 (#PCDATA) >
+	<!ELEMENT 저자 (#PCDATA) >
+	<!ELEMENT 출판사 (#PCDATA) >
+	<!ELEMENT 초판일 (#PCDATA) >
+	<!ELEMENT 가격 (#PCDATA) >
+	
+	<!ATTLIST 베스트셀러 code (A|B|C) "C" >
+	<!ATTLIST 베스트셀러 ISBN ID #REQUIRED >
+	<!ATTLIST 베스트셀러 단위 CDATA #FIXED "권" >
+]>
+
+<이달의베스트셀러>
+	<베스트셀러 ISBN="a001" code="B" 단위="권">
+		<제목>홍길동전</제목>
+		<저자>허균</저자>
+		<출판사>옛날출판사</출판사>
+		<초판일>1500/01/01</초판일>
+		<가격>2냥닷푼</가격>
+	</베스트셀러>
+</이달의베스트셀러>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript33.html</title>
+    <style>
+        #ulEle>li {
+            list-style-type: lower-roman;
+        }
+    </style>
+    <script>
+        // 전역변수: 배열 선언: msg
+        let msg = [];
+
+        function prt() {
+            // id txt1인 엘리먼트 객체 가져오기
+            let txt1 = document.getElementById("txt1");
+
+            // value 변수의 값 가져오기
+            let value = txt1.value;
+
+            // 선언되어 있는 배열에 값 push()
+            msg.push(value);
+            console.log(msg);
+
+            // id : ulEle 엘리먼트 객체 가져오기
+            let ulEle = document.getElementById("ulEle");
+
+            // 배열에 있는 요소를 꺼내서 li 태그로 감싸주기
+            let data = "";
+            for (let i = 0; i < msg.length; i++) {
+                data += "<li>" + msg[i] + "</li>";
+            }
+
+            // id : ulEle 엘리먼트 객체 innerHTML = 할당
+            ulEle.innerHTML = data;
+
+            txt1.value = "";
+            txt1.focus();
+        }
+
+        // function prt() {
+        //     console.log("하하하");
+        //     let txt1 = document.getElementById("txt1");
+        //     let ulEle = document.getElementById("ulEle");
+
+        //     ulEle.innerHTML += "<li>" + txt1.value + "</li>";
+
+        //     txt1.value = "";
+        //     txt1.focus();
+        // }
+    </script>
+</head>
+<body>
+    <h1>점심메뉴</h1>
+    <input type="text" name="" id="txt1">
+    <input type="button" value="입력" onclick="prt();">
+
+    <div>
+        <ul id="ulEle">
+            <li>메뉴</li>
+        </ul>
+    </div>
+</body>
+</html>

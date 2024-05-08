@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery01.html</title>
+    <script src="../js/jquery-3.7.1.js"></script>
+    <style>
+        /* #box1 { background: blue; } */
+    </style>
+    <script>
+        // 현재 페이지가 로딩된 후에 함수를 호출
+        // window.onload = test();     test()를 실행하고 리턴되는 값을 할당
+        // window.onload = test;
+
+        // function test() {
+        //     let box1 = document.getElementById("box1");
+        //     console.log(box1);
+        // }
+
+        // window.onload와 비슷한 기능
+        // 다만 window.onload와 달리 html만 먼저 읽어 화면을 보여주기 때문에 성능적인 면에서 좋음
+        $(document).ready(function() {
+            // id가 box1인 엘리먼트 가져오기
+            // console.log($("#box1"));
+            let box1 = document.getElementById("box1");
+            // console.dir(box1);
+            box1.style.backgroundColor = "green";
+
+            // $("css선택자")
+            // $("#box1") // 해당 엘리먼트를 감싼 JQUERY
+            // $("#box1").css("속성", "값"); // 해당 속성을 적용
+            $("#box2").css("background", "skyblue");
+
+            // id가 box3인 엘리먼트의 배경은 노랑색, 글자는 초록색으로 변경: jquery
+            // 반드시 맨 상위 객체에 대한 객체 정보를 불러옴(css가 아니라 id가 box3인 객체 정보)
+            console.log($("#box3").css("background", "yellow"));
+            $("#box3").css("background", "yellow");
+            $("#box3").css("color", "green");
+
+            // 메서드 체이닝
+            $("#box3").css("background", "yellow").css("color", "green");
+
+            // id가 box4인 엘리먼트의 배경은 노랑색, 글자는 초록색으로 변경: javacript로
+            let box4 = document.getElementById("box4");
+            box4.style.background = "yellow";
+            box4.style.color = "green";
+        })
+    </script>
+</head>
+<body>
+    <p>Hello JQuery</p>
+
+    <!-- div#box1{이 부분은 id가 box1입니다} -->
+    <!-- <div id="box1" style="background-color: red;">이 부분은 id가 box1입니다</div> -->
+    <div id="box1">이 부분은 id가 box1입니다</div>
+    <div id="box2">이 부분은 id가 box2입니다</div>
+    <div id="box3">이 부분은 id가 box3입니다</div>
+    <div id="box4">이 부분은 id가 box4입니다</div>
+</body>
+</html>

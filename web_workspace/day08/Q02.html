@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q02.html</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #myCanvas { background: #aaaaaa; }
+    </style>
+    <script>
+        // 배경이미지 객체
+        let bg1 = new Image();
+        bg1.src = "../images/run/bg1.jpg";
+        let bg2 = new Image();
+        bg2.src = "../images/run/bg2.jpg";
+
+        // 배경이미지 x좌표
+        let bg1x = 0;
+        let bg2x = 800;
+
+        let counter = 0;
+
+        // 메인캐릭터 이미지 객체
+        let player1 = new Image();
+        player1.src = "../images/run/run1.png";
+        let player2 = new Image();
+        player2.src = "../images/run/run2.png";
+        let player3 = new Image();
+        player3.src = "../images/run/run3.png";
+
+        // 캐릭터 x,y좌표
+        let playerX = 80;
+        let playerY = 330;
+
+        let jumpOn = false; // 점핑 시도
+        let jumping = false; // 점프중
+
+        // 금동전, 은동전
+        let gold = new Image();
+        gold.src = "../images/run/gold.png";
+        let silver = new Image();
+        silver.src = "../images/run/silver.png";
+
+        // 금동전 위치
+        let goldX = 895;
+        let goldY = 300;
+        // let goldX = 275; // 325
+        // let goldY = 230; // 140
+
+        // 은동전 위치
+        let silverX = 845;
+        let silverY = 300;
+        // let silverX = 325; // 275
+        // let silverY = 150; // 230
+
+        // 스코어
+        let score = 0;
+
+        let ctx;
+
+        window.onload = function() {
+            // console.log("로딩하자마자 자동으로 실행");
+            let canvas = document.getElementById("myCanvas");
+            ctx = canvas.getContext("2d");
+
+            // 키 입력 시 a/d 입력시 좌/우 이동, 스페이스이면 점프하도록
+            let body = document.body;
+            body.onkeydown = move;
+            // body.onkeyup = jump;
+            body.onmousedown = jump;
+
+            window.setInterval(drawScreen, 100)     
+        }
+
+        function drawScreen() {
+            // 코인의 x좌표가 우측 화면 밖일 때만 코인 높이 랜덤 설정
+            if (silverX > 800) {
+                silverY = Math.floor(Math.random() * 300);
+            }
+            if (goldX > 800) {
+                goldY = Math.floor(Math.random() * 300);
+            }
+
+            bg1x -= 10;
+            bg2x -= 10;
+
+            goldX -= 50;
+            silverX -= 50;
+
+            counter++;
+            score++;
+
+            if (jumpOn == true) {
+                playerY -= 3;
+                if (playerY <= 80) {
+                    jumpOn = false;
+                }
+            }
+
+            if (jumpOn == false) {
+                if (playerY < 280) {
+                    playerY += 3;
+                } else {
+                    jumping = false;
+                }
+            }
+
+            // 배경 다 끝나면 반복되도록 (1-2-1-2...)
+            // (추가??)배경이 다 끝나면 반복, 2 혹은 3이 랜덤으로 나오도록(2: 40%, 3: 60%)
+            if (bg1x <= -800) {
+                bg1x = 800;
+                bg2x = 0;
+            }
+            if (bg2x <= -800) {
+                bg2x = 800;
+                bg1x = 0;
+            }
+
+            // 캐릭터와 동전 사이의 거리가 일정 수 이하이면 먹은 것 처리
+            let disG = pythagoras(playerX, playerY, goldX, goldY);
+            let disS = pythagoras(playerX, playerY, silverX, silverY);
+            // console.log("disG: " + disG);
+            // console.log("disS: " + disS);
+
+            if (disG <= 50) { goldY *= -1; score += 50; }
+            if (disS <= 50) { silverY *= -1; score += 10; }
+
+            // 동전의 x좌표가 0보다 작을 경우 x좌표 초기화
+            if (goldX < 0) { goldX = 870; }
+            if (silverX < 0) { silverX = 820; }
+
+            // console.log(counter);
+
+            // 배경이미지 그리기
+            // ctx.drawImage("이미지객체", 이미지의 x, y, 너비, 높이);
+            ctx.drawImage(bg1, bg1x, 0, 800, 500);
+            ctx.drawImage(bg2, bg2x, 0, 800, 500);
+
+            // 캐릭터 그리기(달리는 것처럼)
+            if (counter % 3 == 1) {
+                ctx.drawImage(player1, playerX - 50, playerY - 50, 100, 100);
+            } else if (counter % 3 == 2) {
+                ctx.drawImage(player2, playerX - 50, playerY -50, 100, 100);
+            } else {
+                ctx.drawImage(player3, playerX - 50, playerY -50, 100, 100);
+            }
+
+            // 동전 그리기
+            ctx.drawImage(gold, goldX - 25, goldY, 50, 50);
+            ctx.drawImage(silver, silverX -25, silverY, 50, 50);
+
+            // 점수 그리기
+            ctx.fillStyle = "red";
+            ctx.font = "35px 고딕";
+            ctx.fillText("SCORE : " + score, 300, 50);
+        }
+
+        // 캐릭터와 동전 사이의 거리
+        function pythagoras(x1, y1, x2, y2) {
+            return Math.sqrt((x1 - x2) * (x1 - x2) + (y1- y2) * (y1 - y2));
+        }
+
+        function move(e) {
+            console.dir(e);
+            if (e.keyCode == 68 && playerX < 700) { playerX += 5; }
+            if (e.keyCode == 65 && playerX > 0) { playerX -= 5; }
+            if (e.keyCode == 87 && playerY > 0) { playerY -= 5; }
+            if (e.keyCode == 83 && playerY < 400) { playerY += 5; }
+            // if (e.keyCode == 32) { jump(); }
+        }
+
+        // function jump() {
+        //     if (jumping == false) {
+        //         jumpOn = true;
+        //         jumping = true;
+        //     }
+        // }
+
+        function jump(e) {
+            // if (e.keyCode == 32 && playerY >= playerY - 160) {
+            if (playerY >= 80) {
+                // playerX += 10;
+                playerY -= 80;
+                window.setTimeout(reset, 300);
+            } 
+        }
+
+        function reset() {
+            playerY = 330;
+        }
+    </script>
+</head>
+<body>
+    <canvas id="myCanvas" width="800" height="500"></canvas>
+</body>
+</html>

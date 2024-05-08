@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<!-- db 속성 정보가 있는 파일의 경로 -->
+	<properties resource="config/db.properties" />
+
+	<!-- 환경 -->
+	<environments default="dev">
+		<environment id="dev">
+			<!-- 트랜잭션의 관리는 JDBC 방식으로 -->
+			<transactionManager type="JDBC" />
+			<!-- Connection POOL을 사용해서 -->
+			<dataSource type="POOLED">
+				<!-- db 정보 -->
+				<property name="driver" value="${driver}" />
+				<property name="url" value="${url}" />
+				<property name="username" value="${username}" />
+				<property name="password" value="${password}" />
+			</dataSource>
+		</environment>
+	</environments>
+	<!-- db에 접근해서 사용할 모든 sql문을 미리 XML에 등록해 놓고 문장의 별칭을 통해서 호출해서 사용 -->
+	<mappers>
+		<!-- SQL문을 어디에? -->
+		<mapper resource="mapper/dept.xml" />
+		<mapper resource="mapper/Mapper.xml" />
+	</mappers>
+</configuration>

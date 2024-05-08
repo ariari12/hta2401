@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript31.html</title>
+    <style>
+        div {
+            width: 350px;
+            height: 350px;
+        }
+        #btn {
+            background: red;
+            color: green;
+        }
+    </style>
+    <script>
+        // 버튼 div 위로 마우스가 올라오면 prt() 함수를 호출
+        // box1 엘리먼트에 h3 태그로 "오늘은 즐거운 월요일입니다."
+        function prt() {
+            console.log("hahaha");
+            let box1 = document.getElementById("box1");
+            // box1.InnerHTML = "<h3>오늘은 즐거운 월요일입니다.</h3>"
+            box1.innerHTML = "<h3>오늘은 즐거운 월요일입니다.</h3>"
+            console.dir(box1);
+        }
+    </script>
+</head>
+<body>
+    <div id="box1"></div>
+
+    <div id="btn" onmouseover="prt();"> 버튼 </div>
+</body>
+</html>

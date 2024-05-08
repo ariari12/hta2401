@@ -1,0 +1,50 @@
+거래내역에서 특정 아이디가 가진 내역을 조회
+SELECT * FROM t_account 
+WHERE 거래내역에서 구매자가 aaa거나 판매자가 aaa인 항목
+
+01 aaa가 '자바의 정석'을 판매함, bbb가 구매
+02 ccc가 '자료구조'를 판매함, aaa가 구매
+
+aaa의 계좌내역 조회
+구매자: 해당 거래번호에서 계좌내역의 분류가 '입금'인 정보 출력
+          해당 거래번호에서 거래현황이 '구매취소'라면 
+            분류가 '출금'인 정보 출력
+판매자: 거래현황이 구매확정일 때만 해당 거래번호의 분류가 '출금'인 정보 출력
+
+거래번호를 통해서
+1. 구매자 조회
+SELECT buyer FROM t_tradelog WHERE buyer = id;
+
+2. 판매자 조회
+SELECT seller FROM t_book WHERE seller = id;
+
+특정 구매자의 거래내역 조회
+SELECT a.* FROM t_account a, t_tradeLog tr
+WHERE a.trLogNo = tr.trLogNo
+AND (transactionType = '입금'
+OR (trLogType = '구매취소' AND transactionType = '출금'))
+
+특정 판매자의 거래내역 조회
+SELECT a.* FROM t_account a, t_tradeLog tr
+WHERE a.trLogNo = tr.trLogNo
+AND (trLogType = '구매확정' AND transactionType = '출금')
+
+특정 사용자의 구매/판매 거래내역 조회
+
+SELECT a.* FROM t_account a, t_tradeLog tr
+WHERE a.trLogNo = tr.trLogNo
+AND (transactionType = '입금'
+OR (trLogType = '구매취소' AND transactionType = '출금'))
+UNION
+SELECT a.* FROM t_account a, t_tradeLog tr
+WHERE a.trLogNo = tr.trLogNo
+AND (trLogType = '구매확정' AND transactionType = '출금')
+ORDER BY transactionNo DESC;
+
+SELECT a.* FROM t_account 
+FROM t_account a, t_tradeLog l, t_book b
+WHERE a.trLogNo = t.trLogNo AND l.bookNo = b.bookNo
+AND ( (seller = 'aaa' AND (transationType = '입금' OR (trLogType = '구매취소' AND transactionType = '출금')
+OR (buyer = 'aaa' AND trLogType = '구매취소' AND transactionType = '출금') )
+
+

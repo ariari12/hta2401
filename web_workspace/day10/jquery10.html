@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery10.html</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(function() {
+            $("input[value='숨어']").on("click", function() {
+                $("img").hide(2000, function() {
+                    alert("숨었다!!");
+                });
+            })
+
+            $("input[value='나와']").on("click", function() {
+                $("img").show(1000);
+            })
+        })
+    </script>
+</head>
+<body>
+    <input type="button" value="숨어">
+    <input type="button" value="나와">
+
+    <br>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuk_Qt-0-YQtIa1YHqNYcLF3TCidVEesFnGbrsRhwNxw&s" alt="">
+</body>
+</html>

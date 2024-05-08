@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript20.html</title>
+    <script>
+        // 문자열 객체
+        // String str = new String("ABCDEFG");
+
+        let str = "ABCDEFGH";
+
+        console.log(str);
+
+        // 2번째부터 3글자
+        console.log(str.substr(2, 3));
+
+        // 특정 문자의 위치/
+        // indexOf('A')
+        console.log(str.indexOf('A'));
+
+        // 중첩가능
+        let email = "dagda@hanafos.com";
+
+        // id만 추출
+        // 1. @ 문자의 위치
+        console.log(email.indexOf('@'));
+        // 2. 앞에서부터 이 위치까지 문자 부분집합을 가져오면 id
+        console.log(email.substr(0, email.indexOf('@')));
+
+        console.log("--------------------------------------------------")
+        let friendList = "aaa,bbb,ccc,ddd,eee,fff";
+        // split("기호")를 통해서 문자열을 잘라 배열 형태로 리턴함
+
+        let fList = friendList.split(",");
+
+        // 배열에서 요소를 한개씩 꺼내서 출력
+        for (let i = 0; i < fList.length; i++) {
+            console.log(fList[i]);
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

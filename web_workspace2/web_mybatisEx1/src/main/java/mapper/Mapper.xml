@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace=" ">
+	<select id="AllDept" resultType="kr.co.jhta.vo.DeptVO">
+		SELECT deptno, dname, loc
+		FROM dept
+	</select>
+	
+	<insert id="addOne" parameterType="kr.co.jhta.vo.DeptVO">
+		INSERT INTO dept
+		VALUES(DEPT_DEPTNO.NEXTVAL, #{dname}, #{loc})
+	</insert>
+</mapper>

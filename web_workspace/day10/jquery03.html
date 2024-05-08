@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery03.html</title>
+    <style>
+        #box1 { background: red; width: 300px; height: 300px; }
+    </style>
+    <!-- <script src="../js/jquery-3.7.1.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        // 랜덤사이즈 버튼을 클릭하면
+        // 윈도우창의 크기 x, y가 랜덤하게 변경되어 화면에 출력되도록 자바스크립트 코드를 완성하세요
+        function rnd() {
+            let height = Math.floor(Math.random() * 10) * 100;
+            let width = Math.floor(Math.random() * 10) * 100;
+
+            $("#box1").css({
+                "height" : height + "px",
+                "width" : width + "px"
+            })
+        }
+    </script>
+</head>
+<body>
+    <!-- 배경색은 red, 너비 300px 높이 300px -->
+    <div id="box1"></div>
+    <input type="button" value="랜덤사이즈" onclick = "rnd();">
+</body>
+</html>

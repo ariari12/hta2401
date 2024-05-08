@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css13.html</title>
+    <style>
+        div, img {
+            width: 300px;
+            height: 300px;
+        }
+
+        span {
+            background: blue;
+        }
+        
+        div#div1 {
+            background: green;
+            position: relative;
+            top: -300px;
+        }
+
+        div#div2 {
+            background: red;
+            position: relative;
+            top: -300px;
+            left: 600px;
+        }
+
+        img#img1 {
+            position: fixed;
+            bottom: 320px;
+            right: 0px;
+        }
+
+        img#img2 {
+            /* position: absolute; */
+            position: fixed;
+            bottom: 10px;
+            right: 0px;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        br이 없어도 엔터친 효과가 나는 엘리먼트를 block 요소
+        in-line 요소는 현재 컨텐츠를 감쌀만한 크기를 차지한다.
+    </p>
+    <h1>하하하</h1>
+    <h2>호호호</h2>
+
+    <span>출력1</span>
+    <span>출력2</span>
+
+    <img id="img1" src="../images/movie_image_01.jpg" alt="">
+    <img id="img2" src="../images/movie_image_02.jpg" alt="">
+
+    <div id="div1"></div>
+    <div id="div2"></div>
+    <!-- br*50 -->
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

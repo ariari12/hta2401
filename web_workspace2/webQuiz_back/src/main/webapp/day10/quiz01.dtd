@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT 사원 (명함)+ >
+<!ELEMENT 명함 (회사명, 부서, 성명, 주소, 전화+, 팩스*) >
+<!ELEMENT 회사명 (#PCDATA) >
+<!ELEMENT 부서 (#PCDATA) >
+<!ELEMENT 성명 (#PCDATA) >
+<!ELEMENT 주소 ((시|도), (구|시), 동) >
+<!ELEMENT 시 (#PCDATA) >
+<!ELEMENT 도 (#PCDATA) >
+<!ELEMENT 구 (#PCDATA) >
+<!ELEMENT 동 (#PCDATA) >
+<!ELEMENT 전화 (#PCDATA) >
+<!ELEMENT 팩스 (#PCDATA) >
+
+<!ATTLIST 성명 사번 CDATA #REQUIRED >

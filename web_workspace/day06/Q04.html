@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q04.html</title>
+    <script>
+        function gugudan() {
+            let dan = document.getElementById("txt").value;
+            let div1 = document.getElementById("div1");
+            let data = "";
+
+            console.log(dan);
+
+            for (let i = 1; i <= 9; i++) {
+                data += "<h2>" + dan + "x" + i + "=" + (dan * i);
+            }
+
+            div1.innerHTML = data;
+        }
+    </script>
+</head>
+<body>
+    <input type="text" name="" id="txt">
+    <input type="button" value="단출력" id="btn" onclick="gugudan();" >
+    <div id="div1"></div>
+</body>
+</html>

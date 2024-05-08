@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery02.html</title>
+    <script src="../js/jquery-3.7.1.js"></script>
+    <script>
+        $(document).ready(function() {
+            console.log("hahaha");
+        })
+
+        $(document).ready(function() {
+            console.log("호호호");
+        })
+
+        $(document).ready(function() {
+            console.log($("#div2"));
+
+            // $("#div2").jquery함수();
+            $("#div2").css("background", "blue")
+                      .css("width", "150")
+                      .css("height", "150");
+
+            // $("#container").css("속성", "값");
+            // $("#container").css(JSON 타입);
+            $("#container").css({
+                "background" : "pink",
+                "width" : "300px",
+                "height" : "300px"
+            });
+
+            // id가 container인 엘리먼트에서 width 속성의 값 가져오기
+            console.log($("#container").css("width"));
+            
+            $("#div3").css("background", "red")
+                      .css("width", "150px")
+                      .css("height", "150px")
+            
+            console.log($("#div3").css("width"));
+
+            // document.getElementById("div3").innerText = $("#div3").css("width");
+            $("#div3").html("<h2>" + $("#div3").css("width") + "</h2>");
+
+        })
+    </script>
+</head>
+<body>
+    <!-- 배경은 블루 너비 150 높이 150 -->
+    <div id="div2"></div>
+
+    <!-- 배경은 핑크 너비 300px 높이 300px -->
+    <div id="container"></div>
+
+    <!-- 배경은 red 너비 150px 높이 150px id: div3 인 div -->
+    <!-- div 안쪽에는 높이값을 출력 -->
+    <div id="div3"></div>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery11.html</title>
+    <style>
+        table {
+            table-layout: auto;
+            width: 75%;
+        }
+        td {
+            color: blue;
+            font-weight: bold;
+        }
+        .selectStyle {
+            color: red;
+            font-size: 50px;
+            background: green;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(function() { 
+            // 1번째 tr 태그에 selectStyle 이라는 클래스 부여
+            $("#btn1").on("click", () => {
+                console.log("test");
+                // console.log($("tr"));
+
+                console.log($("tr:first"));
+                $("tr:first").addClass("selectStyle");
+            })
+            $("#btn2").on("click", () => {
+                $("tr:first").removeClass("selectStyle");
+            })
+            $("#btn3").on("click", () => {
+                $("tr:first").toggleClass("selectStyle");
+            })
+            $("#btn4").on("click", () => {
+                console.log($("tr:odd"));
+                // 배경을 핑크
+                $("tr:odd").css("background", "pink");
+            })
+
+            // 5번 버튼 추가 후
+            // 선택시 짝수번째 행의 배경 다크그레이
+            $("#btn5").on("click", () => {
+                $("tr:even").css("background", "darkgray");
+            } )
+
+            // 6번 버튼 추가 후
+            // 첫번째 행의 글자색을 빨강색으로 지정
+            $("#btn6").on("click", () => {
+                $("tr:first>td").css("color", "red");
+            })
+        })
+    </script>
+</head>
+<body>
+    <!-- input:button[value="버튼$" id="btn$"]*4 -->
+    <input type="button" value="버튼1" id="btn1">
+    <input type="button" value="버튼2" id="btn2">
+    <input type="button" value="버튼3" id="btn3">
+    <input type="button" value="버튼4" id="btn4">
+    <input type="button" value="버튼5" id="btn5">
+    <input type="button" value="버튼6" id="btn6">
+
+    <!-- table>(tr>td)*5 -->
+    <table>
+        <tr class="testclass">
+            <td>One</td>
+        </tr>
+        <tr>
+            <td>Two</td>
+        </tr>
+        <tr>
+            <td>Three</td>
+        </tr>
+        <tr>
+            <td>Four</td>
+        </tr>
+        <tr>
+            <td>Five</td>
+        </tr>
+    </table>
+</body>
+</html>

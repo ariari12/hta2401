@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript39.html</title>
+    <script>
+        function prt() {
+            // var로 선언한 변수는 선언부가 스코프 상단으로 끌어롤려지는 호이스팅 현상이 발생한다.
+
+            // console.log(name);
+            // var name = "루피";
+
+            // --------------------------------------------------
+
+            var name;
+            console.log(name);
+            name = "루피";
+        }
+
+        prt();
+
+        function prt2() {
+            console.log(name2);
+            let name2 = "뽀로로";
+        }
+
+        prt2();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q02.html</title>
+    <style>
+        img {
+            width: 15.6%;
+        }
+    </style>
+    <script>
+        function isDuplicate(random, slot) {
+            for (let i = 0; i < slot.length; i++) {
+                if (slot[i] == random) {
+                        return 1;
+                    }
+            }
+        }
+
+        function lotto() {
+            let slot = Array(6);
+            for (let i = 0; i < 6; i++) {
+                let random = Math.floor(Math.random() * 45 + 1);
+                console.log("random(" + i + "): " + random);
+                if (isDuplicate(random, slot) == 1) { 
+                    i--;
+                    continue; 
+                }
+                slot[i] = random;
+                let ball = document.getElementById("ball" + (i + 1));
+                ball.src = "../images/ball/ball" + random + ".png";
+            }
+            console.dir(document);
+        }
+    </script>
+</head>
+<body>
+    <img src="../images/ball/q.jpg" alt="" id="ball1">
+    <img src="../images/ball/q.jpg" alt="" id="ball2">
+    <img src="../images/ball/q.jpg" alt="" id="ball3">
+    <img src="../images/ball/q.jpg" alt="" id="ball4">
+    <img src="../images/ball/q.jpg" alt="" id="ball5">
+    <img src="../images/ball/q.jpg" alt="" id="ball6">
+    <br>
+    <input type="button" value="대박" onclick="lotto();">
+</body>
+</html>

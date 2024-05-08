@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- sql문 -->
+<!-- CRUD -->
+<!-- 전체조회 -->
+<!-- namespace명: kr.co.jhta.web -->
+<!-- 다른 패키지에 중복되는 id가 존재할 수 있으므로 namespace에 속하는 패키지명 작성 -->
+<mapper namespace="kr.co.jhta.web">
+	<!-- emp 전체조회 id: queryAllEmp -->
+	<select id="queryAllEmp" resultType="kr.co.jhta.web.vo.EmpVO">
+		SELECT empno, ename, job, mgr, to_char(hiredate, 'yyyy-mm-dd') hiredate, sal, comm, deptno
+		FROM emp
+	</select>
+	
+	<!-- 1건 조회 id: queryEmpOne -->
+	<select id="queryEmpOne" parameterType="int">
+		SELECT empno, ename, job, mgr, to_char(hiredate, 'yyyy-mm-dd') hiredate, sal, comm, deptno
+		FROM emp
+		WHERE empno = #{empno}
+	</select>
+	
+	<!-- 1건 추가 id: insertEmpOne -->
+	<insert id="insertEmpOne" parameterType="kr.co.jhta.web.vo.EmpVO">
+		INSERT INTO emp
+		VALUES(#{empno}, #{ename}, #{job}, #{mgr}, #{hiredate}, #{sal}, #{comm}, #{deptno})
+	</insert>
+	
+	<!-- 1건 변경 id: updateEmpOne -->
+	<update id="updateEmpOne" parameterType="kr.co.jhta.web.vo.EmpVO">
+		UPDATE emp
+		SET ename = #{ename}, job = #{job}, sal = #{sal}
+		WHERE empno = #{empno}
+	</update>
+	
+	<!-- 1건 삭제 id: deleteEmpOne -->
+	<delete id="deleteEmpOne" parameterType="int">
+		DELETE FROM emp
+		WHERE empno = #{empno}
+	</delete>
+	
+</mapper>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q01.html</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #myCanvas { background: #aaaaaa; }
+    </style>
+    <script>
+        // 배경이미지 객체
+        let bg1 = new Image();
+        bg1.src = "../images/run/bg1.jpg";
+        let bg2 = new Image();
+        bg2.src = "../images/run/bg2.jpg";
+
+        // 배경이미지 x좌표
+        let bg1x = 0;
+        let bg2x = 800;
+
+        let counter = 0;
+
+        // 메인캐릭터 이미지 객체
+        let player1 = new Image();
+        player1.src = "../images/run/run1.png";
+        let player2 = new Image();
+        player2.src = "../images/run/run2.png";
+        let player3 = new Image();
+        player3.src = "../images/run/run3.png";
+
+        // 캐릭터 x,y좌표
+        let playerX = 30;
+        let playerY = 280;
+
+        let ctx;
+
+        window.onload = function() {
+            // console.log("로딩하자마자 자동으로 실행");
+            let canvas = document.getElementById("myCanvas");
+            ctx = canvas.getContext("2d");
+
+            // 키 입력 시 a/d 입력시 좌/우 이동, 스페이스이면 점프하도록
+            let body = document.body;
+            body.onkeydown = move;
+            body.onkeyup = jump;
+
+            window.setInterval(drawScreen, 100)            
+        }
+
+        function drawScreen() {
+            bg1x -= 10;
+            bg2x -= 10;
+            counter++;
+
+            // 배경 다 끝나면 반복되도록 (1-2-1-2...)
+            // (추가??)배경이 다 끝나면 반복, 2 혹은 3이 랜덤으로 나오도록(2: 40%, 3: 60%)
+            if (bg1x <= -800) {
+                bg1x = 800;
+                bg2x = 0;
+            }
+            if (bg2x <= -800) {
+                bg2x = 800;
+                bg1x = 0;
+            }
+
+            // console.log(counter);
+
+            // 배경이미지 그리기
+            // ctx.drawImage("이미지객체", 이미지의 x, y, 너비, 높이);
+            ctx.drawImage(bg1, bg1x, 0, 800, 500);
+            ctx.drawImage(bg2, bg2x, 0, 800, 500);
+
+            // 캐릭터 그리기(달리는 것처럼)
+            if (counter % 3 == 1) {
+                ctx.drawImage(player1, playerX, playerY, 100, 100);
+            } else if (counter % 3 == 2) {
+                ctx.drawImage(player2, playerX, playerY, 100, 100);
+            } else {
+                ctx.drawImage(player3, playerX, playerY, 100, 100);
+            }
+        }
+
+        function move(e) {
+            console.dir(e);
+            if (e.keyCode == 68 && playerX < 700) { playerX += 5; }
+            if (e.keyCode == 65 && playerX > 0) { playerX -= 5; }
+        }
+
+        function jump(e) {
+            if (e.keyCode == 32 && playerY >= playerY - 160) {
+                playerX += 10;
+                playerY -= 80;
+                window.setTimeout(reset, 200);
+            } 
+        }
+
+        function reset() {
+            playerY += 80;
+        }
+    </script>
+</head>
+<body>
+    <canvas id="myCanvas" width="800" height="500"></canvas>
+</body>
+</html>

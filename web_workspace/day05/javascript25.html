@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript25.html</title>
+    <script>
+        // 1. printWhere() 함수 만들기
+        function printWhere() {
+            // 2. 간단한 메시지 출력
+            console.log("오늘은 식목일  식목일을 공휴일로 해주세요 ");
+            // 3. 이름으로 select 객체 출력
+            // console.log(document.frm.where);
+            console.dir(document.frm.where);
+
+            // 4. 몇번을 선택했는지 인덱스 구하기
+            console.log(document.frm.where.selectedIndex);
+
+            // 5. 선택한 메뉴에 따라 페이지를 이동
+            let idx = document.frm.where.selectedIndex;
+            // if (idx == 1) { 
+            //     location.href = "https://www.burgerking.co.kr";
+
+            // } else if (idx == 2) {
+            //     location.href = "https://www.mcdonalds.co.kr";
+
+            // } else if (idx == 3) {
+            //     location.href = "https://www.subway.co.kr";
+
+            // } else if (idx == 4) {
+            //     location.href = "https://momstouch.co.kr";
+
+            // }
+
+            // 6. 웹사이트 추소를 배열에 담기
+            let addrs = new Array(5);
+            addrs[0] = "#"
+            addrs[1] = "https://www.burgerking.co.kr"
+            addrs[2] = "https://www.mcdonalds.co.kr"
+            addrs[3] = "https://www.subway.co.kr"
+            addrs[4] = "https://momstouch.co.kr"
+            
+            // 7. 배열에 특정 인덱스 값으로 웹사이트 주소를 얻어올 수 있다.
+            //    이 값을 location.href에 할당해주면 끝
+            // 맥도날드로 이동
+            // location.href = addrs[1];
+            location.href = addrs[idx];
+        }
+    </script>
+</head>
+<body>
+    <h1>당신이 좋아하는 패스트 푸드점은?</h1>
+
+    <form action="" name="frm">
+        <select name="where" id="sel" onchange="printWhere();">
+            <option value="">-------------</option>
+            <option value="버거킹">버거킹</option>
+            <option value="맥도날드">맥도날드</option>
+            <option value="서브웨이">서브웨이</option>
+            <option value="맘스터치">맘스터치</option>
+        </select>
+    </form>
+</body>
+</html>

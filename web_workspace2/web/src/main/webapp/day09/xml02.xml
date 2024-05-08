@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 어떤 엘리먼트가 사용될 수 있는지 정의할 수 있다. -->
+<!-- Document Type Definition : DTD -->
+<!DOCTYPE department SYSTEM 'ex02.dtd' >
+
+<!--
+	SYSTEM : 사용자정의
+	PBLIC : 공용 
+ -->
+
+<!-- department>dept>deptno{10}+dname{ACCOUNTING}+loc{NEW YORK} -->
+
+<department>
+	<dept>
+		<deptno>10</deptno>
+		<dname>ACCOUNTING</dname>
+		<loc>NEW YORK</loc>
+	</dept>
+	<!-- dept>deptno{20}+daname{RESEARCH}+loc{DALLAS} -->
+	<dept>
+		<deptno>20</deptno>
+		<dname>RESEARCH</dname>
+		<loc>DALLAS</loc>
+	</dept>
+	<dept>
+		<deptno>30</deptno>
+		<dname>SALES</dname>
+		<loc>CHICAGO</loc>
+	</dept>
+	<dept>
+		<deptno>40</deptno>
+		<dname>OPERATIONS</dname>
+		<loc>BOSTON</loc>
+	</dept>
+</department>

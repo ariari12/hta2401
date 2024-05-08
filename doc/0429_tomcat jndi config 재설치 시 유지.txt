@@ -1,0 +1,8 @@
+프로젝트 서버 내의 tomcat context.xml, server.xml 복사
+
+[설치위치]\conf 내의 기존 context.xml, server.xml 을 backup 폴더 생성하여 넣기
+D:\dev\tomcat10\conf
+
+프로젝트 서버 내에서 커스텀한 context.xml, server.xml 붙여넣기
+
+추후 톰캣 새로 설치 시에도 jndi 설정된 xml으로 자동 생성됨

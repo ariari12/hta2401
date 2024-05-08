@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가입신청서</title>
+</head>
+<body>
+    <!-- br*3 -->
+    <br><br><br>
+    <table width="100%">
+        <tr>
+            <th><h2>가입신청서</h2></th>
+        </tr>
+    </table>
+    <form action="">
+        <!-- table>(thead>th*2)*8 -->
+        <!-- table>(tr>td*2)*8 -->
+        <table>
+            <tr>
+                <td>이름 : </td>
+                <td>
+                    <input type="text" name="name" id="">
+                </td>
+            </tr>
+            <tr>
+                <td>주민등록번호 : </td>
+                <td>
+                    <input type="text" name="id1" id="">
+                    - 
+                    <input type="password" name="id2" id="">
+                </td>
+            </tr>
+            <tr>
+                <td>비밀번호 : </td>
+                <td>
+                    <input type="password" name="pwd" id="">
+                </td>
+            </tr>
+            <tr>
+                <td>전화번호 : </td>
+                <td>
+                    <input type="text" name="tel1" id="">
+                     - <input type="text" name="tel2" id="">
+                     - <input type="text" name="tel2" id="">
+                </td>
+            </tr>
+            <tr>
+                <td>주소 : </td>
+                <td>
+                    <input type="text" name="address" id="">
+                </td>
+            </tr>
+            <tr>
+                <td>E-mail : </td>
+                <td>
+                    <input type="text" name="email1" id="">
+                     @
+                    <input type="text" name="email2" id="">
+                    <select name="email" id="">
+                        <option value="self">직접입력</option>
+                        <option value="gmail">gmail.com</option>
+                        <option value="naver">naver.com</option>
+                        <option value="daum">daum.net</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>성별 : </td>
+                <td>
+                    <input type="radio" name="gender" value="M">남자
+                    <input type="radio" name="gender" value="F">여자
+                </td>
+            </tr>
+            <tr>
+                <td>취미 : </td>
+                <td>
+                    <input type="checkbox" name="music" id="">음악감상
+                    <input type="checkbox" name="book" id="">독서
+                    <input type="checkbox" name="sport" id="">운동
+                </td>
+            </tr>
+        </table>
+        <table width="100%">
+            <tr>
+                <th>
+                    <input type="submit" value="가입합니다">
+                    <input type="reset" value="취소합니다">
+                </th>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

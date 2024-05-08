@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript12.html</title>
+    <script>
+        function prt() {
+            let d = document.getElementById("dan");
+            let dan = parseInt(d.value);
+            for (let i = 1; i <= 9; i++) {
+                console.log(dan + " x " + i + " = " + dan * i);
+                document.write("<h2>" + dan + " x " + i + " = " + dan * i + "</h2>");
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="text" name="" id="dan">
+    <input type="button" value="구구단" onclick="prt();">
+
+    <!-- 1. 버튼을 클릭 시 입력된 구구단을 출력 (콘솔에 출력) -->
+
+    <!-- 2. 버튼을 클릭 시 입력된 구구단을 출력 (브라우저에 h2 태그 사용하여 출력) -->
+</body>
+</html>

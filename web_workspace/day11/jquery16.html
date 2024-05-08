@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery16.html</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        let news = [
+            "1. 주 4일제 근무 ",
+            "2. 칼 퇴근법",
+            "3. 신입사원 어느회사를 골라 갈지 고민중",
+            "4. 블라블라블라~~~ ",
+            "5. 대한민국 산유국 반열에 올라...유전 발견"
+        ]
+        
+        let timer = 0;
+        let index = 0;
+
+        function showNews() {
+            // 배열의 범위 초과 방지
+            if (index == news.length) { index = 0; }
+            $("#topNews")[0].innerHTML = "<h2>" + news[index++] + "</h2>";
+        }
+
+        function startNews() {
+            // console.log($("#topNews"));
+            timer = window.setInterval(showNews, 1000);
+            console.log(timer);
+        }
+
+        function stopNews() {
+            window.clearInterval(timer);
+        }
+
+        $(function() {
+            $("input[value='뉴스보기']").on("click", startNews);
+            $("input[value='뉴스중지']").on("click", stopNews);
+        })
+    </script>
+</head>
+<body>
+    <!-- div#topNews>input:button[value='뉴스보기']+input:button[value='뉴스중지'] -->
+    <div id="topNews"></div>
+    <input type="button" value="뉴스보기">
+    <input type="button" value="뉴스중지">
+    
+</body>
+</html>

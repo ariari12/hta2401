@@ -1,0 +1,17 @@
+아래 경로로 이동
+[설치경로]\product\21c\homes\OraDB21Home1\network\admin
+D:\app\jhta\product\21c\homes\OraDB21Home1\network\admin
+
+tnsnames.ora 파일을 메모장으로 열기
+
+XE = ... ) 부분 복사해서 아래 새로 추가
+
+추가한 내용을 아래와 같이 이름과 호스트 변경
+db1 =
+  (DESCRIPTION =
+    (ADDRESS = (PROTOCOL = TCP)(HOST = 192.168.99.32)(PORT = 1521))
+    (CONNECT_DATA =
+      (SERVER = DEDICATED)
+      (SERVICE_NAME = XE)
+    )
+  )

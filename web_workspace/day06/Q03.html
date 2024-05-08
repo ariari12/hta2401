@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q03.html</title>
+    <script>
+        function gugudan() {
+            let print = document.getElementById("print");
+            let data = "<table border='1px'>"
+
+            for (let i = 1; i < 10; i++) {
+                data += "<tr>";
+                for (let j = 2; j < 10; j++) {
+                    data += "<td>" + j + "x" + i + "=" + (j * i) + "</td>";
+                }
+                data += "</tr>";
+            }
+
+            data += "</table>";
+
+            print.innerHTML = data;
+        }
+    </script>
+</head>
+<body>
+    <h2>구구단 표</h2>
+    <div id="print">
+        <input type="button" value="클릭" onclick="gugudan();">
+    </div>
+</body>
+</html>

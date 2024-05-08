@@ -1,0 +1,79 @@
+이클립스 워크스페이스 초기설정
+
+windows > preference
+enc 검색
+
+General > Workspace
+UTF-8인지 확인, 아닐 경우 변경
+Web > CSS Files
+UTF-8인지 확인, 아닐 경우 변경
+Web > HTML Files
+UTF-8인지 확인, 아닐 경우 변경
+Web > JSP Files
+UTF-8인지 확인, 아닐 경우 변경
+XML > XML Files
+UTF-8인지 확인, 아닐 경우 변경
+
+프로젝트 생성
+Create a project... > wizard 창 열림
+dy 검색
+dynamic web project 선택
+
+Project Name: web
+Target Runtime: 어디서 웹 실행할건지
+new Runtime... 선택
+Tomcat 10.1버전, new file 체크박스 체크
+Next
+Tomcat 설치 위치 지정
+D:\dev\tomcat10
+Installed JRE 선택
+(기본값, 17)
+Apply, Finish
+Dynamic web modue 최신(6.0)
+Finish
+
+webapp > new > new html file
+
+servers 탭에서 톰캣 우클릭 > start
+
+빈 창에서 우 클릭 > run as > on server > exsiting tomcat 10.1 선택
+하단의 언제나 사용 체크박스 체크
+실행
+
+emmet eclipse 설정
+https://github.com/emmetio/emmet-eclipse#readme
+위 사이트의 installation 부분 참고
+
+select all 누르고 trust
+체크하고 다시 체크박스 체크 리스크를 감수하고... 어쩌고 체크
+trust
+조금 더 기다려서 restart 누르고 자동으로 이클립스 재실행
+재실행 후 li>a 입력 후 tab 입력 시 태그 자동완성되는지 확인
+
+emmet 설정 후 ctrl d 행삭제 바로 안 될 때
+이유: emmet에서 동일한 단축키 사용해서 
+window > preference > 검색창에 key 검색
+Match ... outbind?? 단축키 ctrl d인지 확인하고 unbind
+
+많이 쓰는 구문 스니펫(자동완성) 등록
+
+PrintWriter out = resp.getWriter();
+		out.println("<html>");
+		out.println("<head>");
+		out.println("<meta charset = 'UTF-8'>");
+		out.println("<title> </title>");
+		out.println("</head>");
+		out.println("<body>");
+		out.println("</body>");
+		out.println("</html>");
+
+위 구문 이클립스에서 블락 > 우클릭 > Add to snipets
+println으로 등록
+이후 snipet 탭에서 println 클릭하면 자동으로 불러와짐
+
+
+jsp에서 emmet 설정
+window > preference > emmet 의 ...in files with extensions에
+맨 앞에 jsp, 추가
+
+jsp, html, xml, xsl, xsd, css, php, tpl, less, styl, scss, sass, jade, haml, hbs, twig

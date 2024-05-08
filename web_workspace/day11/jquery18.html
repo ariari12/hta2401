@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery18.html</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        let pos = 0;
+        let counter = 0;
+
+        function moveImage() {
+            counter++;
+            let num = (counter % 2) + 1;
+            $("img").attr("src", "../images/rabbit/rabbit" + num + ".png");
+            // if (counter % 2 == 0) { $("img").attr("src", "../images/rabbit/rabbit1.png"); }
+            // else if (counter % 2 == 1) { $("img").attr("src", "../images/rabbit/rabbit2.png"); }
+
+            pos += 10;
+            $("img").css("margin-left", pos + "px");
+        }
+        
+        $(() => {
+            $("#btn1").on("click", moveImage)
+        })
+    </script>
+    
+</head>
+<body>
+    <input type="button" value="btn1" id="btn1">
+
+    <div id="box1">토끼이미지</div>
+    <div><img src="../images/rabbit/rabbit1.png" alt=""></div>
+    
+</body>
+</html>

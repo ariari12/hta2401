@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css20.html</title>
+    <style>
+        /* li 요소에 . 제거 */
+        /* 마진 0, 너비 200px, 배경은 회색 */
+        ul {
+            list-style-type: none;
+            margin: 0px;
+            padding: 0px;
+            width: 200px;
+            background: rgb(172, 170, 60);
+        }
+        li a {
+            display: block;
+            color: #000000;
+            padding: 8px 16px;
+            text-decoration: none;
+        }
+        li a:hover {
+            background: #555555;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>수직 네이게이션바</h1>
+
+    <!-- ul>li>a[href='#']*4 -->
+    <ul>
+        <li>
+            <a href="#">HOME</a>    
+            <a href="#">JAVA</a>
+            <a href="#">ORACLE</a>
+            <a href="#">JSP</a>
+        </li>
+    </ul>
+</body>
+</html>

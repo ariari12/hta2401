@@ -1,0 +1,16 @@
+#등록 제외할 폴더
+ollama/
+tomcat10/
+workspace/.metadata
+download/
+cos-22.05/
+
+#등록 제외할 파일
+apache-tomcat-10.1.20-windows-x64.zip
+MonoplexKR-v0.0.2.zip
+web_workspace2/web/.classpath
+product.zip
+cos-22.05.zip
+
+#톰캣 위치 설정 파일
+web_workspace2/Servers/Tomcat\ v10.1\ Server\ at\ localhost-config/

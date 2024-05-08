@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css18.html</title>
+    <style>
+        .css_test>span {
+            background: red;
+            padding: 10px;
+        }
+        #aaa {
+            border-radius: 10px;
+        }
+        #bbb {
+            border-radius: 20px;
+        }
+        #ccc {
+            border-radius: 5px 10px 20px 30px;
+        }
+        /* id가 ddd인 span을 동그라미에 가까운 버튼형으로 변경 */
+        #ddd {
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <!-- div.css_test>span -->
+    <div class="css_test">
+        <span id="aaa">버튼1</span>
+        <span id="bbb">버튼2</span>
+        <span id="ccc">버튼3</span>
+        <span id="ddd">버튼4</span>
+    </div>
+</body>
+</html>

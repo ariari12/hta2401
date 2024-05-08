@@ -1,0 +1,87 @@
+
+C:\Users\jhta>sqlplus scott/tiger
+
+SQL*Plus: Release 21.0.0.0.0 - Production on 목 4월 25 10:19:07 2024
+Version 21.3.0.0.0
+
+Copyright (c) 1982, 2021, Oracle.  All rights reserved.
+
+마지막 성공한 로그인 시간: 목 4월  25 2024 09:40:37 +09:00
+
+다음에 접속됨:
+Oracle Database 21c Express Edition Release 21.0.0.0.0 - Production
+Version 21.3.0.0.0
+
+* 열 변경 발생해서 나중에 다시 drop하고 create함
+SQL> create table fileuploadtest
+  2  (no number(6),
+  3  title varchar2(100),
+  4  writer varchar2(100),
+  5  contents clob,
+  6  filename varchar2(1000));
+
+테이블이 생성되었습니다.
+
+SQL> create sequence fileup_no_seq
+  2  start with 1
+  3  increment by 1
+  4  nocache
+  5  nocycle;
+
+시퀀스가 생성되었습니다.
+
+SQL> select * from user_sequences;
+
+SEQUENCE_NAME
+--------------------------------------------------------------------------------
+ MIN_VALUE  MAX_VALUE INCREMENT_BY CY OR CACHE_SIZE LAST_NUMBER SC EX SH SE KE
+---------- ---------- ------------ -- -- ---------- ----------- -- -- -- -- --
+DEPT_DEPTNO
+         1 1.0000E+28            1 N  N           0           3 N  N  N  N  N
+
+FILEUP_NO_SEQ
+         1 1.0000E+28            1 N  N           0           1 N  N  N  N  N
+
+MEMBER_NO_SEQ
+         1 1.0000E+28            1 N  N           0          10 N  N  N  N  N
+
+
+SEQUENCE_NAME
+--------------------------------------------------------------------------------
+ MIN_VALUE  MAX_VALUE INCREMENT_BY CY OR CACHE_SIZE LAST_NUMBER SC EX SH SE KE
+---------- ---------- ------------ -- -- ---------- ----------- -- -- -- -- --
+PRODUCT_PNO_SEQ
+         1 1.0000E+28            1 N  N           0          42 N  N  N  N  N
+
+
+SQL>
+SQL>
+SQL> create table fileinfo
+  2  (fno number(8),
+  3  filename varchar2(1000),
+  4  type varchar2(40),
+  5  no number(6));
+
+테이블이 생성되었습니다.
+
+SQL> create sequence fileinfo_fno_seq
+  2  start with 1
+  3  increment by 1
+  4  nocache
+  5  nocycle;
+
+시퀀스가 생성되었습니다.
+
+SQL> drop table fileuploadtest;
+
+테이블이 삭제되었습니다.
+
+SQL> create table fileuploadtest
+  2  (no number(6),
+  3  title varchar2(100),
+  4  writer varchar2(100),
+  5  contents clob);
+
+테이블이 생성되었습니다.
+
+SQL>

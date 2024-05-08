@@ -1,0 +1,102 @@
+orcacle db pw
+oracle
+
+설치 후 cmd에서 오라클 로그인
+sqlplus system/oracle
+
+sys: 소유한 계정
+system: 관리 계정
+
+cmd 작업한 내역
+
+Microsoft Windows [Version 10.0.19045.4170]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\jhta>sqlplus system/oracle
+
+SQL*Plus: Release 21.0.0.0.0 - Production on 목 4월 18 14:26:41 2024
+Version 21.3.0.0.0
+
+Copyright (c) 1982, 2021, Oracle.  All rights reserved.
+
+마지막 성공한 로그인 시간: 목 4월  18 2024 14:20:04 +09:00
+
+다음에 접속됨:
+Oracle Database 21c Express Edition Release 21.0.0.0.0 - Production
+Version 21.3.0.0.0
+
+SQL> show user
+USER은 "SYSTEM"입니다
+SQL> connect scott/tiger
+ERROR:
+ORA-01017: 사용자명/비밀번호가 부적합, 로그온할 수 없습니다.
+
+
+경고: 이제는 ORACLE에 연결되어 있지 않습니다.
+SQL> conn sys/oracle as sysdba
+연결되었습니다.
+SQL> alter session set "_ORACLE_SCRIPT"=TRUE;
+
+세션이 변경되었습니다.
+
+SQL> CREATE USER SCOTT
+  2  identified by tiger
+  3  default tablespace users
+  4  quota unlimited on users
+  5  temporary tablespace temp;
+
+사용자가 생성되었습니다.
+
+SQL> GRANT CONNECT, RESOURCE TO SCOTT;
+
+권한이 부여되었습니다.
+
+
+SQL> conn scott/tiger
+연결되었습니다.
+SQL> show user
+USER은 "SCOTT"입니다
+SQL> SELECT * FROM emp;
+SELECT * FROM emp
+              *
+1행에 오류:
+ORA-00942: 테이블 또는 뷰가 존재하지 않습니다
+
+
+SQL> CONNECT scott/tiger
+연결되었습니다.
+SQL> show user
+USER은 "SCOTT"입니다
+SQL> @D:\dev\demobld.sql
+Building demonstration tables.  Please wait.
+Demonstration table build is complete.
+SQL>
+SQL>
+SQL> select * from dept
+  2  ;
+
+    DEPTNO DNAME                        LOC
+---------- ---------------------------- --------------------------
+        10 ACCOUNTING                   NEW YORK
+        20 RESEARCH                     DALLAS
+        30 SALES                        CHICAGO
+        40 OPERATIONS                   BOSTON
+
+SQL> select count(*) from emp;
+
+  COUNT(*)
+----------
+        14
+
+SQL> select count(*) from dept;
+
+  COUNT(*)
+----------
+         4
+
+SQL>
+
+
+jdbc 파일 경로
+[설치경로]\dbhomeXE\jdbc\lib
+D:\app\jhta\product\21c\dbhomeXE\jdbc\lib

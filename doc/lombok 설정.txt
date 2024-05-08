@@ -1,0 +1,25 @@
+cmd에서 아래 실행
+Microsoft Windows [Version 10.0.19045.4170]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\jhta>D:
+
+D:\>cd D:\dev
+
+D:\dev>java -jar lombok.jar
+
+윈도우 창이 팝업됨
+이클립스 경로를 수동으로 지정
+ex) C:\dev\eclipse
+하면 eclipse.exe 자동으로 목록에 나옴
+이클립스만 체크 후 install/update
+Quit installer
+
+이후 MyLib 폴더에 lombok.jar "복사"한 후
+이클립스에서 프로젝트 우클릭 > buildpath config
+기존에 추가한 myLib edit > add external jar해서 lombok.jar 추가
+
+이후 getter setter 필요한 클래스의 클래스 선언부 위에
+@Setter 입력하면 lombok의 setter가 import됨
+outline을 통해 메서드 추가된 것 확인 가능
+=> 적용 안 될 경우 이클립스 껐다 켜서 확인

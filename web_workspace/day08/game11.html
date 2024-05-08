@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>game11.html</title>
+    <style>
+        * {
+            /* 크로스 브라우징 */
+            /* 브라우저에 상관없이 동일한 화면을 제공하고자 할 때 */
+            /* 초기화를 위해서 사용 */
+            margin: 0;
+            padding: 0;
+        }
+        #myCanvas { background: #aaaaaa; }
+    </style>
+    <script>
+        // 조준경 이미지 객체
+        let snipe = new Image();
+        // 조준경 이미지 소스를 지정
+        snipe.src = "../images/rabbit/snipe.png"
+
+        // 배경 이미지
+        let bgImg1 = new Image();
+        bgImg1.src = "../images/rabbit/bg.jpg";
+        let bgImg2 = new Image();
+        bgImg2.src = "../images/rabbit/bg.jpg";
+
+        // 배경음악 객체
+        let bgMusic = new Audio("../sounds/backsound.mp3");
+        
+        // 배경 x좌표
+        let bgX1 = 0;
+        let bgX2 = 800;
+
+        // 재장전 사운드
+        let reload = new Audio("../sounds/reload.wav");
+
+        // 토끼 이미지 객체
+        let rabbit1 = new Image();
+        rabbit1.src = "../images/rabbit/rabbit1.png";
+
+        let rabbit2 = new Image();
+        rabbit2.src = "../images/rabbit/rabbit2.png";
+
+        // 조준경 이미지 x,y 좌표를 선언
+        let snipeX = 100;
+        let snipeY = 100;
+
+        // 구멍 이미지
+        let holeImg = new Image();
+        holeImg.src = "../images/rabbit/hole.png";
+
+        // 토끼좌표 변수
+        let rabbitX = 100;
+        let rabbitY = 100;
+
+        // 반동 y값
+        let reboundY = 0;
+
+        // 재장전 중인지 판단하는 변수
+        let isReload = false;
+
+        // 구멍의 x, y 좌표
+        let holeX = -100;
+        let holeY = -100;
+
+        // 총소리 객체
+        let fireSound = new Audio("../sounds/fire.wav");
+
+        // 구멍 배열을 선언
+        let holeArray = [];
+
+        // 스크림 사운드
+        let scream = new Audio("../sounds/scream.wav");
+
+        // 스코어 변수
+        let score = 0;
+
+        // ctx를 전역변수로
+        let ctx;
+        // 카운터 변수
+        let counter = 0;
+
+        // 두점의 거리
+        function pythagoras(x1, y1, x2, y2) {
+            return Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
+        }
+
+        window.onload = function() {
+            // myCanvas 엘리먼트 객체 가져오기
+            let canvas = document.getElementById("myCanvas");
+            // ctx 객체 가져오기
+            ctx = canvas.getContext("2d");
+
+            let body = document.body;
+            // console.dir(body);
+            
+            // body.onkeydown = 함수명;
+            body.onkeydown = moveRabbit;
+
+            // moveRabbit 함수를 실행하고 리턴되는 결과를 반환함
+            // body.onkeydown = moveRabbit();
+
+            // console.dir(canvas);
+            canvas.onmousemove = moveSnipe;
+
+            canvas.onmousedown = fire;
+
+            // drawScreen();
+
+            // window.setTimeout(drawScreen, 1000); // 1회성
+            // window.setInterval(함수명, 지연시간);
+            window.setInterval(drawScreen, 200);
+        }
+
+        function moveSnipe(e) {
+            // console.dir(e);
+            snipeX = e.pageX;
+            snipeY = e.pageY;
+        }
+
+        function fire(e) {
+            console.log("총알 발사 시도")
+            // 장전 중이면 발사 안되게
+            if (isReload) { return; }
+
+            // isReload가 false이므로 아래부분을 실행
+            isReload = true;
+
+            // 총소리
+            fireSound.currentTime = 0;
+            fireSound.play();
+            console.log("빵야: 재장전 중에는 실행 안됨");
+
+            // 쏘면 조준경 위로 올라갔다 내려가기
+            reboundY = 50;
+            
+            // console.dir(e);
+            let hx = e.pageX;
+            let hy = e.pageY;
+
+            // 토끼가 총에 맞았는지 거리 계산
+            let dis = pythagoras(rabbitX, rabbitY, hx, hy);
+
+            // console.log("토끼와 구멍 사이의 거리: " + dis);
+
+            if (dis <= 60) {
+                // 스코어 가산
+                score += 100;
+                
+                // 토끼가 맞았다면 비명
+                window.setTimeout(function() {
+                    scream.currentSrc = 0;
+                    scream.play();
+                    console.log("*토끼 비명*");
+                }, 500);
+                
+                // 자바스크립트 객체    : JSON
+                // 구멍좌표를 ==> 토끼 기준으로 상대적 위치를 지정
+                hx -= rabbitX;
+                hy -= rabbitY;
+                let h = {
+                    x : hx,
+                    y : hy
+                }
+                
+                // console.log(h);
+
+                // 구멍배열에 이 객체를 담기
+                holeArray.push(h);
+                console.log(holeArray);
+                
+                // 구멍의 좌표변수에 할당
+                // holeX = x;
+                // holeY = y;
+
+                randomPosition();
+            }
+        }
+
+        function randomPosition() {
+            // 토끼 좌표 랜덤 이동
+            let rx = Math.floor(Math.random() * 700);
+            let ry = Math.floor(Math.random() * 500);
+
+            rabbitX = rx;
+            rabbitY = ry;
+        }
+
+        function drawScreen() {
+            // 점점 반동값을 줄이기
+            if (reboundY >= 3) {
+                reboundY -= 3;
+            }
+
+            if (reboundY < 3 && isReload) {
+                reload.currentSrc = 0;
+                reload.play();
+                console.log("*재장전*");
+                reboundY = 0;
+                isReload = false;
+            }
+
+            bgX1 -= 3;
+            bgX2 -= 3;
+
+            // 이미지 두장을 번갈아 가면서 위치를 조정
+            if (bgX1 <= -800) { 
+                bgX1 = 800; 
+                bgX2 = 0;
+            }
+            if (bgX2 <= -800) {
+                bgX2 = 800;
+                bgX1 = 0;
+            }
+
+            counter++;
+            if (counter % 5 == 0) {
+                randomPosition();
+            }
+
+            // console.log(counter);
+            // 배경그리기
+            // ctx.drawImage("배경", x, y, 너비, 높이)
+            ctx.drawImage(bgImg1, bgX1, 0, 800, 600);
+            ctx.drawImage(bgImg2, bgX2, 0, 800, 600);
+            // 토끼 그리기
+            if (counter % 2 == 1) {
+                ctx.drawImage(rabbit1, rabbitX - 50, rabbitY - 50, 100, 100);
+            } else {
+                ctx.drawImage(rabbit2, rabbitX - 50, rabbitY - 50, 100, 100);
+            }
+
+            for (let i = 0; i < holeArray.length; i++) {
+                let h = holeArray[i];
+                ctx.drawImage(holeImg, h.x + rabbitX - 10, h.y + rabbitY - 10, 20, 20);
+            }
+
+            // ctx.drawImage(holeImg, holeX - 10, holeY -10, 20, 20);
+            // window.setTimeout(remove, 1000);
+
+            // 조준경 그리기
+            ctx.drawImage(snipe, snipeX - 50, snipeY - 50 - reboundY, 100, 100);
+            // window.setTimeout(drawScreen, 1000);
+
+            // 점수 그리기
+            ctx.fillStyle = "red";
+            ctx.font = "35px 고딕";
+            ctx.fillText("SCORE : " + score, 300, 50);
+        }
+
+        function remove() {
+            holeX = -100;
+            holeY = -100;
+        }
+
+        function moveRabbit(e) {
+            console.log(e.keyCode);
+            if (e.keyCode == 87) { rabbitY -= 3; }
+            if (e.keyCode == 65) { rabbitX -= 3; }
+            if (e.keyCode == 68) { rabbitX += 3; }
+            if (e.keyCode == 83) { rabbitY += 3; }
+        }
+
+        function startMusic() {
+            console.log("배경음악 시작~~~~~");
+            bgMusic.play();
+        }
+
+        function stopMusic() {
+            console.log("배경음악 중지~~~~");
+            bgMusic.currentTime = 0;
+            bgMusic.pause();
+        }
+    </script>
+</head>
+<body>
+    
+    <canvas id="myCanvas" width="800" height="600"></canvas>
+    <br>
+    <input type="button" value="배경음악ON" onclick="startMusic();">
+    <input type="button" value="배경음악OFF" onclick="stopMusic();">
+    <br>
+    <!-- &nbsp;&nbsp;&nbsp;&nbsp; <input type="button" value="↑" onclick="moveRabbit(8)"><br>
+    <input type="button" value="←" onclick="moveRabbit(4)"> &nbsp;&nbsp; <input type="button" value="→" onclick="moveRabbit(6)"><br>
+    &nbsp;&nbsp;&nbsp;&nbsp; <input type="button" value="↓" onclick="moveRabbit(2)"> -->
+
+</body>
+</html>

@@ -1,0 +1,10 @@
+파일 전송 쉽게 해주는 클래스
+
+http://servlets.com/cos/
+아래 Download에서 cos-22.05.zip 다운로드
+D:\dev\cos-22.05\lib 위치의 cos.jar 파일을 아래 경로에 복사
+D:\dev\web_workspace2\web\src\main\webapp\WEB-INF\lib
+[워크스페이스]\web\src\main\webapp\WEB-INF\lib
+
+API 문서 index.html에서 확인 가능
+file:///D:/dev/cos-22.05/doc/index.html

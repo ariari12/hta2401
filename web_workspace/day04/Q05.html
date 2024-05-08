@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q05.html</title>
+    <script>
+        function msgOddEven(num) {
+            let msg;
+
+            if (num % 2 == 1) {
+                msg = "홀수입니다.";
+            } else if (num % 2 == 0) {
+                msg = "짝수입니다.";
+            } else {
+                msg = "숫자가 아닙니다."
+            }
+
+            console.log(num + "은(는) " + msg);
+        }
+
+        let num = parseInt(prompt("숫자를 입력해 주세요."))
+        msgOddEven(num);
+        
+    </script>
+</head>
+<body>
+</body>
+</html>

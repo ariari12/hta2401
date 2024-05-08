@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery05.html</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(function() {
+            // $("#btn").on("click", 함수명);
+            $("#btn").on("click", function() {
+                console.log("메세지~~~~~");
+                // let txt = document.getElementById("txt");
+                // console.log(txt.value);
+                
+                console.log($("#txt").val());
+                // $("#txt").val("점심시간");
+
+                // id가 div1인 엘리먼트에 h2 태그로 사용자가 입력한 값을 출력
+                $("#div1").html("<h2>" + $("#txt").val() + "</h2>");
+            });
+
+        })
+    </script>
+</head>
+<body>
+    <!-- 버튼을 누르면 콘솔에 간단한 메세지를 출력하게 하기 (함수명: prt()) -->
+
+    <!-- id가 txt인 엘리먼트 콘솔에 출력 -->
+    <input type="text" name="" id="txt">
+    <input type="button" value="출력" id="btn">
+    <div id="div1"></div>
+</body>
+</html>

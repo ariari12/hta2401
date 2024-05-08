@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q03.html</title>
+    <link rel="stylesheet" href="./Q03.css">
+</head>
+<body>
+    <div id="header">
+        <a href="http://www.amazon.com">
+            <img id="logo" src="../images/amazon/login_image_01.png" alt="아마존 로고">
+        </a>
+    </div>
+    <div id="container">
+        <div id="content">
+            <span class="beforJoin">Create account</span>
+            <form action="join">
+                <label for="name">Your name</label><br>
+                <input type="text" name="name" id="name"><br>
+
+                <label for="telOrEmail">Mobile number or email</label><br>
+                <input type="text" name="telOrEmail" id="telOrEmail"><br>
+
+                <label for="pwd">Password</label><br>
+                <input type="password" name="pwd" id="pwd"><br>
+                <div id="pwdInfo">
+                    <div id="pwdImg" class="divImg"></div>
+                    <span>Passwords must be at least 6 characters.</span>
+                </div>
+                
+                <label for="rePwd">Re-enter password</label><br>
+                <input type="password" name="rePwd" id="rePwd"><br>
+
+                <input type="submit" value="Continue">
+
+                <br><br>
+                <span class="hyperTxt">
+                    By creating an account, you agree to Amazon's<br> 
+                    <a href="#">Conditions of Use</a> and <a href="#">Privacy Notice</a>.
+                </span>
+            </form>
+            <div id="desc">
+                <!-- 로그인 아래 설명 -->
+                <br><br>
+                <hr>
+                <br>
+                <span class="descTxt">Buying for work?</span><br>
+                <span class="hyperTxt descTxt">
+                    <a href="#">Create a free business account</a>
+                </span>
+                <br><br>
+                <hr>
+                <br>
+                <span class="hyperTxt signIn">
+                    Already have an account? 
+                    <a href="#">
+                        Sign in
+                        <div id="signInImg" class="divImg"></div>
+                    </a>
+                </span>
+                <br>
+            </div>
+        </div>
+        <div id="footer">
+            <!-- 규정 등 설명 -->
+        </div>
+    </div>
+
+</body>
+</html>

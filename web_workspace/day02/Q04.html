@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div#mainPic {
+            width: 33%;
+            height: 50%;
+            margin: 2%;
+        }
+
+        img#mainImg {
+            width: 100%;
+            height: 100%;
+        }
+
+        div#description {
+            position: absolute;
+            top: 0px;
+            left: 35%;
+            margin: -1% 5%;
+        }
+
+        div#engName {
+            margin-top: -4%;
+        }
+
+        hr#separator {
+            margin: 4% 0px;
+        }
+
+        table#info {
+            
+            width: 100%;
+        }
+
+        #info1 {
+            margin-top: 8%;
+            width: 100%;
+            border-top: 1px solid darkgray;
+            border-bottom: 1px solid darkgray;
+        }
+
+        #info2, #info3 {
+            width: 100%;
+        }
+
+        td {
+            border: 1px solid black;
+        }
+
+        td.rightInfo {
+            text-align: right;
+        }
+
+        div.rightInfo {
+            position: absolute;
+            right: 0px;
+            margin-right: 2%;
+            margin-top: -5%;
+        }
+    </style>
+</head>
+<body>
+    <!-- div#mainPic>img[alt='레드벨벳 크림치즈 케이크'] -->
+    <div id="mainPic">
+        <img id="mainImg" src="../images/starbucks/starbucks_image_01.jpg" alt="레드벨벳 크림치즈 케이크">
+    </div>
+    <!-- div#description>div#menuDesc+table#info>(tr>td*2)*4 -->
+    <div id="description">
+        <div id="menuDesc">
+            <!-- h4{레드벨벳 크림치즈 케이크} -->
+            <h2>레드벨벳 크림치즈 케이크</h2>
+            <div id="engName">Red Velvet Cream Cheese Cake</div>
+            <hr id="separator" size="3" color="black">
+            레드벨벳 시트 사이에 크림치즈 무스를 샌드한 케이크입니다.
+        </div>
+        <div id="info1">
+            <div>제품 영양 정보</div>
+            <div class="rightInfo">125(g)</div>
+        </div>
+        <table id="info2">
+            <tr>
+                <td>
+                    <span>1회 제공량 (kcal)</span>
+                    <span>510</span>
+                </td>
+                <!-- <td class="rightInfo">510</td> -->
+                <td>
+                    <span>당류 (g)</span>
+                    <span>36</span>
+                </td>
+                <!-- <td class="rightInfo">36</td> -->
+            </tr>
+        </table>
+        <table id="info3">
+            <tr>
+                <td>
+                    <span>포화지방 (g)</span>
+                    <span>15</span>
+                </td>
+                <!-- <td class="rightInfo"></td> -->
+                <td>
+                    <span>단백질 (g)</span>
+                    <span>4</span>
+                </td>
+                <!-- <td class="rightInfo"></td> -->
+            </tr>
+            <tr>
+                <td>
+                    <span>나트륨 (mg)</span>
+                    <span>425</span>
+                    </td>
+                <!-- <td class="rightInfo"></td> -->
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

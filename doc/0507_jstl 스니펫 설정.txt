@@ -1,0 +1,4 @@
+카테고리: jsp
+이름: jstl
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>

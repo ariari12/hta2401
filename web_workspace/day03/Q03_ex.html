@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q03_ex.html</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .container {
+            width: 350px;
+            margin: 0 auto;
+            font-size: 12px;
+        }
+        .container .logo {
+            text-align: center;
+        }
+        .container .wrapper {
+            border: 1px solid #cccccc;
+            border-radius: 10px;
+            padding: 20px;
+        }
+        .wrapper>h2 {
+            font-size: 26px;
+        }
+        .wrapper>.signup-content {
+            padding: 20px 0;
+            border-top: 1px solid #cccccc;
+        }
+
+        .wrapper .item-label {
+            font-weight: bold;
+            margin-top: 10px;
+            margin-bottom: 5px;
+            width: 200px;
+            display: inline-block;
+        }
+        .wrapper .item-data {
+            /* margin-top: 5px; */
+            width: 300px;
+        }
+
+        input[type=button] {
+            margin-top: 15px;
+            width: 305px;
+            background: #F7CA00;
+            border: none;
+            border-radius: 10px;
+            padding: 8px;
+        }
+        .signup-wrap {
+            border: none;
+            border-bottom: 1px solid #cccccc;
+            padding: 20px 0;
+        }
+        .signup-wrap2 {
+            padding: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <a href="http://www.amazon.com">
+                <img src="../images/amazon/login_image_01.png" alt="아마존 로고">
+            </a>
+        </div>
+
+        <div class="wrapper">
+            <h2>Create account</h2>
+
+            <div class="signup-content">
+                <label for="name" class="item-label">Your name</label>
+                <input type="text" name="name" class="item-data" id="name" placeholder="First and last name">
+
+                <label for="email" class="item-label">Mobile number or email</label>
+                <input type="text" name="email" class="item-data" id="email">
+
+                <label for="password" class="item-label">Password</label>
+                <input type="password" name="password" class="item-data" id="password" placeholder="At least 6 characters">
+
+                <p>Passwords must be at least 6 characters.</p>
+
+                <label for="repassword" class="item-label">Re-enter password</label>
+                <input type="password" name="repassword" class="item-data" id="repassword">
+
+                <input type="button" value="Continue">
+
+                <div class="signup-wrap">
+                    <p>By creating an account, you agree to Amazon's</p>
+                    <p>
+                        <a href="https://www.amazon.com/gp/help/customer/display.html/ref=ap_register_notification_condition_of_use?ie=UTF8&nodeId=508088">Conditions of Use</a>
+                        and 
+                        <a href="https://www.amazon.com/gp/help/customer/display.html/ref=ap_register_notification_privacy_notice?ie=UTF8&nodeId=468496">Privacy Notice</a>.
+                    </p>
+                </div>
+
+                <div class="signup-wrap">
+                    <p>Buying for work?</p>
+                    <p><a href="https://www.amazon.com/business/register/org/landing?ref_=ap_altreg_ab">Create a free business account</a></p>
+                </div>
+
+                <div class="signup-wrap2">
+                    <p>Already have an account? 
+                    <a href="https://www.amazon.com/ap/signin?openid.pape.max_auth_age=0&openid.return_to=https%3A%2F%2Fwww.amazon.com%2F%3Fref_%3Dnav_signin&prevRID=XYGAJN5DPTX954X1F7KF&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.assoc_handle=usflex&openid.mode=checkid_setup&failedSignInCount=0&language=us&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&pageId=usflex&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0">Sign in</a>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</body>
+</html>

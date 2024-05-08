@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript25.html</title>
+    <script>
+        // 1. checkForm() 함수만들기
+        function checkForm(x) {
+            // 2. 메세지 출력
+            console.log("전송1 버튼 눌림");
+            // 3. 사용자가 입력한 입력값을 콘솔에 출력하기
+            console.log(x);
+            console.dir(x);
+
+            console.log(x.form[0].value);
+            console.log(x.form[1].value);
+            console.log(x.form[2].value);
+            console.log(x.form[3].value);
+
+            let id = x.form[0].value;
+            let pw = x.form[1].value;
+            let repw = x.form[2].value;
+            let email = x.form[3].value;
+
+            // return xxx;  나를 호출한 곳으로 돌아가세요
+
+            if (id == '') {
+                alert("아이디를 입력하세요 ");
+                x.form[0].focus();
+                return;
+            } else if(pw == '') {
+                alert("비밀번호를 입력하세요");
+                x.form[1].focus();
+                return;
+            } else if (repw == '') {
+                alert("비밀번호 확인을 입력해주세요");
+                x.form[2].focus();
+                return;
+            } else if (email == '') {
+                alert("이메일을 입력하세요");
+                x.form[3].focus();
+                return;
+            } else if (pw.length <= 7) {
+                alert("패스워드의 길이는 8자 이상이어야 합니다.");
+                x.from[1].focus();
+                return;
+            } else if (pw != repw) {
+                alert("비밀번호가 일치하지 않습니다. ");
+                x.form[1].value=''; // 비밀번호 입력 <-- 지우기
+                x.form[2].value=''; // 비밀번호 확인 입력 <-- 지우기
+                x.form[1].focus(); // 비밀번호 포커스
+                return;
+            } else if (email.indexOf('@') == -1) {
+                // email: @ 문자가 들어가 있어야 한다.
+                alert("이메일 형식이 아닙니다.");
+                x.form[3].value='';
+                x.form[3].focus();
+                return;
+            }
+            
+
+            // next.html로 입력 양식을 전송
+            x.form.action="next.html";
+            // method
+            x.form.method="get";
+            // 제출
+            x.form.submit();
+        }
+    </script>
+</head>
+<body>
+    <form action="next.html" name="frm" method="get">
+        <!-- table>(tr>th+td>input:text)*5 -->
+        <table>
+            <tr>
+                <td>아이디</td>
+                <td><input type="text" name="userid" id="id"></td>
+            </tr>
+            <tr>
+                <td>비밀번호</td>
+                <td><input type="text" name="userpw" id="pw"></td>
+            </tr>
+            <tr>
+                <td>비밀번호확인</td>
+                <td><input type="text" name="uerrepw" id="repw"></td>
+            </tr>
+            <tr>
+                <td>EMAIL</td>
+                <td><input type="text" name="email" id="email"></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="button" value="전송1" onclick="checkForm(this);">
+                    <input type="submit" value="전송2" name="" id="">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

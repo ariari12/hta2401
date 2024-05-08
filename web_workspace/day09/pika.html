@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pika.html</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #myCanvas { background: #aaaaaa; }
+    </style>
+    <script>
+        // 배경이미지
+        let bg = new Image();
+        bg.src = "../images/pika/bg.jpg";
+
+        // 구름이미지
+        let cloud1 = new Image();
+        cloud1.src = "../images/pika/clouds.jpg";
+        let cloud2 = new Image();
+        cloud2.src = "../images/pika/clouds.jpg";
+
+        // 구름 좌표
+        let cloud1x = 0;
+        let cloud2x = 800;
+
+        // CPU 피카츄(우측 화면)
+        let cpuPika1 = new Image();
+        cpuPika1.src = "../images/pika/p11.png";
+        let cpuPika2 = new Image();
+        cpuPika2.src = "../images/pika/p22.png";
+        let cpuPika3 = new Image();
+        cpuPika3.src = "../images/pika/p33.png";
+        let cpuPika4 = new Image();
+        cpuPika4.src = "../images/pika/p44.png";
+        let cpuPika5 = new Image();
+        cpuPika5.src = "../images/pika/p55.png";
+
+        // CPU 피카츄 좌표
+        let cpuPikaX = 700;
+        let cpuPikaY = 500;
+
+        // CPU 피카츄 상하이동 판별
+        let isUp = true;
+
+        // 플레이어 피카츄(좌측 화면)
+        let plPika1 = new Image();
+        plPika1.src = "../images/pika/p1.png";
+        let plPika2 = new Image();
+        plPika2.src = "../images/pika/p2.png";
+        let plPika3 = new Image();
+        plPika3.src = "../images/pika/p3.png";
+        let plPika4 = new Image();
+        plPika4.src = "../images/pika/p4.png";
+        let plPika5 = new Image();
+        plPika5.src = "../images/pika/p5.png";
+
+        // 플레이어 피카츄 좌표
+        let plPikaX = 40;
+        let plPikaY = 500;
+
+        // 몬스터볼 이미지
+        let ball1 = new Image();
+        ball1.src = "../images/pika/ball1.png";
+        let ball2 = new Image();
+        ball2.src = "../images/pika/ball2.png";
+        let ball3 = new Image();
+        ball3.src = "../images/pika/ball3.png";
+        let ball4 = new Image();
+        ball4.src = "../images/pika/ball4.png";
+        let ball5 = new Image();
+        ball5.src = "../images/pika/ball5.png";
+
+        // 일반공격 배열
+        let ballArray = [];
+
+        // 스킬 배열
+        let bigBallArray = [];
+
+        // CPU 피격 여부 확인(일시 무적)
+        let crying = false;
+
+        let score = 0;
+        let counter = 0;
+        let ctx;
+
+        window.onload = function() {
+            let canvas = document.getElementById("myCanvas");
+            ctx = canvas.getContext("2d");
+
+            // canvas.onmousemove = check;
+            let body = document.body;
+            // 플레이어 피카츄 상하이동/빅볼던지기
+            body.onkeydown = action;
+
+            // canvas.onmousedown = check;
+            canvas.onmousedown = shootBall;
+
+            window.setInterval(drawScreen, 100);
+        }
+        
+        function check(e) {
+            console.log(e);
+        }
+
+        function shootBall() {
+            let bx = plPikaX + 40;
+            let by = plPikaY;
+            let bCnt = 1;
+            if (ballArray.length == 6) { return; }
+
+            let b = {
+                x : bx,
+                y : by,
+                cnt : bCnt,
+            }
+
+            ballArray.push(b);
+            console.dir(ballArray);
+        }
+
+        function bigBall() {
+            let bx = plPikaX + 80;
+            let by = plPikaY;
+            let bCnt = 1;
+            if (bigBallArray.length == 3) { return; }
+
+            let b = {
+                x : bx,
+                y : by,
+                cnt : bCnt,
+            }
+
+            bigBallArray.push(b);
+            console.dir(bigBallArray);
+        }
+
+        function action(e) {
+            console.log(e);
+            if (e.keyCode == 87 && plPikaY >= 270) { plPikaY -= 5; }
+            if (e.keyCode == 83 && plPikaY <= 500) { plPikaY += 5; }
+            // if (e.keyCode == 68) { plPikaX += 5; }
+            // if (e.keyCode == 65) { plPikaX -= 5; }
+            if (e.keyCode == 32) { bigBall(); }
+
+        }
+
+        function drawScreen() {
+            cloud1x -= 10;
+            cloud2x -= 10;
+
+            if (counter == 0) console.log(ballArray);
+
+            if (cpuPikaY == 270) { isUp = false; }
+            if (cpuPikaY == 500) { isUp = true; }
+           
+            if (cpuPikaY >= 270 && isUp) {
+                cpuPikaY -= 5;
+            }
+            else if (cpuPikaY < 500 && !isUp) { 
+                cpuPikaY += 5;
+            }
+            // console.log(cpuPikaY);
+
+            counter++;
+
+            if (cloud1x <= -800) {
+                cloud1x = 800;
+                cloud2x = 0;
+            }
+            if (cloud2x <= -800) {
+                cloud2x = 800;
+                cloud1x = 0;
+            }
+
+            // 배경 그리기
+            ctx.drawImage(bg, 0, 0, 800, 600);
+
+            // 구름 그리기
+            ctx.drawImage(cloud1, cloud1x, 0, 800, 164);
+            ctx.drawImage(cloud2, cloud2x, 0, 800, 164);
+
+            // CPU피카츄 그리기(동적)
+            if (counter % 4 == 1) { ctx.drawImage(cpuPika5, cpuPikaX, cpuPikaY, 60, 60); }
+            else if (counter % 4 == 2) { ctx.drawImage(cpuPika4, cpuPikaX, cpuPikaY, 60, 60); }
+            else if (counter % 4 == 3) { ctx.drawImage(cpuPika3, cpuPikaX, cpuPikaY, 60, 60); }
+            else if (counter % 4 == 0) { ctx.drawImage(cpuPika2, cpuPikaX, cpuPikaY, 60, 60); }
+
+            // 플레이어 피카츄 그리기 (동적)
+            if (counter % 4 == 1) { ctx.drawImage(plPika5, plPikaX, plPikaY, 60, 60); }
+            else if (counter % 4 == 2) { ctx.drawImage(plPika4, plPikaX, plPikaY, 60, 60); }
+            else if (counter % 4 == 3) { ctx.drawImage(plPika3, plPikaX, plPikaY, 60, 60); }
+            else if (counter % 4 == 0) { ctx.drawImage(plPika2, plPikaX, plPikaY, 60, 60); }
+
+            // 작은볼 배열 그리기 (동적)
+            for (let i = 0; i < ballArray.length; i++) {
+                let ball = ballArray[i];
+
+                ball.x += 30;
+
+                // 화면 밖으로 나간 볼 객체는 배열에서 삭제
+                if (ball.x >= 900) { ballArray.shift(); }
+
+                if (ball.cnt % 5 == 1) { ctx.drawImage(ball1, ball.x, ball.y, 20, 20); }
+                else if (ball.cnt % 5 == 2) { ctx.drawImage(ball2, ball.x, ball.y, 20, 20); }
+                else if (ball.cnt % 5 == 3) { ctx.drawImage(ball3, ball.x, ball.y, 20, 20); }
+                else if (ball.cnt % 5 == 4) { ctx.drawImage(ball4, ball.x, ball.y, 20, 20); }
+                else if (ball.cnt % 5 == 0) { ctx.drawImage(ball5, ball.x, ball.y, 20, 20); }
+
+                ball.cnt++;
+            }
+
+            // 큰볼 배열 그리기 (동적)
+            for (let i = 0; i < bigBallArray.length; i++) {
+                let bb = bigBallArray[i];
+
+                bb.x += 90;
+
+                if (bb.x >= 1800) { bigBallArray.shift(); }
+
+                if (bb.cnt % 5 == 1) { ctx.drawImage(ball1, bb.x, bb.y, 100, 100); }
+                else if (bb.cnt % 5 == 2) { ctx.drawImage(ball2, bb.x, bb.y, 100, 100); }
+                else if (bb.cnt % 5 == 3) { ctx.drawImage(ball3, bb.x, bb.y, 100, 100); }
+                else if (bb.cnt % 5 == 4) { ctx.drawImage(ball4, bb.x, bb.y, 100, 100); }
+                else if (bb.cnt % 5 == 0) { ctx.drawImage(ball5, bb.x, bb.y, 100, 100); }
+
+                bb.cnt++;
+            }
+
+            ctx.fillStyle = "blue";
+            ctx.font = "30px 고딕";
+            ctx.fillText("피카피카츄", 300, 60);
+            
+            ctx.font = "15px 고딕";
+            ctx.fillText("조작법 : 마우스, 스페이스바(빅볼던지기)", 235, 90);
+            ctx.fillText("몬스터볼은 연속으로 6개 까지 던질 수 있습니다.", 235, 110);
+
+            ctx.font = "30px 고딕";
+            ctx.fillText("빅볼 : " + (3 - bigBallArray.length), 60, 90);
+            ctx.fillText("점수 : " + score, 60, 130);
+
+            // 볼이 CPU를 맞췄는지 검증
+            attack(ballArray);
+            attack(bigBallArray);
+        }
+
+        function attack(array) {
+            // 볼이 CPU 피카츄와 닿았다면 볼은 사라지고 스코어 10점 가산
+            for (let i = 0; i < array.length; i++) {
+                let ball = array[i];
+
+                let dis = pythagoras(cpuPikaX, cpuPikaY, ball.x, ball.y);
+
+                if (dis < 70) {
+                    console.log("CPU: 아야");
+                    ball.y += 800;
+                    score += 10;
+                    crying = true;
+                }
+            }
+        }
+
+        function pythagoras(x1, y1, x2, y2) {
+            return Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
+        }
+    </script>
+</head>
+<body>
+    <canvas id="myCanvas" width="800" height="600"></canvas>
+</body>
+</html>

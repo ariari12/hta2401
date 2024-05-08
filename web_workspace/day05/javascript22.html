@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript22.html</title>
+    <style>
+        img {
+            width: 400px;
+            height: 300px;
+        }
+    </style>
+    
+</head>
+<body>
+    <img src="" alt="" id = "poster">
+
+    <script>
+        let poster = document.getElementById("poster");
+        console.dir(poster);
+        // let no = "02";
+        let no = Math.floor( (Math.random() * 10) + 1) + "";
+        console.log(no);
+        no = no == 10 ?  no : "0" + no;
+        poster.src = "../images/movie_image_" + no + ".jpg";
+
+        // console.log("랜덤값: " + Math.random());
+
+        // console.log("랜덤값: " + Math.random() * 10);
+        // Math.floor(): 그 값을 넘지 않는 가장 가까운 정수
+        // console.log("랜덤값: " + Math.floor(Math.random() * 10));
+        // console.log(Math.floor(3.29)); // 3
+        //         0 < = Math.floor(Math.random() * 10) < 10
+        
+        console.log("랜덤값: " + Math.floor( (Math.random() * 10) + 1) );
+        
+    </script>
+</body>
+</html>

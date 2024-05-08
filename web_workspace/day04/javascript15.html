@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript15.html</title>
+    <script>
+        function operation() {
+            // console.log("함수 호출됨");
+
+            let txt1 = document.getElementById("txt1").value; // 자바스크립트 객체
+            let txt2 = document.getElementById("txt2").value; // 자바스크립트 객체
+            let oper = document.getElementById("oper").value; // 자바스크립트 객체
+            let resultEle = document.getElementById("result");
+            // console.dir(txt1);
+            let result = 0;
+            let msg = txt1 + oper + txt2;
+            console.log(msg);
+
+            result = eval(msg);
+
+            // txt1 = parseInt(txt1);
+            // txt2 = parseInt(txt2);
+            
+            // if (oper == "+") {
+            //     result = txt1 + txt2;
+            // } else if (oper == "-") {
+            //     result = txt1 - txt2;
+            // } else if (oper == "*") {
+            //     result.value = txt1 * txt2;
+            // } else if (oper == "/") {
+            //     result = txt1 / txt2;
+            // }
+
+            resultEle.value = result;
+        }
+    </script>
+</head>
+<body>
+    <input type="text" name="" id="txt1">
+    <input type="text" name="" id="oper" size="3">
+    <input type="text" name="" id="txt2">
+    <input type="button" value="=" onclick="operation();">
+    <input type="text" name="" id="result">
+</body>
+</html>

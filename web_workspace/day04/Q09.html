@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q09.html</title>
+    <style>
+        div {
+            text-align: center;
+            margin: 0 auto;
+        }
+        #inputYear {
+            display: inline-block;
+        }
+        #year {
+            width: 80px;
+        }
+        #result {
+            width: 220px;
+        }
+    </style>
+    <script>
+        function zodiac() {
+            let year = parseInt(document.getElementById("year").value);
+            let result = document.getElementById("result");
+            let animal;
+            let msg;
+
+            if (year % 12 == 4) {
+                animal = "쥐";
+            } else if (year % 12 == 5) {
+                animal = "소";
+            } else if (year % 12 == 6) {
+                animal = "호랑이";
+            } else if (year % 12 == 7) {
+                animal = "토끼";
+            } else if (year % 12 == 8) {
+                animal = "용";
+            } else if (year % 12 == 9) {
+                animal = "뱀";
+            } else if (year % 12 == 10) {
+                animal = "말";
+            } else if (year % 12 == 11) {
+                animal = "양";
+            } else if (year % 12 == 0) {
+                animal = "원숭이";
+            } else if (year % 12 == 1) {
+                animal = "닭";
+            } else if (year % 12 == 2) {
+                aniamal = "개";
+            } else if (year % 12 == 3) {
+                animal = "돼지"
+            }
+
+            msg = year + "년은 " + animal + "띠입니다.";
+
+            // 오브젝트로 도출
+            animal = {
+                4:"쥐", 5:"소", 6:"호랑이", 7:"토끼", 8:"용", 9:"뱀", 10:"말",
+                11:"양", 0:"원숭이", 1:"닭", 2:"개", 3:"돼지"
+            }
+
+            msg = year + "년은 " + animal[year % 12] + "띠입니다.";
+
+            result.value = msg;
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <div id="inputYear">
+            태어난년도 <br>
+            <input type="text" name="year" id="year">
+        </div>
+        <input type="button" value="보기" onclick="zodiac();">
+    <br><br>
+        <input type="text" name="result" id="result">
+    </div>
+</body>
+</html>

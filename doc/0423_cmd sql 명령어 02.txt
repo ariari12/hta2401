@@ -1,0 +1,428 @@
+
+C:\Users\jhta>sqlplus scott/tiger
+
+SQL*Plus: Release 21.0.0.0.0 - Production on 화 4월 23 14:41:38 2024
+Version 21.3.0.0.0
+
+Copyright (c) 1982, 2021, Oracle.  All rights reserved.
+
+마지막 성공한 로그인 시간: 화 4월  23 2024 14:35:31 +09:00
+
+다음에 접속됨:
+Oracle Database 21c Express Edition Release 21.0.0.0.0 - Production
+Version 21.3.0.0.0
+
+SQL> delete from product;
+
+5 행이 삭제되었습니다.
+
+SQL> drop SEQUENCE PRODUCT_PNO_SEQ;
+
+시퀀스가 삭제되었습니다.
+
+SQL> CREATE SEQUENCE PRODUCT_PNO_SEQ
+  2  START WITH 1
+  3  INCREMENT BY 1
+  4  NOCACHE
+  5  NOCYCLE;
+
+시퀀스가 생성되었습니다.
+
+SQL> INSERT INTO PRODUCT
+  2  VALUES (PRODUCT_PNO_SEQ.NEXTVAL,
+  3  '뽀로로코딩컴퓨터',135000,41,
+  4  '아이들이 좋아하는 뽀로로와 함께 코딩과 한글, 영어를 놀면서배워요',
+  5  100,'https://shop-phinf.pstatic.net/20210219_97/1613715831382Uyye9_JPEG/14851665105099013_669278903.jpg?type=m510',
+  6  'https://shop-phinf.pstatic.net/20210219_170/1613715840197EH3Fd_JPEG/14851673998312189_1049351525.jpg?type=m510');
+
+1 개의 행이 만들어졌습니다.
+
+SQL>
+SQL> INSERT INTO PRODUCT
+  2  VALUES(PRODUCT_PNO_SEQ.NEXTVAL,
+  3  '하루헛개 인터넷 특판', 78000, 15,
+  4  '고급 휴대용기 무료 증정',
+  5   20, 'https://shop-phinf.pstatic.net/20220706_188/16570985007616eBbX_JPEG/58234334582179421_971840150.jpg?type=m510',
+  6   'https://shop-phinf.pstatic.net/20220211_261/1644565982379oebbd_JPEG/45701828077046944_338516665.jpg?type=m510');
+
+1 개의 행이 만들어졌습니다.
+
+SQL>
+SQL> INSERT INTO PRODUCT
+  2  VALUES(PRODUCT_PNO_SEQ.NEXTVAL,
+  3  '차반 카스테라 붕어빵 750g', 14900, 0,
+  4  '원산지 국산',
+  5  500, 'https://shop-phinf.pstatic.net/20240329_184/1711661330499HGixM_JPEG/112797226235854603_1137371566.jpg?type=m510', 'https://shop-phinf.pstatic.net/20240329_66/1711661294299m7v6w_JPEG/112797190029824876_2128901746.jpg?type=m510');
+
+1 개의 행이 만들어졌습니다.
+
+SQL>
+SQL> INSERT INTO PRODUCT
+  2  VALUES(PRODUCT_PNO_SEQ.NEXTVAL,
+  3  '앙골 라탄 숄더백 여름 데일리백', 16700, 0,
+  4  '색상 블랙이랑 알록달록 있음',
+  5   50, 'https://shop-phinf.pstatic.net/20230518_168/1684379089023uw4eT_JPEG/%EB%9D%BC%ED%83%84%EB%B0%B1.jpg?type=w860',
+  6  'https://shop-phinf.pstatic.net/20230518_168/1684379089023uw4eT_JPEG/%EB%9D%BC%ED%83%84%EB%B0%B1.jpg?type=w860');
+
+1 개의 행이 만들어졌습니다.
+
+SQL>
+SQL> INSERT INTO PRODUCT
+  2  VALUES(PRODUCT_PNO_SEQ.NEXTVAL,
+  3  '부각믹스 3봉 식품', 247950, 80,
+  4  '오후 3시이전 결제 당일배송',
+  5   100,'https://shop-phinf.pstatic.net/20221207_156/1670379523020oHgzQ_JPEG/71515411711190531_2123150618.jpg?type=w860',
+  6  'https://coudae.s3.ap-northeast-2.amazonaws.com/A00688914/cloud/4792.jpg');
+
+1 개의 행이 만들어졌습니다.
+
+SQL>
+SQL> INSERT INTO PRODUCT
+  2  VALUES(PRODUCT_PNO_SEQ.NEXTVAL,
+  3  '스텔라 댄싱 스톤 실버 목걸이 2종', 137300, 50,
+  4  '순도 100% 은 사용',
+  5  10,'https://t30.azb.co.kr/view/1000x/BcFLCoMwEADQw4hLMzNJ/HVli6WgCAUFl0GkNRa0QzMg3r7vtZh3Q/9rb8c1NrWtz3BUUTX0OI1ehMMFIPgvJ+zX/a04yCTrrPaXgEatsUBylGdAWVoaaywVhLht3XK65nl/ABHq1DhSH17+',
+  6  'https://t30.azb.co.kr/view/1000x/BcFLCoMwEADQw4hLMzNJ/HVli6WgCAUFl0GkNRa0QzMg3r7vtZh3Q/9rb8c1NrWtz3BUUTX0OI1ehMMFIPgvJ+zX/a04yCTrrPaXgEatsUBylGdAWVoaaywVhLht3XK65nl/ABHq1DhSH17+');
+
+1 개의 행이 만들어졌습니다.
+
+SQL>
+SQL> INSERT INTO PRODUCT
+  2  VALUES (PRODUCT_PNO_SEQ.NEXTVAL, '강아지 건강사료', 40000, 17, '우리 아이의 건강을 돕는 사료', 100, 'https://shop-phinf.pstatic.net/20240305_242/1709606148888W8LcO_JPEG/110741976696854067_1343315304.jpg?type=f40','https://shop-phinf.pstatic.net/20240305_242/1709606148888W8LcO_JPEG/110741976696854067_1343315304.jpg?type=m510');
+
+1 개의 행이 만들어졌습니다.
+
+SQL>
+SQL> INSERT INTO PRODUCT
+  2  VALUES (PRODUCT_PNO_SEQ.NEXTVAL, '끌로에 향수 75ML', 193000, 15, '여성스럽고 우아한 장미향의 대명사', 150, 'https://shop-phinf.pstatic.net/20240328_64/1711606515949rbNsn_JPEG/112742411642589860_592661793.jpg?type=f40', 'https://shop-phinf.pstatic.net/20240328_64/1711606515949rbNsn_JPEG/112742411642589860_592661793.jpg?type=m510');
+
+1 개의 행이 만들어졌습니다.
+
+SQL>
+SQL> INSERT INTO PRODUCT
+  2  VALUES (PRODUCT_PNO_SEQ.NEXTVAL, '사이드테이블 S', 200000, 85, '트렌디한 심플 디자인 감각적인 인테리어 원형테이블', 50, 'https://shop-phinf.pstatic.net/20230221_76/1676938454183VMVom_JPEG/78074296887750030_960351452.jpg?type=f40', 'https://shop-phinf.pstatic.net/20230221_297/1676938461325BRSJS_JPEG/78074304005316602_356502135.jpg?type=m510');
+
+1 개의 행이 만들어졌습니다.
+
+SQL>
+SQL> INSERT INTO PRODUCT
+  2  VALUES (PRODUCT_PNO_SEQ.NEXTVAL, '소프트터치 곰고미 필로우', 15900, 10, '말랑말랑 부드럽고 포근한 촉감으로 아이들의 숙면과 정서적 안정을 돕는 베개', 500,'https://shop-phinf.pstatic.net/20220825_175/1661389304384QPycH_JPEG/125255_1.jpg?type=f40', 'https://shop-phinf.pstatic.net/20220825_175/1661389304384QPycH_JPEG/125255_1.jpg?type=m510');
+VALUES (PRODUCT_PNO_SEQ.NEXTVAL, '소프트터치 곰고미 필로우', 15900, 10, '말랑말랑 부드럽고 포근한 촉감으로 아이들의 숙면과 정서적 안정을 돕는 베개', 500,'https://shop-phinf.pstatic.net/20220825_175/1661389304384QPycH_JPEG/125255_1.jpg?type=f40', 'https://shop-phinf.pstatic.net/20220825_175/1661389304384QPycH_JPEG/125255_1.jpg?type=m510')
+                                                                                    *
+2행에 오류:
+ORA-12899: "SCOTT"."PRODUCT"."PRODESC" 열에 대한 값이 너무 큼(실제: 105,
+최대값: 100)
+
+
+SQL>
+SQL> INSERT INTO PRODUCT
+  2  VALUES (PRODUCT_PNO_SEQ.NEXTVAL, '타요 주차타워 세트', 220000, 36, '타요와 친구들의 새로운 놀이터!', 300, 'https://shop-phinf.pstatic.net/20231219_75/1702946861882jlB1B_JPEG/8433893864134925_780932944.jpg?type=m510', 'https://shop-phinf.pstatic.net/20231219_75/1702946861882jlB1B_JPEG/8433893864134925_780932944.jpg?type=m510');
+
+1 개의 행이 만들어졌습니다.
+
+SQL>
+SQL> INSERT INTO PRODUCT VALUES(PRODUCT_PNO_SEQ.NEXTVAL,'저당 초콜릿 초코바', 9400, 8, '가볍게 즐기는 초콜릿 바 아이스크림', 75, 'https://shop-phinf.pstatic.net/20240327_83/1711502452444KWWFV_JPEG/1993841451288540_1790779556.jpg?type=m510', 'https://shop-phinf.pstatic.net/20231129_152/1701237158849K4typ_JPEG/6837529644110370_445197186.jpg?type=m510');
+
+1 개의 행이 만들어졌습니다.
+
+SQL>
+SQL> INSERT INTO PRODUCT VALUES(PRODUCT_PNO_SEQ.NEXTVAL,'뉴질랜드 루비레드 키위', 24900, 21, '생동감 넘치는 붉은빛을 뽐 내는 뉴질랜드 루비레드', 120, 'https://shop-phinf.pstatic.net/20240414_291/1713097685609ipHKk_JPEG/37009088528434870_83385394.jpg?type=m510', 'https://shop-phinf.pstatic.net/20240414_246/17130976859247mmBl_JPEG/37009088844411857_1352452471.jpg?type=m510');
+
+1 개의 행이 만들어졌습니다.
+
+SQL>
+SQL> INSERT INTO PRODUCT VALUES(PRODUCT_PNO_SEQ.NEXTVAL,'호박인절미 떡케이크', 35900, 8, '쫄깃하고 고소한 호박인절미 떡 케이크', 50, 'https://shop-phinf.pstatic.net/20240416_42/1713252161818VPi3V_JPEG/4650692665541145_2096151676.jpg?type=m510', 'https://shop-phinf.pstatic.net/20231116_251/1700110052124Deipi_JPEG/9929300968514127_28673799.jpg?type=m510');
+
+1 개의 행이 만들어졌습니다.
+
+SQL>
+SQL> INSERT INTO PRODUCT VALUES(PRODUCT_PNO_SEQ.NEXTVAL,'구운란', 11900, 26, '고소하고 부드럽게 구운 맛있는 계란', 250, 'https://shop-phinf.pstatic.net/20231219_164/1702974452224agqPp_JPEG/2983064059756715_487347420.jpg?type=m510', 'https://shop-phinf.pstatic.net/20231219_147/1702974452364BNcBz_JPEG/2983064199126229_357196618.jpg?type=m510');
+
+1 개의 행이 만들어졌습니다.
+
+SQL>
+SQL> INSERT INTO PRODUCT VALUES(PRODUCT_PNO_SEQ.NEXTVAL,'케이준 치킨 샐러드', 3990, 17, '신선함을 담아낸 케이준 치킨 샐 러드', 100, 'https://shop-phinf.pstatic.net/20240325_76/1711346297149CLg1c_JPEG/40617931809603300_595970114.jpg?type=m510', 'https://shop-phinf.pstatic.net/20240325_40/1711346297305C20n3_JPEG/40617931963196657_297204798.jpg?type=m510');
+
+1 개의 행이 만들어졌습니다.
+
+SQL>
+SQL> INSERT INTO PRODUCT VALUES(PRODUCT_PNO_SEQ.NEXTVAL, '반포 자이 35평', 2400000000,  5, '서울시 서초구 신반포로 270  자이 아파트입니다.', 5, 'https://postfiles.pstatic.net/MjAyMzA5MDdfMTcg/MDAxNjk0MDkxMTY4NzU1.r2-zBMN8l--r4tmSBjDiYgJ7VfjU5-qux5HJ0d1Vf8gg.vvgLKTh4GisOoRvGYrp25TcwXWPBQVYJAx3V2QWwU2kg.JPEG.ambassador8876/IMG_2625.jpg?type=w466', 'https://postfiles.pstatic.net/MjAyMzA5MDdfODcg/MDAxNjk0MDkxMTkyMzE0.72Rc1b3pkNZ_cAtnPdG13bvaceF6QpzbV32u_uhJHLMg.y0lq2_V-EsR-91MHc7ykHgcJ59U-pAGvP1Vb1C07VjQg.JPEG.ambassador8876/IMG_2639.jpg?type=w966');
+
+1 개의 행이 만들어졌습니다.
+
+SQL>
+SQL> INSERT INTO PRODUCT VALUES(PRODUCT_PNO_SEQ.NEXTVAL, '시그니엘 90평', 7800000000, 3, '서울시 송파구 올림픽로 300 시 그니엘 오피스텔입니다.', 2, 'https://www.lottehotel.com/content/dam/lotte-hotel/global/common/company/seoul-signiel.jpg', 'https://www.lottehotel.com/content/dam/lotte-hotel/signiel/seoul/accommodation/suite/180708-55-2000-acc-seoul-signiel.jpg.thumb.1440.1440.jpg');
+
+1 개의 행이 만들어졌습니다.
+
+SQL>
+SQL> INSERT INTO PRODUCT VALUES(PRODUCT_PNO_SEQ.NEXTVAL, '페라리 F8 트리뷰토', 352000000, 30, '페라리사의 차량입니다.', 5, 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/2021_Ferrari_F8_Tributo.jpg/1200px-2021_Ferrari_F8_Tributo.jpg', 'https://ci.encarmagazine.com/2019/07/ssss-2.jpg');
+
+1 개의 행이 만들어졌습니다.
+
+SQL>
+SQL> INSERT INTO PRODUCT VALUES(PRODUCT_PNO_SEQ.NEXTVAL, '손흥민', 340000000, 50, '1주일 가격입니다.', 1, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiAIp_s7Xo2wc6Ll0F1RknstQlJQ9uhiRCqI03ZZ31Mg&s', 'https://d2u3dcdbebyaiu.cloudfront.net/uploads/atch_img/253/bf010cb6828cb6ff0efba75d9ebff44f_res.jpeg');
+s의 값을 입력하십시오:
+구   1: INSERT INTO PRODUCT VALUES(PRODUCT_PNO_SEQ.NEXTVAL, '손흥민', 340000000, 50, '1주일 가격입니다.', 1, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiAIp_s7Xo2wc6Ll0F1RknstQlJQ9uhiRCqI03ZZ31Mg&s', 'https://d2u3dcdbebyaiu.cloudfront.net/uploads/atch_img/253/bf010cb6828cb6ff0efba75d9ebff44f_res.jpeg')
+신   1: INSERT INTO PRODUCT VALUES(PRODUCT_PNO_SEQ.NEXTVAL, '손흥민', 340000000, 50, '1주일 가격입니다.', 1, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiAIp_s7Xo2wc6Ll0F1RknstQlJQ9uhiRCqI03ZZ31Mg', 'https://d2u3dcdbebyaiu.cloudfront.net/uploads/atch_img/253/bf010cb6828cb6ff0efba75d9ebff44f_res.jpeg')
+
+1 개의 행이 만들어졌습니다.
+
+SQL>
+SQL>
+SQL> INSERT INTO PRODUCT
+  2  VALUES (PRODUCT_PNO_SEQ.NEXTVAL,
+  3  'GTE 자동차침대', 2490000, 10,
+  4  '아이들의 꿈의 침대, 드림카베드가 새롭게 업그레이드 되었습니다.',
+  5   23, 'https://haloworldmall.com/web/product/big/202212/b3f899c85461a9f2b57a1ba091967d54.jpg',
+  6  'https://www.haloworldmall.com/haloworld/dreamcarbed/detail/gte/GTE_new2023.jpg');
+
+1 개의 행이 만들어졌습니다.
+
+SQL>
+SQL>
+SQL> INSERT INTO PRODUCT
+  2  VALUES (PRODUCT_PNO_SEQ.NEXTVAL,
+  3  '농협안심한우1등급세트 600g', 57800, 30,
+  4  '특별한 날 소중한 분께 마음을 전하세요!',
+  5   5, 'https://img1.kakaocdn.net/thumb/C320x320@2x.fwebp.q82/?fname=https%3A%2F%2Fst.kakaocdn.net%2Fproduct%2Fgift%2Fproduct%2F20240411142058_1865d18348604617a089461973c38b96.jpg',
+  6  'https://st.kakaocdn.net/product/gift/editor/20240411142110_68cf0f4409b445ffa8d3a80216c0c5bd.jpg');
+
+1 개의 행이 만들어졌습니다.
+
+SQL>
+SQL>
+SQL> INSERT INTO PRODUCT
+  2  VALUES (PRODUCT_PNO_SEQ.NEXTVAL,
+  3  '0.5g 순금 아기백일반지', 77900, 0,
+  4  '핸드메이드로 제작한 순금 주얼리',
+  5   50,'https://img1.kakaocdn.net/thumb/C320x320@2x.fwebp.q82/?fname=https%3A%2F%2Fst.kakaocdn.net%2Fproduct%2Fgift%2Fproduct%2F20231123095538_f3c0b041876744c9bdaa72faea6c52c5.jpg',
+  6  'https://st.kakaocdn.net/product/gift/editor/20230525165455_31a435b6b8fc406e86fa01959ab361c4.jpg',);
+'https://st.kakaocdn.net/product/gift/editor/20230525165455_31a435b6b8fc406e86fa01959ab361c4.jpg',)
+                                                                                                  *
+6행에 오류:
+ORA-00936: 누락된 표현식
+
+
+SQL>
+SQL>
+SQL> INSERT INTO PRODUCT
+  2  VALUES (PRODUCT_PNO_SEQ.NEXTVAL,
+  3  '헤라 NEW 블랙 쿠션 파이데이션 싱글', 46800, 10,
+  4  '감도 높은 피부의 시작 얇고 매끄한 커버로 완성하는 소프트 새틴 스킨',
+  5   14, 'https://img1.kakaocdn.net/thumb/C320x320@2x.fwebp.q82/?fname=https%3A%2F%2Fst.kakaocdn.net%2Fproduct%2Fgift%2Fproduct%2F20240330085340_804f43ce50904e6faee1a1dbe97b20ea.jpg',
+  6  'https://st.kakaocdn.net/product/gift/editor/20240330085455_3b871edc234741b0856794e53c5ec704.jpg');
+
+1 개의 행이 만들어졌습니다.
+
+SQL>
+SQL>
+SQL> INSERT INTO PRODUCT VALUES(PRODUCT_PNO_SEQ.NEXTVAL, '슈퍼너츠 100 땅콩스무스', 27200, 31, '
+  2  땅콩 100%니까 믿고 먹는 슈퍼너츠', 200, 'https://shop-phinf.pstatic.net/20220826_25/1661505401556K8o0L_JPEG/62641229366910698_650614566.jpg?type=m510', 'https://shop-phinf.pstatic.net/20220830_217/1661844232422VsQEL_PNG/62980012134747761_117490396.png?type=m510');
+
+1 개의 행이 만들어졌습니다.
+
+SQL>
+SQL> INSERT INTO PRODUCT VALUES(PRODUCT_PNO_SEQ.NEXTVAL, '덴프스 덴마크 유산균 이야기', 18410, 24, '공유가 선택한 탁! 소리나는 유산균', 2000, 'https://shop-phinf.pstatic.net/20231124_15/1700787…Gj_JPEG/14501642609829304_541148246.jpg?type=m510', 'https://shop-phinf.pstatic.net/20231124_15/1700787…Gj_JPEG/14501642609829304_541148246.jpg?type=m510');
+
+1 개의 행이 만들어졌습니다.
+
+SQL>
+SQL> INSERT INTO PRODUCT VALUES(PRODUCT_PNO_SEQ.NEXTVAL, '움트리 골뱅이 무침 소스 1kg', 7680, 15, '맛 미의 뜻을 담아 맛 을 채워드리는 미채움푸드의 골뱅이 무침 소스', 800, 'https://shop-phinf.pstatic.net/20191120_169/1574230372601FWdML_JPEG/11593760981357832_588298107.jpg?type=m510', 'https://shop-phinf.pstatic.net/20191120_38/15742303598607i1OY_JPEG/11593748402296559_1880936108.jpg?type=m510');
+
+1 개의 행이 만들어졌습니다.
+
+SQL>
+SQL> INSERT INTO PRODUCT VALUES(PRODUCT_PNO_SEQ.NEXTVAL, '데체코 엑스트라버진 올리브오일 1L', 23200, 23, '맛이 풍부하고 식성에 맞을 뿐 아니라 균형이 잡혀있는 오일', 1800, 'https://shop-phinf.pstatic.net/20220930_27/1664494063914EVxAC_JPEG/65629897728932108_248048842.jpg?type=m510', 'https://shop-phinf.pstatic.net/20231011_74/1697004459377GD86z_JPEG/EB8DB0ECB2B4ECBD9420EC9791EC8AA4ED8AB8EB9DBCEBB284ECA78420EC98ACEBA6ACEBB88CEC9C.png?type=m510');
+
+1 개의 행이 만들어졌습니다.
+
+SQL>
+SQL> INSERT INTO PRODUCT VALUES(PRODUCT_PNO_SEQ.NEXTVAL, '팔도 비락식혜 제로 238ml', 3450, 7, '설탕, 당류, 칼로리까지 제로니까! 언제 어디서든 가볍게 비락식혜!', 2800, 'https://shop-phinf.pstatic.net/20240405_216/1712300007413iAEza_JPEG/113435903149343464_2033220498.jpg?type=m510', 'https://shopping-phinf.pstatic.net/20240401_20/955be1db-1418-420f-8789-a507d5b24023.jpg');
+
+1 개의 행이 만들어졌습니다.
+
+SQL>
+SQL> INSERT INTO PRODUCT
+  2  VALUES(
+  3      PRODUCT_PNO_SEQ.nextval,
+  4      '리버풀 홈 유니폼 저지',
+  5      129000,
+  6      11,
+  7      '리버풀 홈 유니폼입니다.',
+  8      10,
+  9      '../images/product/uniform01.jpg',
+ 10      '../images/product/uniform01.jpg'
+ 11  );
+
+1 개의 행이 만들어졌습니다.
+
+SQL>
+SQL> INSERT INTO PRODUCT
+  2  VALUES(
+  3      PRODUCT_PNO_SEQ.nextval,
+  4      '아스날 홈 유니폼 저지',
+  5      129000,
+  6      7,
+  7      '아스날 홈 유니폼입니다.',
+  8      9,
+  9      '../images/product/uniform02.jpg',
+ 10      '../images/product/uniform02.jpg'
+ 11  );
+
+1 개의 행이 만들어졌습니다.
+
+SQL>
+SQL> INSERT INTO PRODUCT
+  2  VALUES(
+  3      PRODUCT_PNO_SEQ.nextval,
+  4      '맨시티 홈 유니폼 저지',
+  5      129000,
+  6      11,
+  7      '맨시티 홈 유니폼입니다.',
+  8      8,
+  9      '../images/product/uniform03.jpg',
+ 10      '../images/product/uniform03.jpg'
+ 11  );
+
+1 개의 행이 만들어졌습니다.
+
+SQL>
+SQL> INSERT INTO PRODUCT
+  2  VALUES(
+  3      PRODUCT_PNO_SEQ.nextval,
+  4      '레알마드리드 홈 유니폼 저지',
+  5      129000,
+  6      7,
+  7      '레알마드리드 홈 유니폼입니다.',
+  8      7,
+  9      '../images/product/uniform04.jpg',
+ 10      '../images/product/uniform04.jpg'
+ 11  );
+
+1 개의 행이 만들어졌습니다.
+
+SQL>
+SQL> INSERT INTO PRODUCT
+  2  VALUES(
+  3      PRODUCT_PNO_SEQ.nextval,
+  4      '첼시 홈 유니폼 저지',
+  5      129000,
+  6      7,
+  7      '첼시 홈 유니폼입니다.',
+  8      6,
+  9      '../images/product/uniform05.jpg',
+ 10      '../images/product/uniform05.jpg'
+ 11  );
+
+1 개의 행이 만들어졌습니다.
+
+SQL>
+SQL>
+SQL> insert into product
+  2  values(product_pno_seq.nextval,'콩순이 컴퓨터',169300,10,'동화로 배우는 콩순이 홈스쿨 코딩컴퓨터',50,'https://contents.lotteon.com/itemimage/_v015058/LO/21/14/12/08/62/_2/11/41/20/86/3/LO2114120862_2114120863_1.jpg/dims/optimize/dims/resizemc/400x400','https://contents.lotteon.com/itemimage/_v015058/LO/21/14/12/08/62/_2/11/41/20/86/3/LO2114120862_2114120863_1.jpg/dims/optimize/dims/resizemc/400x400');
+
+1 개의 행이 만들어졌습니다.
+
+SQL>
+SQL>
+SQL> insert into product
+  2  values(product_pno_seq.nextval,'미니인형뽑기기계',37896,30,'캡슐뽑기 장난감 기계',120,'https://jiktem.com/cdn/shop/products/134828_1.jpg?v=1692072634&width=823','https://jiktem.com/cdn/shop/products/134828_19.jpg?v=1692072634&width=823');
+width의 값을 입력하십시오:
+width의 값을 입력하십시오: insert into product
+구   2: values(product_pno_seq.nextval,'미니인형뽑기기계',37896,30,'캡슐뽑기 장난감 기계',120,'https://jiktem.com/cdn/shop/products/134828_1.jpg?v=1692072634&width=823','https://jiktem.com/cdn/shop/products/134828_19.jpg?v=1692072634&width=823')
+신   2: values(product_pno_seq.nextval,'미니인형뽑기기계',37896,30,'캡슐뽑기 장난감 기계',120,'https://jiktem.com/cdn/shop/products/134828_1.jpg?v=1692072634=823','https://jiktem.com/cdn/shop/products/134828_19.jpg?v=1692072634insert into product=823')
+
+1 개의 행이 만들어졌습니다.
+
+SQL> values(product_pno_seq.nextval,'탑로더메이커',58990,3,'산리오 레진아트 샤이닝 탑로더 메이커장난감 완구',60,'https://d2gfz7wkiigkmv.cloudfront.net/pickin/2/1/2/nJxkBAsFRjeqf_tCvpT0Tw','https://d2gfz7wkiigkmv.cloudfront.net/pickin/2/1/2/nJxkBAsFRjeqf_tCvpT0Tw');
+SP2-0734: "values(pro..."(으)로 시작되는 알 수 없는 명령 - 나머지 줄은 무시되었습니다.
+SQL>
+SQL>
+SQL> insert into product
+  2  values(product_pno_seq.nextval,'시크릿쥬쥬',96000,18,'우리들의 다양한 꿈을 응원하는 베스트 프렌드',50,'https://pic.sabangnet.co.kr/product_image/mw59889/105/lBZwX_105975_1.jpg','https://pic.sabangnet.co.kr/product_image/mw59889/105/lBZwX_105975_1.jpg');
+
+1 개의 행이 만들어졌습니다.
+
+SQL>
+SQL> INSERT INTO PRODUCT VALUES (PRODUCT_PNO_SEQ.NEXTVAL,
+  2  '[라이녹스] 2IN1 커피머신', 299000, 59,
+  3  '진한 에스프레소와 간편한 캡슐커피를 동시에 드립커피와 캡슐커피',
+  4  150, 'https://image9.coupangcdn.com/image/vendor_inventory/4185/dcdbf3a19023b7a53458227f1be6a7b1c15456239af01e264dba6ff37023.jpg',
+  5  'https://image7.coupangcdn.com/image/vendor_inventory/6430/7c974ce787f610e9ca861df22130c1018177b8ef6e3b70c6c83676c0cb97.jpg');
+
+1 개의 행이 만들어졌습니다.
+
+SQL>
+SQL> INSERT INTO PRODUCT VALUES (PRODUCT_PNO_SEQ.NEXTVAL,
+  2  '탑 푸룻 젤리 애플망고맛', 22500, 29, '베트남 탑푸르트 망고젤리 대용량 탑젤리 애플망고 100개',
+  3  500, 'https://image6.coupangcdn.com/image/vendor_inventory/4cd0/c5f1662adfd5fdf8727d46953ae5a746f19150f14b780b128e3299fcf65d.jpg',
+  4  'https://image8.coupangcdn.com/image/vendor_inventory/b5b7/cf3c6f2c33ddabbdde26533eed623063259777893cbbd97c723d901224f3.jpg');
+
+1 개의 행이 만들어졌습니다.
+
+SQL>
+SQL> INSERT INTO PRODUCT VALUES (PRODUCT_PNO_SEQ.NEXTVAL,
+  2  '실비김치 2KG', 18900, 43,
+  3  '[밥도둑들] 적당하게 맛있는 매운김치2Kg / 맛없다면 무료반품',
+  4  100, 'https://image7.coupangcdn.com/image/vendor_inventory/32d5/00b0507b4fbcd3a1ff9e1dc2d5b9a33ea425b94b1aed6bdf7b214c6d39e6.jpg',
+  5  'https://image6.coupangcdn.com/image/vendor_inventory/ac67/a4c556e3008c0eb30b4a846d3b5565b86655fc5bfec38724f8d059b3f36a.jpg');
+
+1 개의 행이 만들어졌습니다.
+
+SQL>
+SQL> INSERT INTO PRODUCT VALUES (PRODUCT_PNO_SEQ.NEXTVAL,
+  2  '아이패드 프로 11 4세대', 1249000, 10,
+  3  '압도적인 성능. 놀라운 첨단 디스플레이. 강력한 신기능이 가득한 iPadOS 16 ',
+  4  50, 'https://image9.coupangcdn.com/image/retail/images/2357375067861117-98f5d372-f2c0-4914-8deb-1fe70e8df7d6.jpg',
+  5  'https://image6.coupangcdn.com/image/retail/images/2972280185538949-c8a2863e-51a3-4861-ae98-31c12747d584.jpg');
+
+1 개의 행이 만들어졌습니다.
+
+SQL>
+SQL>
+SQL> INSERT INTO PRODUCT VALUES (PRODUCT_PNO_SEQ.NEXTVAL,
+  2  '플레이스테이션 5 슬림 스탠다드', 684870, 5,
+  3  '동일한 몰입감, 슬림해진 사이즈, 더 세련되고 컴팩트한 콘솔 디자인',
+  4  220, 'https://image6.coupangcdn.com/image/retail/images/77486382106706-cba7547b-5c1d-49e4-81b5-fc49a5fe2ed9.jpg',
+  5  'https://image8.coupangcdn.com/image/retail/images/2023/12/28/14/3/906178ce-467b-4fb0-8922-9061d2bd42a7.jpg');
+
+1 개의 행이 만들어졌습니다.
+
+SQL>
+SQL>
+SQL>
+SQL>
+SQL> commit;
+
+커밋이 완료되었습니다.
+
+SQL> select count(*) from product;
+
+  COUNT(*)
+----------
+        40
+
+SQL> update product
+  2  set price = price *.1
+  3  where pno in (17,18);
+
+2 행이 업데이트되었습니다.
+
+SQL> commit;
+
+커밋이 완료되었습니다.
+
+SQL> desc product;
+ 이름                                      널?      유형
+ ----------------------------------------- -------- ----------------------------
+ PNO                                                NUMBER(7)
+ PNAME                                              VARCHAR2(50)
+ PRICE                                              NUMBER
+ DCRATIO                                            NUMBER(3)
+ PRODESC                                            VARCHAR2(100)
+ QTY                                                NUMBER(8)
+ IMGFILE                                            VARCHAR2(200)
+ BIGFILE                                            VARCHAR2(200)
+
+SQL>

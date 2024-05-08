@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript32.html</title>
+</head>
+<script>
+    // 1. 전역 변수
+    //    배열을 선언: msg
+    let msg = [];
+
+    function saveData() {
+        console.log("saveData() 호출");
+        // 2. id가 txt1인 엘리먼트객체를 가져오기
+        let txt1 = document.getElementById("txt1");
+        // 3. value 속성의 값을 가져옴
+        let value = txt1.value;
+        // 4. 배열에 이 값을 담기
+        msg.push(value);
+        // 5. 잘 담아졌는지 배열을 출력
+        console.log(msg);
+        txt1.value = '';
+        txt1.focus();
+    }
+
+    function printData() {
+        console.log("printData() 출력");
+        // txt2 엘리먼트 가져오기
+        let txt2 = document.getElementById("txt2");
+        txt2.innerHTML = "<h1>Test</h1>"
+
+        let data = '';
+            // 배열 요소를 반복문으로 사용해서 꺼내오기
+            for (let i = 0; i < msg.length; i++) {
+            // let data라는 문자열에 h2 태그를 사용해서 문자 붙이기
+            data += "<h2>" + msg[i] + "</h2>"
+        }
+
+        // innerHTML을 사용해서 배열 요소 출력
+        txt2.innerHTML += data;
+    }
+</script>
+<body>
+    <input type="text" name="" id="txt1">
+    <input type="button" value="저장" onclick="saveData();">
+    <input type="button" value="출력" onclick="printData();">
+
+    <!-- div#txt2>h1{Test} -->
+    <div id="txt2">
+        <h1>Test</h1>
+    </div>
+
+</body>
+</html>

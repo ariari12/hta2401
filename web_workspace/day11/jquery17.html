@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery17.html</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        let movies = [
+            "1. 파묘", 
+            "2. 댓글부대", 
+            "3. 듄2", 
+            "4. 고질라vs킹콩", 
+            "5. 스파이패밀리", 
+            "6. 이승윤 콘서트", 
+            "7. 악은 존재하지 않는다", 
+            "8. 1980", 
+            "9. 가여운 것들", 
+            "10. 웡카"
+        ]
+
+        $(() => {
+            $("input[value='상영영화보기']").on("click", startMovie);
+            $("input[value='상영영화중지']").on("click", stopMovie);
+
+        })
+
+        let timer = "";
+        let index = 0;
+
+        function startMovie() {
+            timer = window.setInterval(showMovie, 1000);
+            console.log(timer);
+        }
+
+        function showMovie() {
+            if (index == movies.length) { index = 0; }
+
+            $("#topNews")[0].innerHTML = "<h2>" + movies[index++] + "</h2>";
+            if (index < 10) { 
+                // $("#poster>img")[0].attributes[0].value = "../images/movie_image_0" + index + ".jpg"; 
+                $("#poster>img").attr("src", "../images/movie_image_0" + index + ".jpg")
+            } else { 
+                // $("#poster>img")[0].attributes[0].value = "../images/movie_image_" + index + ".jpg"; 
+                $("#poster>img").attr("src", "../images/movie_image_" + index + ".jpg")
+            }
+            // console.log($("#poster>img"));
+            // console.log($("#poster"));
+        }
+
+        function stopMovie() {
+            window.clearInterval(timer);
+        }
+    </script>
+    
+</head>
+<body>
+    <div id="topNews"></div>
+    <div id="poster">
+        <img src="../images/after.png" alt="">
+    </div>
+
+    <!-- 상영영화보기 버튼을 클릭하면 영화명을 topnews에 출력 -->
+
+    <input type="button" value="상영영화보기">
+    <input type="button" value="상영영화중지">
+    
+</body>
+</html>

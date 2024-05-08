@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery04.html</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+
+        })
+
+        $(function() {
+            // id가 box1인 엘리먼트를 너비 300px 높이 300px 배경 red
+            // 퍼포먼스 향상을 위해 엘리먼트 객체를 미리 정의하여 재사용
+            // 호출 시마다 엘리먼트를 찾아갈 경우 메모리 비효율적임
+            let box1$ = $("#box1");
+            box1$.css("width", "300px")
+            box1$.css("height", "300px")
+            box1$.css("background", "red");
+        })
+    </script>
+</head>
+<body>
+    <div id="box1"></div>
+</body>
+</html>

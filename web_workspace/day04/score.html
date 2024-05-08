@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>score.html</title>
+    <style>
+        div {
+            text-align: center;
+            margin: 0 auto;
+        }
+        #inputScore {
+            display: inline-block;
+        }
+        #score {
+            width: 80px;
+        }
+        #result {
+            width: 220px;
+        }
+    </style>
+    <script>
+        function score() {
+            let score = parseInt(document.getElementById("score").value);
+            let result = document.getElementById("result");
+
+            if (score >= 90 && score <= 100) {
+                result.value = "합격";
+            } else if (score < 90 && score >= 0) {
+                result.value = "불합격";
+            } else {
+                result.value = "0~100 사이의 숫자를 입력해 주세요."
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <div id="inputScore">
+            성적입력 <br>
+            <input type="text" name="score" id="score">
+        </div>
+        <input type="button" value="확인" onclick="score();">
+    <br><br>
+        결과
+        <input type="text" name="result" id="result">
+    </div>
+</body>
+</html>

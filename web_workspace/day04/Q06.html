@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q06.html</title>
+    <style>
+        div {
+            text-align: center;
+            margin: 0 auto;
+        }
+        input {
+            display: inline-block;
+            align-items: center;
+        }
+        input[type='text'] {
+            width: 50px;
+        }
+        #result {
+            width: 150px;
+        }
+    </style>
+    <script>
+        function compare() {
+            let num1 = parseInt(document.getElementById("num1").value);
+            let num2 = parseInt(document.getElementById("num2").value);
+            let result = document.getElementById("result");
+
+            if (num1 >= num2) {
+                result.value = num1;
+            } else if (num1 < num2) {
+                result.value = num2;
+            } else {
+                result.value = "숫자를 입력해 주세요";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <input type="text" name="num1" id="num1">
+        <input type="button" value="vs" onclick="compare();">
+        <input type="text" name="num2" id="num2">
+        <br><br>
+        max <br>
+        <input type="text" name="result" id="result">
+    </div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q07.html</title>
+    <script>
+        function pass(score) {
+            let result;
+
+            if (score >= 90 && score <= 100) {
+                result = "합격";
+            } else if (score < 90 && score >= 0) {
+                result = "불합격";
+            } else {
+                result = "0~100 사이의 숫자를 입력해 주세요."
+            }
+
+            console.log("입력: " + score);
+            console.log("당신은 " + score + "점: " + result);
+        }
+
+        let score = parseInt(prompt("점수를 입력해 주세요."));
+
+        pass(score);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

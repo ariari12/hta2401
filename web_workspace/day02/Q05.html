@@ -1,0 +1,126 @@
+<!-- 
+    css07.html == 영화포스터 10장
+
+    table ==>
+    Q04.html
+
+    1.
+    div > img
+    영화포스터 10장
+
+    2. css를 사용해서
+    3번영화 9번위치에
+    9번영화 8번위치에
+    8번영화를 3번위치에
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q05.html</title>
+    <style>
+        img {
+            width: 150px;
+            height: auto;
+        }
+        
+        #movie01, #movie02, #movie08, #movie04, #movie05 {
+            position: absolute;
+            top: 5%;
+        }
+
+        #movie01 { left: 1%; }
+
+        #movie02 { left: 21%; }
+
+        #movie08 { left: 41%; }
+
+        #movie04 { left: 61%; }
+
+        #movie05 { left: 81%; }
+
+        #movie06, #movie07, #movie09, #movie03, #movie10 {
+            position: absolute;
+            top: 37%;
+        }
+
+        #movie06 { left: 1%; }
+
+        #movie07 { left: 21%; }
+
+        #movie09 { left: 41%; }
+
+        #movie03 { left: 61%; }
+
+        #movie10 { left: 81%; }
+
+    </style>
+
+</head>
+<body>
+    <!-- (div#movie$$>div#movieImg$$>img[src='../images/movie_image_$$.jpg']+div#movieTxt)*10 -->
+    <div>
+    <div id="movie01">
+        <div id="movieImg01">
+            <img src="../images/movie_image_01.jpg" alt="파묘">
+        </div>
+        <div id="movieTxt">파묘</div>
+    </div>
+    <div id="movie02">
+        <div id="movieImg02">
+            <img src="../images/movie_image_02.jpg" alt="댓글부대">
+        </div>
+        <div id="movieTxt">댓글부대</div>
+    </div>
+    <div id="movie03">
+        <div id="movieImg03">
+            <img src="../images/movie_image_03.jpg" alt="듄:파트2">
+        </div>
+        <div id="movieTxt">듄:파트2</div>
+    </div>
+    <div id="movie04">
+        <div id="movieImg04">
+            <img src="../images/movie_image_04.jpg" alt="고질라콩">
+        </div>
+        <div id="movieTxt">고질라콩</div>
+    </div>
+    <div id="movie05">
+        <div id="movieImg05">
+            <img src="../images/movie_image_05.jpg" alt="스파이 패밀리">
+        </div>
+        <div id="movieTxt">스파이 패밀리</div>
+    </div>
+    <div id="movie06">
+        <div id="movieImg06">
+            <img src="../images/movie_image_06.jpg" alt="이승윤 콘서트">    
+        </div>
+        <div id="movieTxt">이승윤 콘서트</div>
+    </div>
+    <div id="movie07">
+        <div id="movieImg07">
+            <img src="../images/movie_image_07.jpg" alt="악은 존재하지 않는다">
+        </div>
+        <div id="movieTxt">악은 존재하지 않는다</div>
+    </div>
+    <div id="movie08">
+        <div id="movieImg08">
+            <img src="../images/movie_image_08.jpg" alt="1980">
+        </div>
+        <div id="movieTxt">1980</div>
+    </div>
+    <div id="movie09">
+        <div id="movieImg09">
+            <img src="../images/movie_image_09.jpg" alt="가여운 것들">
+        </div>
+        <div id="movieTxt">가여운 것들</div>
+    </div>
+    <div id="movie10">
+        <div id="movieImg10">
+            <img src="../images/movie_image_10.jpg" alt="웡카">
+        </div>
+        <div id="movieTxt">웡카</div>
+    </div>
+    </div>
+</body>
+</html>

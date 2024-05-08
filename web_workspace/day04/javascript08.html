@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript08.html</title>
+    <script>
+        function accumulate(n) {
+            var hap = 0;
+            
+            for (var i = 1; i <= n; i++) {
+                hap += i;
+            }
+
+            console.log("1부터 " + n + "까지의 누적값: " + hap);
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="1부터100까지누적값출력하기" onclick="accumulate(50);">
+</body>
+</html>

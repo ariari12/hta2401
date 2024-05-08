@@ -1,0 +1,40 @@
+@charset "UTF-8";
+	* {
+		margin: 0;
+		padding: 0;
+	}
+	#container {
+		width: 1000px;
+		margin: auto;
+		/* border: 1px solid red; */
+	}
+	#nav {
+		padding-left: 100px;
+		margin: 0 30px;
+	}
+	a {
+		margin: 30px;
+	}
+	#leftContents {
+		width: 70%;
+		float: left;
+		background: yellow;
+	}
+	#sidebar {
+		width: 30%;
+		float: right;
+		background: skyblue;
+	}
+	ol, ul {
+		list-style-type: none;
+	}
+	#login {
+		padding: 10px;
+		width: 100px;
+		text-align: center;
+	}
+	#footer {
+		/* float 효과를 없애기 위해 */
+		clear: both;
+		background: darkgray;
+	}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery08.html</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(function() {
+            $("#btn").on("click", function() {
+                // console.log($("#num1").val() + $("#num2").val()); // 문자로 인식됨
+                // let num1 = parseInt($("#num1").val());
+                // let num2 = parseInt($("#num2").val());
+
+                // let result = num1 + num2;
+
+                // $("#result").val(result);
+                $("#result").val(parseInt($("#num1").val()) + parseInt($("#num2").val()));
+            })
+        })
+    </script>
+</head>
+<body>
+    <input type="text" name="" id="num1"> + <input type="text" name="" id="num2">
+    <input type="button" value="=" id="btn">
+    <input type="text" id="result">
+</body>
+</html>

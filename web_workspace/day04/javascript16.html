@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript16.html</title>
+    <style>
+        table, td {
+            border: 1px solid red;
+            border-collapse: collapse;
+            margin: 0 auto;
+        }
+        table {
+            width: 700px;
+        }
+        tr {
+            height: 50px;
+        }
+        td {
+            width: 25%;
+        }
+        input {
+            width: 100px;
+            height: 30px;
+        }
+        #result {
+            width: 670px;
+            margin-left: 1%;
+            font-size: 25px;
+            font-weight: bold;
+            text-align: right;
+        }
+        input[type='button'] {
+            margin: 10%;
+            width: 80%;
+            height: 30px;
+        }
+        
+    </style>
+    <script>
+        // 숫자 버튼을 누르면 버튼의 값이 콘솔에 출력
+
+        // 1. inputData 함수
+        // 2. 매개변수 값이 전달
+        function inputData(v) {
+            // console.log("버튼 눌림");
+            // 3. 콘솔에 출력
+            console.log(v);
+            // 4. id가 result인 엘리먼트 가져오기
+            let result = document.getElementById("result");
+            // 5. value 속성에 값을 담기
+            result.value += v;
+        }
+
+        // = 버튼을 클릭하면 계산 수행
+        // 1. cal() 함수
+        function cal() {
+            // 2. id가 result인 엘리먼트 가져오기
+            let result = document.getElementById("result");
+
+            // 3. value를 가져오기
+            // result.value;
+            // 4. eval()를 적용하면 계산끝
+            let value = eval(result.value);
+            // 5. result.value에 할당
+            result.value = value;
+        }
+    </script>
+</head>
+<body>
+    <!-- table>(tr>(td>input[type='button'])*4)*5 -->
+    <table>
+        <tr>
+            <td colspan="4"><input type="text" id="result"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="7" id="7" onclick="inputData(7)"></td>
+            <td><input type="button" value="8" id="8" onclick="inputData(8)"> </td>
+            <td><input type="button" value="9" id="9" onclick="inputData(9)"> </td>
+            <td><input type="button" value="+" id="+" onclick="inputData('+')"> </td>
+        </tr> 
+        <tr> 
+            <td><input type="button" value="4" id="4" onclick="inputData(4)"> </td>
+            <td><input type="button" value="5" id="5" onclick="inputData(5)"> </td>
+            <td><input type="button" value="6" id="6" onclick="inputData(6)"> </td>
+            <td><input type="button" value="-" id="-" onclick="inputData('-')"> </td>
+        </tr> 
+        <tr>
+            <td><input type="button" value="1" id="1" onclick="inputData(1)"> </td>
+            <td><input type="button" value="2" id="2" onclick="inputData(2)"> </td>
+            <td><input type="button" value="3" id="3" onclick="inputData(3)"> </td>
+            <td><input type="button" value="*" id="*" onclick="inputData('*')"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="0" id="0" onclick="inputData(0)"></td>
+            <td><input type="button" value="00" id="00" onclick="inputData('00')"></td>
+            <td><input type="button" value="=" id="=" onclick="cal()"></td>
+            <td><input type="button" value="/" id="/" onclick="inputData('/')"></td>
+        </tr>
+    </table>
+</body>
+</html>

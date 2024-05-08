@@ -1,0 +1,28 @@
+
+SQL>
+SQL> col motive format a15
+SQL> col name format a10
+SQL> col id format a15
+SQL> col pw format a10
+SQL> select * from member;
+
+        NO ID              PW         NAME       GENDER       MOTIVE
+---------- --------------- ---------- ---------- ------------ ---------------
+         1 kkk             ccc                   여
+         5 ddd             ddd        이르음     여           인터넷
+         4 ddd                        확인       여           인터넷??
+         9 ggg             ggg        둘리       남           호이호이
+         1 aaa             bbb        KSY        여           친구추천
+         2 bbb             ccc        뽀로로     남           놀려고
+         2 ddd             야호야호              여           인터넷
+         3 ddd                        테스트으   여           인터넷
+         6 sss             sss        루피       여           뽀로로가 추천해
+                                                              서
+
+
+        NO ID              PW         NAME       GENDER       MOTIVE
+---------- --------------- ---------- ---------- ------------ ---------------
+         7 sss             sss        루피이     여           뽀로로짱
+         8 sss             sss        둘리       남           호이호이
+
+11 행이 선택되었습니다.

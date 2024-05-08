@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q01.html</title>
+    <style>
+        body {
+            background-image: url('../images/coupang/0405/coupang_image_02.jpg');
+            background-position: 30% 30%;
+            background-repeat: no-repeat;
+        }
+        #container>ul {
+            display: inline;
+            float: right;
+            list-style-type: none;
+        }
+        #container>ul>li {
+            display: block;
+            margin-bottom: -2.5%;
+        }
+        img:hover {
+            border: 2px solid gainsboro;
+        }
+    </style>
+    <script>
+        console.dir(document);
+
+        let idx = 0;
+        let imgSlot = [
+            "../images/coupang/0405/coupang_image_01.jpg",
+            "../images/coupang/0405/coupang_image_02.jpg",
+            "../images/coupang/0405/coupang_image_03.jpg",
+            "../images/coupang/0405/coupang_image_04.jpg",
+            "../images/coupang/0405/coupang_image_05.jpg",
+            "../images/coupang/0405/coupang_image_06.jpg",
+        ];
+
+        function slide() {
+            if (idx == imgSlot.length) { idx = 0; }
+            
+            console.log("idx: " + idx);
+
+            let num = idx < 10 ? "0" + idx : idx;
+            
+
+            document.styleSheets[0].cssRules[0].style.backgroundImage 
+            = "url(\\" + imgSlot[idx] +  ")";
+
+            idx++;
+
+            window.setTimeout(slide, 3000);
+        }
+
+        function showImg(num) {
+            document.styleSheets[0].cssRules[0].style.backgroundImage = "url(\'../images/coupang/0405/coupang_image_" + num + ".jpg')"
+            console.dir(document.styleSheets[0]);
+            console.dir(document.styleSheets[0].style);
+        }
+
+        slide();
+    </script>
+</head>
+<body>
+    <div id="container">
+        <ul>
+            <li id="coupon" onmouseover="showImg('01');">
+                <img src="../images/coupang/0405/coupang_menu_image_01.jpg" alt="쿠폰">
+            </li>
+            <li id="tea" onmouseover="showImg('02');">
+                <img src="../images/coupang/0405/coupang_menu_image_02.jpg" alt="담터">
+            </li>
+            <li id="home" onmouseover="showImg('03');">
+                <img src="../images/coupang/0405/coupang_menu_image_03.jpg" alt="집콕 취미 추천">
+            </li>
+            <li id="towel" onmouseover="showImg('04');">
+                <img src="../images/coupang/0405/coupang_menu_image_04.jpg" alt="타월 교체하기">
+            </li>
+            <li id="brandweek" onmouseover="showImg('05');">
+                <img src="../images/coupang/0405/coupang_menu_image_05.jpg" alt="브랜드위크">
+            </li>
+            <li id="oneday" onmouseover="showImg('06');">
+                <img src="../images/coupang/0405/coupang_menu_image_06.jpg" alt="기간한정 단하루">
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

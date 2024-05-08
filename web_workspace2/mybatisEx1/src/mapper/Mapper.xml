@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<!-- 모든 SQL문을 모아 놓는 곳 -->
+<!-- mybatis에서는 namepace의 값이 반드시 존재, 적어도 공백 1칸이라도 넣어야 한다. -->
+
+<mapper namespace=" ">
+	<!-- dept 전체조회 -->
+	<!-- 
+		<select id="별칭명" parameterType="전달파라미터의 자료형" resultType="리턴결과의 자료형">
+			SQL문을 넣는곳
+		</select> 
+	-->
+	<select id="AllDept" resultType="vo.DeptVO">
+		SELECT deptno, dname, loc
+		FROM dept
+	</select>
+	
+	<select id="SelectOne" parameterType="int" resultType="vo.DeptVO">
+		SELECT deptno, dname, loc
+		FROM dept
+		WHERE deptno = #{deptno}
+	</select>
+	
+	<insert id="addOne" parameterType="vo.DeptVO">
+		INSERT INTO dept
+		VALUES (DEPT_DEPTNO.NEXTVAL, #{dname}, #{loc})
+	</insert>	
+	
+	<update id="modifyOne" parameterType="vo.DeptVO">
+		UPDATE dept
+		SET dname = #{dname}, loc = #{loc}
+		WHERE deptno = #{deptno}
+	</update>
+	
+	<delete id="deleteDeptOne" parameterType="int">
+		DELETE FROM dept
+		WHERE deptno = #{deptno}
+	</delete>
+</mapper>

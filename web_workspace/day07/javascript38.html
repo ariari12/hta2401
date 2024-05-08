@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript38.html</title>
+    <style>
+        #myCanvas { background: #aaaaaa; }
+    </style>
+    <script>
+        // 1. 현재창이 로딩이 되면 text2 함수를 실행
+        // window.onload = test2;
+                        // 익명함수로 불러오기(재사용성 없으므로)
+        window.onload = function () {
+
+        // 2. test2 함수에서는
+        // function test2() {
+            //    myCanvas 객체 가져오기
+            let canvas = document.getElementById("myCanvas");
+            
+            //    2d객체 ctx 가져오기
+            let ctx = canvas.getContext("2d");
+            
+            //    100,100 위치 50,50 빨강색 사각형
+            ctx.fillStyle = "red";
+            ctx.fillRect(100,100,50,50);
+            
+            //    200,100 위치 50,50 노랑색 사각형
+            ctx.fillStyle = "yellow";
+            ctx.fillRect(200,100,50,50);
+            
+            //    300,100 위치 50,50 파랑색 사각형
+            ctx.fillStyle = "blue";
+            ctx.fillRect(300,100,50,50);
+
+            let name = "뽀로로";
+            ctx.font = "35px 고딕";
+            ctx.fillText("이름: " + name, 100, 50);
+        }
+    </script>
+</head>
+<body>
+    
+    <canvas id="myCanvas" width="500px" height="500px"></canvas>
+
+</body>
+</html>
