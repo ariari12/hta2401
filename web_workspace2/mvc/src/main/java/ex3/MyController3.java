@@ -37,29 +37,30 @@ public class MyController3 extends HttpServlet{
 		String type = req.getParameter("type");
 		String url = "";
 		String msg = "";
+		ActionCommand ac=null;
 		
 		if (type == null || type.equals("hello")) {
 //			url = "ex3/hello.jsp";
 //			msg = "안녕하세요";
 //			req.setAttribute("msg", msg);
 			
-			HelloCommand hc = new HelloCommand();
-			url = hc.execute(req, resp);
+			ac = new HelloCommand();
 			
 		} else if (type.equals("ip")) {
 //			url = "ex3/ip.jsp";
 //			msg = "접속IP : " + req.getRemoteAddr();
 //			req.setAttribute("msg", msg);
 			
-			IPCommand ic = new IPCommand();
-			url = ic.execute(req, resp);
+			ac = new IPCommand();
+			
 		} else if (type.equals("now")) {
-			NowCommand nc = new NowCommand();
-			url = nc.execute(req, resp);
+			ac = new NowCommand();
+
 		} else if (type.equals("dept")) {
-			DeptCommand dc = new DeptCommand();
-			url = dc.execute(req, resp);
+			ac = new DeptCommand();
 		}
+		url = ac.execute(req, resp);
+		
 		
 		
 		RequestDispatcher rd = req.getRequestDispatcher(url);
