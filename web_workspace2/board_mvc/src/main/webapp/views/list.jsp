@@ -14,6 +14,18 @@
 	<div class="container">	
 		<h2>게시판</h2>
 		<h2>list.jsp</h2>
+		
+		<%-- <h5>총게시물수 : ${totalCount }</h5>
+		<h5>페이지당게시물수 : ${recordPerPage }</h5>
+		<h5>현재페이지 : ${currentPage }</h5>
+		<h5>시작번호 : ${startNo }</h5>
+		<h5>끝번호 : ${endNo }</h5>
+		<h5>시작페이지번호 : ${startPage }</h5>
+		<h5>끝페이지 : ${endPage}</h5>
+		<h5>이전 페이지가 존재해? : ${isPrev}</h5>
+		<h5>다음 페이지가 존재해? : ${isNext}</h5> --%>
+		
+		
 		<a href="board.do?cmd=write" class="btn btn-primary">글쓰기</a>
 		<table class="table table-striped">
 			<tr>
@@ -31,8 +43,35 @@
 				</tr>
 			</c:forEach>
 			
+			<tr>
+				<td colspan="4">
+					<nav aria-label="Page navigation example">
+					  <ul class="pagination">
+					  	<c:if test="${isPrev}">
+					  		<li class="page-item"><a class="page-link" href="board.do?cmd=list&cp=${currentPage-1}">Previous</a></li>
+					  	</c:if>
+					    					   
+					    <c:forEach var="i" begin="${startPage}" end="${endPage}">
+							<li class="page-item"><a class="page-link" 
+								href="board.do?cmd=list&cp=${i}">[${i}]</a></li>
+						</c:forEach>
+						
+						<c:if test="${isNext}">
+					  		<li class="page-item"><a class="page-link" href="board.do?cmd=list&cp=${currentPage+1}">Next</a></li>
+					  	</c:if>
+					    
+					  </ul>
+					</nav>
+					<%-- <c:forEach var="i" begin="${startPage}" end="${endPage}">
+						<a href="board.do?cmd=list&cp=${i}">[${i}]</a>
+					</c:forEach> --%>
+				</td>
+				
+			</tr>
 		</table>
 	</div>
+	
+	
 	
 	
 </body>

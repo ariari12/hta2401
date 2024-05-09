@@ -36,7 +36,7 @@ public class BoardDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
+		close();
 		return cnt;
 	}	
 	
@@ -234,7 +234,7 @@ public class BoardDAO {
 			pstmt.setInt(1, bno);
 			
 			pstmt.executeUpdate();
-			// close();
+			close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
