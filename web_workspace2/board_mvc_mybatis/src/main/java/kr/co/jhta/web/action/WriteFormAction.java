@@ -1,4 +1,4 @@
-package kr.co.jhata.web.action;
+package kr.co.jhta.web.action;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

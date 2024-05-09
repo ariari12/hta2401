@@ -13,9 +13,9 @@ import kr.co.jhata.web.action.DeleteAction;
 import kr.co.jhata.web.action.DetailAction;
 import kr.co.jhata.web.action.ListAction;
 import kr.co.jhata.web.action.ModifyAction;
-import kr.co.jhata.web.action.ModifyFormAction;
-import kr.co.jhata.web.action.WriteAction;
-import kr.co.jhata.web.action.WriteFormAction;
+import kr.co.jhta.web.action.ModifyFormAction;
+import kr.co.jhta.web.action.WriteAction;
+import kr.co.jhta.web.action.WriteFormAction;
 
 // localhost:8080/board_mvc/board.do?cmd=list 목록
 @WebServlet("/board.do")

@@ -4,4 +4,17 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
   	<mapper namespace="kr.co.jhta.web.board">
-  	</mapper>
+  		<select id="getTotal" resultType="int">
+  			SELECT count(*) as cnt FROM board  		
+  		</select>
+  		<select id="allSelectBoard" parameterType="Hashmap" 
+  					resultType="kr.co.jhta.web.vo.BoardVO">  		
+		SELECT rn, bno, writer, title, contents, regdate, hits, ip, status 
+			FROM ( SELECT ROWNUM rn, bno, writer, title, contents, regdate, hits, ip, status
+				FROM ( SELECT bno, writer, title, contents, regdate, hits, ip, status
+		               FROM board
+		               ORDER BY bno desc )
+		        WHERE ROWNUM &lt;= #{endNo} )
+		 WHERE rn &gt;= #{startNo}
+  		</select>
+  	</mapper>  	
